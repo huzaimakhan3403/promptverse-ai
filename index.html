@@ -421,370 +421,124 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-400 text-xs sm:text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div class="md:col-span-2">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white">
-                            <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
-                        </div>
-                        <span class="text-lg font-bold text-white">PromptVerse AI</span>
-                    </div>
-                    <p class="text-slate-400 max-w-sm mb-4 leading-relaxed">
-                        Providing creators, developers, and marketers with top-tier artificial intelligence prompts and quick client-side tools.
-                    </p>
-                    <p class="text-indigo-400 font-medium">Contact: <a href="mailto:huzaimakhan3403@gmail.com" class="hover:underline">huzaimakhan3403@gmail.com</a></p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2.5">
-                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#categories" class="hover:text-white transition-colors">Categories</a></li>
-                        <li><a href="#prompts" class="hover:text-white transition-colors">AI Prompts</a></li>
-                        <li><a href="#ai-tools" class="hover:text-white transition-colors">Browser Utilities</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-4">Legal & Support</h4>
-                    <ul class="space-y-2.5">
-                        <li><button onclick="openModal('privacyModal')" class="hover:text-white transition-colors text-left min-h-[30px]">Privacy Policy</button></li>
-                        <li><button onclick="openModal('termsModal')" class="hover:text-white transition-colors text-left min-h-[30px]">Terms of Service</button></li>
-                        <li><button onclick="openModal('contactModal')" class="hover:text-white transition-colors text-left min-h-[30px]">Contact Us</button></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p>&copy; 2026 PromptVerse AI. All rights reserved.</p>
-                <div class="flex items-center gap-4">
-                    <a href="mailto:huzaimakhan3403@gmail.com" class="w-9 h-9 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 transition-colors" aria-label="Email Us">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 PromptVerse Official. All rights reserved.</p>
     </footer>
 
-    <!-- ================= MODALS SECTION ================= -->
-
-    <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-lg w-full relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('contactModal')" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark text-lg"></i>
+    <!-- All Modals (Contact, Tools, Blog) -->
+    <div id="contactModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 relative">
+            <button onclick="closeModal('contactModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <h3 class="text-2xl font-bold text-white mb-2">Get in Touch</h3>
-            <p class="text-slate-400 text-sm mb-6">Send us a message or email directly to <span class="text-indigo-400 font-medium">huzaimakhan3403@gmail.com</span></p>
-
-            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Your Name</label>
-                    <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Email Address</label>
-                    <input type="email" required placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Message</label>
-                    <textarea rows="4" required placeholder="Write your prompt idea or question here..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"></textarea>
-                </div>
-                <button type="submit" class="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition-colors min-h-[44px]">
-                    Send Message
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Article Modal -->
-    <div id="articleModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-2xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('articleModal')" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <h3 id="modalArticleTitle" class="text-2xl font-bold text-white mb-4">Guide</h3>
-            <div id="modalArticleContent" class="text-slate-300 text-sm leading-relaxed space-y-4"></div>
-        </div>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div id="privacyModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-xl w-full relative shadow-2xl max-h-[85vh] overflow-y-auto">
-            <button onclick="closeModal('privacyModal')" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h3 class="text-xl font-bold text-white mb-3">Privacy Policy</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">PromptVerse AI values your privacy. We do not store, harvest, or transmit text pasted into our client-side utility tools. All processing is executed strictly inside your local web browser.</p>
-            <p class="text-slate-400 text-sm leading-relaxed">For any questions or data requests, please contact us at <a href="mailto:huzaimakhan3403@gmail.com" class="text-indigo-400 underline">huzaimakhan3403@gmail.com</a>.</p>
-        </div>
-    </div>
-
-    <!-- Terms Modal -->
-    <div id="termsModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-xl w-full relative shadow-2xl max-h-[85vh] overflow-y-auto">
-            <button onclick="closeModal('termsModal')" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h3 class="text-xl font-bold text-white mb-3">Terms of Service</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">All AI prompts and browser utility tools provided on PromptVerse AI are for general creative and informational purposes. Users are free to copy, modify, and utilize prompt templates for commercial or non-commercial projects.</p>
-        </div>
-    </div>
-
-    <!-- TOOL MODAL 1: Word Counter -->
-    <div id="wordCounterModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-2xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('wordCounterModal')" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Word & Character Counter</h3>
-            <p class="text-slate-400 text-xs sm:text-sm mb-4">Type or paste your text/prompt below for real-time analysis.</p>
-
-            <textarea id="counterInput" oninput="updateWordStats()" rows="6" placeholder="Paste your text here..." 
-                class="w-full p-4 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm mb-4"></textarea>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center mb-6">
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
-                    <div id="statWords" class="text-xl font-bold text-indigo-400">0</div>
-                    <div class="text-xs text-slate-500">Words</div>
-                </div>
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
-                    <div id="statChars" class="text-xl font-bold text-pink-400">0</div>
-                    <div class="text-xs text-slate-500">Characters</div>
-                </div>
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
-                    <div id="statLines" class="text-xl font-bold text-emerald-400">0</div>
-                    <div class="text-xs text-slate-500">Lines</div>
-                </div>
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
-                    <div id="statReadTime" class="text-xl font-bold text-amber-400">0m</div>
-                    <div class="text-xs text-slate-500">Read Time</div>
-                </div>
-            </div>
-
-            <button onclick="clearCounter()" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm min-h-[44px]">
-                Clear Text
-            </button>
-        </div>
-    </div>
-
-    <!-- TOOL MODAL 2: Case Converter -->
-    <div id="caseConverterModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-2xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('caseConverterModal')" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Text Case Converter</h3>
-            <p class="text-slate-400 text-xs sm:text-sm mb-4">Easily convert case styles for prompt variables.</p>
-
-            <textarea id="caseInput" rows="6" placeholder="Enter text to convert..." 
-                class="w-full p-4 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm mb-4"></textarea>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
-                <button onclick="convertCase('upper')" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl min-h-[44px]">UPPERCASE</button>
-                <button onclick="convertCase('lower')" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl min-h-[44px]">lowercase</button>
-                <button onclick="convertCase('title')" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl min-h-[44px]">Title Case</button>
-                <button onclick="convertCase('capital')" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-xl min-h-[44px]">Capitalized</button>
-            </div>
-
-            <button onclick="copyCaseText()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm min-h-[44px]">
-                Copy Result
-            </button>
-        </div>
-    </div>
-
-    <!-- TOOL MODAL 3: Space Cleaner -->
-    <div id="spaceCleanerModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-2xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('spaceCleanerModal')" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Extra Space Cleaner</h3>
-            <p class="text-slate-400 text-xs sm:text-sm mb-4">Clean up unnecessary spacing from prompt copy-pastes.</p>
-
-            <textarea id="spaceInput" rows="6" placeholder="Paste messy text here..." 
-                class="w-full p-4 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm mb-4"></textarea>
-
-            <div class="flex gap-3">
-                <button onclick="cleanSpaces()" class="flex-1 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm min-h-[44px]">
-                    Clean Spaces
-                </button>
-                <button onclick="copyCleanedSpace()" class="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm min-h-[44px]">
-                    Copy Result
-                </button>
+            <h3 class="text-xl font-bold text-white mb-2">Contact Us</h3>
+            <p class="text-slate-400 text-sm mb-4">Send us your feedback or questions directly.</p>
+            <div class="space-y-4">
+                <a href="mailto:huzaimakhan3403@gmail.com" class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-envelope"></i> huzaimakhan3403@gmail.com
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- TOOL MODAL 4: Text Repeater -->
-    <div id="textRepeaterModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-2xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('textRepeaterModal')" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Text Repeater Tool</h3>
-            <p class="text-slate-400 text-xs sm:text-sm mb-4">Repeat a string N times with optional line breaks or spaces.</p>
-
-            <input type="text" id="repeatText" placeholder="String to repeat (e.g. photorealistic,)" class="w-full p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 mb-3 text-sm">
-            
-            <div class="grid grid-cols-2 gap-3 mb-4">
-                <div>
-                    <label class="block text-xs text-slate-400 mb-1">Repeat Count</label>
-                    <input type="number" id="repeatCount" value="5" min="1" max="100" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm">
-                </div>
-                <div>
-                    <label class="block text-xs text-slate-400 mb-1">Separator</label>
-                    <select id="repeatSep" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm">
-                        <option value="space">Space (" ")</option>
-                        <option value="newline">New Line (\n)</option>
-                        <option value="comma">Comma (", ")</option>
-                    </select>
-                </div>
+    <!-- Word Counter Modal -->
+    <div id="wordCounterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
+            <button onclick="closeModal('wordCounterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-white mb-2">Word & Character Counter</h3>
+            <textarea id="wcInput" oninput="runWordCounter()" rows="4" placeholder="Type or paste your text here..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+            <div class="grid grid-cols-3 gap-3 text-center">
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcWords" class="text-lg font-bold text-indigo-400">0</div><div class="text-xs text-slate-400">Words</div></div>
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcChars" class="text-lg font-bold text-indigo-400">0</div><div class="text-xs text-slate-400">Characters</div></div>
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcReadTime" class="text-lg font-bold text-indigo-400">0s</div><div class="text-xs text-slate-400">Read Time</div></div>
             </div>
-
-            <button onclick="generateRepeatedText()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm mb-4 min-h-[44px]">
-                Generate Text
-            </button>
-
-            <textarea id="repeatOutput" readonly rows="4" placeholder="Generated text will appear here..." class="w-full p-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 text-sm mb-3"></textarea>
-
-            <button onclick="copyRepeatedText()" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm min-h-[44px]">
-                Copy Repeated Text
-            </button>
         </div>
     </div>
 
+    <!-- Case Converter Modal -->
+    <div id="caseConverterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
+            <button onclick="closeModal('caseConverterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-white mb-2">Text Case Converter</h3>
+            <textarea id="ccInput" rows="3" placeholder="Type your text..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="convertCase('upper')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">UPPERCASE</button>
+                <button onclick="convertCase('lower')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">lowercase</button>
+                <button onclick="convertCase('title')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">Title Case</button>
+            </div>
+        </div>
+    </div>
 
-    <!-- JavaScript App Logic -->
+    <!-- Space Cleaner Modal -->
+    <div id="spaceCleanerModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
+            <button onclick="closeModal('spaceCleanerModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-white mb-2">Extra Space Remover</h3>
+            <textarea id="scInput" rows="4" placeholder="Paste messy text with extra spaces..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+            <button onclick="cleanSpaces()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl">Remove Extra Spaces</button>
+        </div>
+    </div>
+
+    <!-- Text Repeater Modal -->
+    <div id="textRepeaterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
+            <button onclick="closeModal('textRepeaterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-white mb-2">Text Repeater Tool</h3>
+            <input type="text" id="trText" placeholder="Text to repeat" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none">
+            <input type="number" id="trCount" value="5" min="1" max="100" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none">
+            <button onclick="repeatText()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl">Repeat Text</button>
+            <textarea id="trOutput" rows="3" readonly placeholder="Output..." class="w-full p-3 mt-3 rounded-xl bg-slate-950 border border-slate-800 text-white outline-none"></textarea>
+        </div>
+    </div>
+
+    <!-- Blog Article Modal -->
+    <div id="blogModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-xl w-full p-6 relative">
+            <button onclick="closeModal('blogModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 id="blogTitle" class="text-xl font-bold text-white mb-4"></h3>
+            <p id="blogContent" class="text-slate-300 text-sm leading-relaxed"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Dynamic JSON Loading & Interactivity -->
     <script>
-        // Database of Prompts
-        const promptsData = [
-            {
-                id: 1,
-                title: "Expert SEO Blog Post Writer",
-                category: "writing",
-                badge: "Writing",
-                badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-                text: "Act as an expert SEO copywriter. Write a comprehensive 1500-word blog post on [TOPIC]. Include an engaging intro, table of contents, H2/H3 headers, semantic LSI keywords, and a compelling call-to-action."
-            },
-            {
-                id: 2,
-                title: "Full-Stack Senior Code Reviewer",
-                category: "coding",
-                badge: "Coding",
-                badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-                text: "Review the following code for performance bottlenecks, security vulnerabilities, edge cases, and adherence to clean code principles: [PASTE CODE]. Provide refactored code snippets with detailed explanations."
-            },
-            {
-                id: 3,
-                title: "Midjourney Cinematic Cyberpunk",
-                category: "design",
-                badge: "Midjourney",
-                badgeColor: "bg-pink-500/10 text-pink-400 border-pink-500/20",
-                text: "/imagine prompt: Futuristic neon-lit cyberpunk street in Tokyo, rainy night reflections, hyper-detailed 8k resolution, cinematic lighting, shot on 35mm lens, photorealistic render --ar 16:9 --v 6.0"
-            },
-            {
-                id: 4,
-                title: "High-Converting Facebook Ad Copywriter",
-                category: "marketing",
-                badge: "Marketing",
-                badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
-                text: "Write 3 high-converting Facebook Ad variations using the PAS (Problem-Agitate-Solution) framework targeting [TARGET AUDIENCE] for our product [PRODUCT NAME]."
-            },
-            {
-                id: 5,
-                title: "Startup Elevator Pitch Creator",
-                category: "business",
-                badge: "Business",
-                badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-                text: "Create a 60-second compelling startup elevator pitch for investors. The product is [PRODUCT IDEA]. Highlight the market problem, unique value proposition, and revenue model."
-            },
-            {
-                id: 6,
-                title: "Python Web Scraper Builder",
-                category: "coding",
-                badge: "Coding",
-                badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-                text: "Write a modular Python script using BeautifulSoup and Requests to scrape product names and prices from an e-commerce page. Include user-agent rotation and clean error handling."
-            }
-        ];
-
+        let allPrompts = [];
         let currentCategory = 'all';
 
-        // 1. Mobile Menu Functions
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            const isHidden = menu.classList.contains('hidden');
+        // Load prompts from prompts.json automatically
+        fetch('prompts.json')
+            .then(res => res.json())
+            .then(data => {
+                allPrompts = data;
+                renderPrompts(allPrompts);
+            })
+            .catch(err => console.error('Error loading prompts.json:', err));
 
-            if (isHidden) {
-                menu.classList.remove('hidden');
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
-            } else {
-                closeMobileMenu();
-            }
-        }
-
-        function closeMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            if (menu && !menu.classList.contains('hidden')) {
-                menu.classList.add('hidden');
-                if (icon) {
-                    icon.classList.remove('fa-xmark');
-                    icon.classList.add('fa-bars');
-                }
-            }
-        }
-
-        function handleMobileLinkClick(hash) {
-            closeMobileMenu();
-            if(hash) {
-                const element = document.querySelector(hash);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        }
-
-        // 2. Render Prompts Grid
-        function renderPrompts(filter = '', category = 'all') {
+        function renderPrompts(prompts) {
             const grid = document.getElementById('prompts-grid');
+            if (!grid) return;
             grid.innerHTML = '';
 
-            const filtered = promptsData.filter(item => {
-                const matchesCat = category === 'all' || item.category === category;
-                const matchesSearch = item.title.toLowerCase().includes(filter.toLowerCase()) || 
-                                      item.text.toLowerCase().includes(filter.toLowerCase());
-                return matchesCat && matchesSearch;
-            });
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full py-12 text-center text-slate-500">
-                        <i class="fa-solid fa-magnifying-glass text-3xl mb-3"></i>
-                        <p class="text-base font-semibold">No matching prompts found.</p>
-                    </div>
-                `;
+            if (prompts.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400">No prompts found matching your search.</div>`;
                 return;
             }
 
-            filtered.forEach(item => {
+            prompts.forEach(p => {
                 const card = document.createElement('div');
-                card.className = "bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all group";
+                card.className = "bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition-all shadow-lg";
                 card.innerHTML = `
                     <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="px-2.5 py-1 rounded-full text-xs font-semibold border ${item.badgeColor}">${item.badge}</span>
-                            <button onclick="copyToClipboard(\`${item.text.replace(/'/g, "\\'")}\`, 'Prompt copied to clipboard!')" class="w-9 h-9 rounded-xl bg-slate-800/80 hover:bg-indigo-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors min-h-[44px] min-w-[44px]" aria-label="Copy Prompt">
-                                <i class="fa-regular fa-copy"></i>
-                            </button>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">${p.category}</span>
+                            <span class="text-xs text-slate-500">#${p.id}</span>
                         </div>
-                        <h3 class="font-bold text-white text-base mb-2 group-hover:text-indigo-400 transition-colors">${item.title}</h3>
-                        <p class="text-slate-400 text-xs sm:text-sm line-clamp-3 mb-6 font-mono bg-slate-950 p-3 rounded-xl border border-slate-800/80">${item.text}</p>
+                        <h3 class="text-lg font-bold text-white mb-2">${p.title}</h3>
+                        <p class="text-slate-400 text-sm mb-4">${p.desc}</p>
+                        <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3 mb-4 text-xs font-mono text-slate-300 max-h-24 overflow-y-auto">${p.prompt}</div>
                     </div>
-                    <button onclick="copyToClipboard(\`${item.text.replace(/'/g, "\\'")}\`, 'Prompt copied!')" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm transition-colors flex items-center justify-center gap-2 min-h-[44px]">
-                        <i class="fa-solid fa-copy text-xs"></i> Copy Prompt
+                    <button onclick="copyToClipboard(${JSON.stringify(p.prompt).replace(/"/g, '&quot;')}, 'Prompt copied to clipboard!')" class="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copy Prompt
                     </button>
                 `;
                 grid.appendChild(card);
@@ -795,161 +549,91 @@
             currentCategory = cat;
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 btn.classList.remove('border-indigo-500/50', 'bg-slate-900');
-                btn.classList.add('border-slate-800', 'bg-slate-900/60');
+                btn.classList.add('bg-slate-900/60', 'border-slate-800');
             });
             event.currentTarget.classList.remove('bg-slate-900/60', 'border-slate-800');
             event.currentTarget.classList.add('border-indigo-500/50', 'bg-slate-900');
-            
+
             filterPrompts();
         }
 
         function filterPrompts() {
-            const query = document.getElementById('promptSearch').value;
-            renderPrompts(query, currentCategory);
+            const query = document.getElementById('promptSearch').value.toLowerCase();
+            const filtered = allPrompts.filter(p => {
+                const matchesCat = currentCategory === 'all' || p.category.toLowerCase() === currentCategory.toLowerCase();
+                const matchesQuery = p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.prompt.toLowerCase().includes(query);
+                return matchesCat && matchesQuery;
+            });
+            renderPrompts(filtered);
         }
 
-        // 3. Modal Handlers
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            if(modal) {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
+        function copyToClipboard(text, msg) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(msg);
+            });
         }
 
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            if(modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function openBlogArticle(title, content) {
-            document.getElementById('modalArticleTitle').innerText = title;
-            document.getElementById('modalArticleContent').innerText = content;
-            openModal('articleModal');
-        }
-
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            closeModal('contactModal');
-            showToast('Message sent! We will contact you back soon.');
-        }
-
-        // 4. Interactive Browser Tools Logic
-        function updateWordStats() {
-            const text = document.getElementById('counterInput').value;
-            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-            const chars = text.length;
-            const lines = text.trim() ? text.split(/\r\n|\r|\n/).length : 0;
-            const readTime = Math.ceil(words / 200);
-
-            document.getElementById('statWords').innerText = words;
-            document.getElementById('statChars').innerText = chars;
-            document.getElementById('statLines').innerText = lines;
-            document.getElementById('statReadTime').innerText = readTime + 'm';
-        }
-
-        function clearCounter() {
-            document.getElementById('counterInput').value = '';
-            updateWordStats();
-        }
-
-        function convertCase(type) {
-            const input = document.getElementById('caseInput');
-            let val = input.value;
-            if(!val) return;
-
-            if (type === 'upper') input.value = val.toUpperCase();
-            if (type === 'lower') input.value = val.toLowerCase();
-            if (type === 'title') {
-                input.value = val.toLowerCase().replace(/(?:^|\s)\w/g, match => match.toUpperCase());
-            }
-            if (type === 'capital') {
-                input.value = val.replace(/\b\w/g, l => l.toUpperCase());
-            }
-            showToast('Case updated!');
-        }
-
-        function copyCaseText() {
-            const val = document.getElementById('caseInput').value;
-            if(val) copyToClipboard(val, 'Converted text copied!');
-        }
-
-        function cleanSpaces() {
-            const input = document.getElementById('spaceInput');
-            input.value = input.value.replace(/\s+/g, ' ').trim();
-            showToast('Extra spaces removed!');
-        }
-
-        function copyCleanedSpace() {
-            const val = document.getElementById('spaceInput').value;
-            if(val) copyToClipboard(val, 'Cleaned text copied!');
-        }
-
-        function generateRepeatedText() {
-            const str = document.getElementById('repeatText').value;
-            const count = parseInt(document.getElementById('repeatCount').value) || 1;
-            const sepType = document.getElementById('repeatSep').value;
-
-            if(!str) return;
-
-            let sep = ' ';
-            if(sepType === 'newline') sep = '\n';
-            if(sepType === 'comma') sep = ', ';
-
-            const result = Array(count).fill(str).join(sep);
-            document.getElementById('repeatOutput').value = result;
-            showToast('Repeated text generated!');
-        }
-
-        function copyRepeatedText() {
-            const val = document.getElementById('repeatOutput').value;
-            if(val) copyToClipboard(val, 'Repeated text copied!');
-        }
-
-        // 5. Toast & Clipboard Utility
-        function copyToClipboard(text, msg = 'Copied to clipboard!') {
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(() => {
-                    showToast(msg);
-                });
-            } else {
-                // Fallback for iFrame restrictions
-                const textArea = document.createElement("textarea");
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.focus();
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                    showToast(msg);
-                } catch (err) {
-                    showToast('Failed to copy text.');
-                }
-                document.body.removeChild(textArea);
-            }
-        }
-
-        function showToast(message) {
+        function showToast(msg) {
             const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.innerText = message;
-            
+            document.getElementById('toast-message').innerText = msg;
             toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
             setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
             }, 3000);
         }
 
-        // Initialize App on Load
-        window.addEventListener('DOMContentLoaded', () => {
-            renderPrompts();
-        });
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function handleMobileLinkClick(target) {
+            toggleMobileMenu();
+            window.location.href = target;
+        }
+
+        function runWordCounter() {
+            const text = document.getElementById('wcInput').value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const chars = text.length;
+            const readTime = Math.ceil(words / 200) + 's';
+            document.getElementById('wcWords').innerText = words;
+            document.getElementById('wcChars').innerText = chars;
+            document.getElementById('wcReadTime').innerText = readTime;
+        }
+
+        function convertCase(type) {
+            let text = document.getElementById('ccInput').value;
+            if (type === 'upper') text = text.toUpperCase();
+            if (type === 'lower') text = text.toLowerCase();
+            if (type === 'title') text = text.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+            document.getElementById('ccInput').value = text;
+        }
+
+        function cleanSpaces() {
+            let text = document.getElementById('scInput').value;
+            document.getElementById('scInput').value = text.replace(/\s+/g, ' ').trim();
+        }
+
+        function repeatText() {
+            const text = document.getElementById('trText').value;
+            const count = parseInt(document.getElementById('trCount').value) || 1;
+            document.getElementById('trOutput').value = Array(count).fill(text).join('\n');
+        }
+
+        function openBlogArticle(title, content) {
+            document.getElementById('blogTitle').innerText = title;
+            document.getElementById('blogContent').innerText = content;
+            openModal('blogModal');
+        }
     </script>
 </body>
 </html>
