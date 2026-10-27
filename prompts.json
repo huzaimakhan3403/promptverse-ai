@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Ultra-Detailed Studio Portrait",
+    "category": "Image Generation",
+    "desc": "Creates photorealistic 8K portrait photography with natural studio lighting.",
+    "prompt": "A cinematic studio portrait of [Subject], soft box lighting, 85mm lens, depth of field, sharp focus on eyes, ultra-realistic skin texture, 8k resolution, photorealistic render --ar 16:9 --v 6.0",
+    "tags": ["Midjourney", "Photography", "Art"]
+  },
+  {
+    "id": 2,
+    "title": "Viral Social Media Post Creator",
+    "category": "Marketing",
+    "desc": "Writes high-converting hooks and structured posts for LinkedIn & Twitter.",
+    "prompt": "Act as a viral content strategist. Write a 5-part social media post about [Topic]. Start with a powerful hook line to stop scrolling, use short scannable sentences, add 3 actionable tips, and finish with a strong call-to-action.",
+    "tags": ["LinkedIn", "Growth", "Marketing"]
+  },
+  {
+    "id": 3,
+    "title": "ATS-Optimized Resume Tailor",
+    "category": "Career",
+    "desc": "Customizes your bullet points and executive summary to match any target job description.",
+    "prompt": "Act as a professional career coach. Tailor my resume bullet points for a [Target Job Title] role. Rewrite these accomplishments to sound impact-driven using strong action verbs, numbers, and key skills required for this position: [Paste Experience]",
+    "tags": ["Resume", "Jobs", "Career"]
+  },
+  {
+    "id": 4,
+    "title": "SEO Article & Outline Generator",
+    "category": "Writing",
+    "desc": "Creates complete blog posts structured to rank high on Google search.",
+    "prompt": "Act as an SEO expert. Write an engaging 1000-word article on [Insert Keyword/Topic]. Include an optimized Meta Description, H1 Title, H2/H3 Subheadings, key bullet points, and a concluding Summary with FAQ section.",
+    "tags": ["SEO", "Blogging", "Writing"]
+  },
+  {
+    "id": 5,
+    "title": "B2B Sales Outreach Email",
+    "category": "Business",
+    "desc": "Short, personalized 4-sentence email designed for high response rates.",
+    "prompt": "Write a concise cold outreach email offering [Your Service/Product] to a [Prospect's Title] in [Prospect's Industry]. Make it personal, highlight one major pain-point solution, and end with a low-friction meeting request.",
+    "tags": ["Cold Email", "Sales", "Business"]
+  },
+  {
+    "id": 6,
+    "title": "Code Debugger & Optimizer",
+    "category": "Coding",
+    "desc": "Detects errors in your code, fixes bugs, and explains the solution clearly.",
+    "prompt": "Act as a Senior Full-Stack Software Engineer. Analyze the following code snippet for bugs, performance issues, and best practices. Provide the corrected code and briefly explain what changes were made: [Paste Code]",
+    "tags": ["JavaScript", "HTML/CSS", "Debugging"]
+  }
+]
