@@ -648,5 +648,53 @@
             openModal('blogModal');
         }
     </script>
+    <!-- Connect Us / Contact Section Start -->
+<section id="contact" class="py-20 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                Connect With Us
+            </h2>
+            <p class="mt-4 text-lg text-slate-400">
+                Have a question, feedback, or want to collaborate? Drop us a message below!
+            </p>
+        </div>
+
+        <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl">
+            <form action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-6">
+                
+                <div>
+                    <label for="name" class="block text-sm font-medium text-slate-300">Your Name</label>
+                    <input type="text" name="name" id="name" required
+                        class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                        placeholder="John Doe">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-slate-300">Your Email</label>
+                    <input type="email" name="email" id="email" required
+                        class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                        placeholder="huzaimakhan3403@gmail.com">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium text-slate-300">Your Message</label>
+                    <textarea name="message" id="message" rows="4" required
+                        class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                        placeholder="Write your message here..."></textarea>
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="w-full py-3 px-6 text-white font-medium bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-lg shadow-indigo-500/20">
+                        Send Message
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Connect Us / Contact Section End -->
 </body>
 </html>
