@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
-    <script src="https://quge5.com/88/tag.min.js" data-zone="306388" async data-cfasync="false"></script>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KQMHVC90N"></script>
 <script>
@@ -136,6 +135,7 @@
     }
     </script>
 
+    <script src="https://quge5.com/88/tag.min.js" data-zone="306388" async data-cfasync="false"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white transition-colors duration-300">
 
@@ -496,6 +496,37 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- Sponsored Offers: Monetag Direct Links -->
+        <section id="sponsored-offers" class="py-14 sm:py-16 border-t border-slate-800/80 bg-slate-950/70">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-indigo-400">Sponsored</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2 mb-3">Sponsored Offers</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">Explore these external sponsored links.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <a href="https://uplcm.com/4/12200455" target="_blank" rel="sponsored noopener noreferrer" class="group flex items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-5 text-white transition-colors hover:border-indigo-500/60 hover:bg-slate-800">
+                        <span class="font-semibold">Sponsored Link 1</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-indigo-400" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://uplcm.com/4/12200456" target="_blank" rel="sponsored noopener noreferrer" class="group flex items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-5 text-white transition-colors hover:border-indigo-500/60 hover:bg-slate-800">
+                        <span class="font-semibold">Sponsored Link 2</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-indigo-400" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://uplcm.com/4/12200457" target="_blank" rel="sponsored noopener noreferrer" class="group flex items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-5 text-white transition-colors hover:border-indigo-500/60 hover:bg-slate-800">
+                        <span class="font-semibold">Sponsored Link 3</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-indigo-400" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://uplcm.com/4/12200458" target="_blank" rel="sponsored noopener noreferrer" class="group flex items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-5 text-white transition-colors hover:border-indigo-500/60 hover:bg-slate-800">
+                        <span class="font-semibold">Sponsored Link 4</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-indigo-400" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -673,6 +704,11 @@
             menu.classList.toggle('hidden');
         }
 
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.add('hidden');
+        }
+
         function handleMobileLinkClick(target) {
             toggleMobileMenu();
             window.location.href = target;
@@ -761,7 +797,7 @@
     </div>
 </section>
     <!-- AI Prompts Grid / Library Section Start -->
-<section id="prompts" class="py-20 bg-slate-950 border-t border-slate-900">
+<section id="ai-prompts-library" class="py-20 bg-slate-950 border-t border-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Section Header -->
