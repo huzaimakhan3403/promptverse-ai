@@ -5,6 +5,7 @@ date: 2026-11-11
 category: Prompt Engineering
 description: Discover advanced prompt engineering frameworks like
   Chain-of-Thought and Few-Shot prompting to get hyper-accurate AI responses.
+featured_image: /uploads/73932a30-7ac6-4a80-947e-6e8dcee81475.webp
 image_alt: "PromptVerse diagram showing 5 advanced prompt engineering
   techniques: Chain-of-Thought, Few-Shot, Constraint-Based, and Meta-Prompting
   to maximize AI output accuracy."
