@@ -1,0 +1,61 @@
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: blog
+    label: Blog Articles
+    type: collection
+    path: content/blog
+    filename: "{slug}.md"
+    format: yaml-frontmatter
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Article title
+        type: string
+        required: true
+      - name: slug
+        label: URL slug
+        type: string
+        required: true
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - Prompt Engineering
+            - ChatGPT Guides
+            - Image Generation
+            - AI Tools
+            - Marketing
+      - name: description
+        label: Short description
+        type: text
+        required: true
+      - name: featured_image
+        label: Featured image
+        type: image
+      - name: image_alt
+        label: Image alt text
+        type: string
+      - name: draft
+        label: Keep as draft
+        type: boolean
+      - name: seo_title
+        label: SEO title
+        type: string
+      - name: seo_description
+        label: SEO description
+        type: text
+      - name: body
+        label: Article content
+        type: rich-text
