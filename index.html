@@ -255,8 +255,8 @@ crossorigin="anonymous"></script>
                 <!-- Quick Action Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 border-t border-slate-800/60">
                     <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                        <div class="text-2xl sm:text-3xl font-extrabold text-white">500+</div>
-                        <div class="text-xs sm:text-sm text-slate-400">Curated Prompts</div>
+                        <div id="prompt-count" class="text-2xl sm:text-3xl font-extrabold text-white">0</div>
+                        <div class="text-xs sm:text-sm text-slate-400">Available Prompts</div>
                     </div>
                     <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
                         <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400">4+</div>
@@ -282,30 +282,34 @@ crossorigin="anonymous"></script>
                     <p class="text-slate-400 text-sm sm:text-base">Filter top prompts according to your creative or professional domain.</p>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                    <button onclick="setCategory('all')" class="cat-btn active p-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-indigo-500/50 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
+                    <button onclick="setCategory('all', this)" class="cat-btn active p-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-indigo-500/50 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
                         <i class="fa-solid fa-shapes text-2xl text-indigo-400"></i>
                         <span class="text-xs sm:text-sm font-semibold text-white">All Prompts</span>
                     </button>
-                    <button onclick="setCategory('coding')" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                    <button onclick="setCategory('Coding', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
                         <i class="fa-solid fa-code text-2xl text-blue-400"></i>
                         <span class="text-xs sm:text-sm font-semibold text-white">Coding</span>
                     </button>
-                    <button onclick="setCategory('writing')" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                    <button onclick="setCategory('Writing', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
                         <i class="fa-solid fa-pen-nib text-2xl text-emerald-400"></i>
                         <span class="text-xs sm:text-sm font-semibold text-white">Copywriting</span>
                     </button>
-                    <button onclick="setCategory('marketing')" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                    <button onclick="setCategory('Marketing', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
                         <i class="fa-solid fa-chart-line text-2xl text-amber-400"></i>
                         <span class="text-xs sm:text-sm font-semibold text-white">Marketing</span>
                     </button>
-                    <button onclick="setCategory('design')" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                    <button onclick="setCategory('Image Generation', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
                         <i class="fa-solid fa-palette text-2xl text-pink-400"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-white">Midjourney</span>
+                        <span class="text-xs sm:text-sm font-semibold text-white">Image Generation</span>
                     </button>
-                    <button onclick="setCategory('business')" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                    <button onclick="setCategory('Business', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
                         <i class="fa-solid fa-briefcase text-2xl text-purple-400"></i>
                         <span class="text-xs sm:text-sm font-semibold text-white">Business</span>
+                    </button>
+                    <button onclick="setCategory('Career', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                        <i class="fa-solid fa-user-tie text-2xl text-cyan-400"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-white">Career</span>
                     </button>
                 </div>
             </div>
@@ -531,8 +535,68 @@ crossorigin="anonymous"></script>
 
     </main>
 
+    <!-- Trust, About and Policy Information -->
+    <section id="about" class="py-14 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-4">About PromptVerse AI</h2>
+            <p class="text-slate-300 leading-relaxed">PromptVerse AI is a free online resource that organizes example prompts and provides simple browser-based text utilities. The website is intended to help visitors structure instructions for AI tools and improve everyday writing workflows. Prompt results may vary depending on the AI service used. PromptVerse AI is an independent resource and is not affiliated with or endorsed by OpenAI, Midjourney, or other third-party AI providers.</p>
+            <p class="text-slate-400 mt-4">Questions or feedback: <a class="text-indigo-400 underline" href="mailto:huzaimakhan3403@gmail.com">huzaimakhan3403@gmail.com</a></p>
+        </div>
+    </section>
+
+    <section id="privacy-policy" class="py-14 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-4">Privacy Policy</h2>
+            <p class="text-slate-400 text-sm mb-4">Last updated: November 11, 2026</p>
+            <div class="space-y-4 text-slate-300 leading-relaxed">
+                <h3 class="text-lg font-semibold text-white">Information and contact</h3>
+                <p>When you contact us by email or through the contact form, the information you submit may be used to respond to your request. Do not submit passwords, payment details, or other sensitive information through the contact form.</p>
+                <h3 class="text-lg font-semibold text-white">Browser utilities</h3>
+                <p>The text utilities on this website are designed to process the text you enter in your browser. We do not intentionally send text entered into these utilities to our own server.</p>
+                <h3 class="text-lg font-semibold text-white">Cookies, analytics and advertising</h3>
+                <p>This website uses Google Analytics to understand website usage. Google Analytics and advertising providers may use cookies or similar technologies to collect information about visits and interactions, subject to their own policies and your available consent or browser settings.</p>
+                <p>Third-party vendors, including Google, may use cookies to serve ads based on a user's prior visits to this or other websites. You can learn about Google's advertising practices and manage available ad personalization settings through Google's account and advertising controls.</p>
+                <h3 class="text-lg font-semibold text-white">Third-party websites</h3>
+                <p>Our pages may link to third-party websites or sponsored offers. Those websites have their own privacy policies and practices. We do not control how third parties collect or use information.</p>
+                <h3 class="text-lg font-semibold text-white">Policy updates and contact</h3>
+                <p>We may update this policy when our website or services change. For privacy questions, contact <a class="text-indigo-400 underline" href="mailto:huzaimakhan3403@gmail.com">huzaimakhan3403@gmail.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="terms" class="py-14 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-4">Terms &amp; Conditions</h2>
+            <div class="space-y-4 text-slate-300 leading-relaxed">
+                <p>By accessing PromptVerse AI, you agree to use this website lawfully and responsibly. You are responsible for reviewing and adapting prompts before using them with any third-party AI service.</p>
+                <p>Prompts, guides and browser utilities are provided for general informational and productivity purposes. We do not guarantee that an AI tool will produce accurate, complete, original, or suitable results.</p>
+                <p>You must not use this website to violate laws, infringe intellectual property rights, distribute harmful content, or interfere with the website's operation. You should independently verify important information generated by AI.</p>
+                <p>Third-party services and links are governed by their own terms. We may update website content or these terms as the service changes. Questions can be sent to <a class="text-indigo-400 underline" href="mailto:huzaimakhan3403@gmail.com">huzaimakhan3403@gmail.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="disclaimer" class="py-14 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-4">Disclaimer</h2>
+            <div class="space-y-4 text-slate-300 leading-relaxed">
+                <p>PromptVerse AI provides example prompts, educational material and browser-based utilities on an “as is” basis. We make no warranties about the accuracy, reliability, availability or suitability of outputs produced by third-party AI tools.</p>
+                <p>References to third-party products and services are for identification and informational purposes. Their names and trademarks belong to their respective owners. PromptVerse AI is not affiliated with those providers unless explicitly stated.</p>
+                <p>Some links or placements may be sponsored or may generate a referral payment. Sponsored links should be considered separately from editorial information. Visitors should review the destination website before using a third-party service.</p>
+                <p>Always check AI-generated content before relying on it, publishing it, or using it for professional, legal, financial, medical or other important decisions.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-slate-950 border-t border-slate-800/80 py-8 text-center text-slate-500 text-sm">
+        <nav aria-label="Footer navigation" class="flex flex-wrap justify-center gap-x-6 gap-y-3 px-4 mb-5">
+            <a href="#about" class="hover:text-indigo-400">About Us</a>
+            <a href="#privacy-policy" class="hover:text-indigo-400">Privacy Policy</a>
+            <a href="#terms" class="hover:text-indigo-400">Terms &amp; Conditions</a>
+            <a href="#disclaimer" class="hover:text-indigo-400">Disclaimer</a>
+            <a href="#contact" class="hover:text-indigo-400">Contact</a>
+        </nav>
         <p>&copy; 2026 PromptVerse Official. All rights reserved.</p>
     </footer>
 
@@ -616,94 +680,140 @@ crossorigin="anonymous"></script>
         let allPrompts = [];
         let currentCategory = 'all';
 
-        // Load prompts from prompts.json automatically
-        fetch('prompts.json')
-            .then(res => res.json())
-            .then(data => {
+        function escapeHTML(value) {
+            return String(value ?? '').replace(/[&<>"']/g, char => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            })[char]);
+        }
+
+        async function loadPrompts() {
+            const grid = document.getElementById('prompts-grid');
+            try {
+                const response = await fetch('./prompts.json', { cache: 'no-cache' });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                if (!Array.isArray(data)) throw new Error('prompts.json must contain an array');
                 allPrompts = data;
                 renderPrompts(allPrompts);
-            })
-            .catch(err => console.error('Error loading prompts.json:', err));
+                const count = document.getElementById('prompt-count');
+                if (count) count.textContent = allPrompts.length;
+            } catch (error) {
+                console.error('Error loading prompts.json:', error);
+                if (grid) {
+                    grid.innerHTML = '<div class="col-span-full text-center py-12 text-amber-300">Prompts could not be loaded. Please check that prompts.json is uploaded beside index.html.</div>';
+                }
+            }
+        }
 
         function renderPrompts(prompts) {
             const grid = document.getElementById('prompts-grid');
             if (!grid) return;
             grid.innerHTML = '';
 
-            if (prompts.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400">No prompts found matching your search.</div>`;
+            if (!prompts.length) {
+                grid.innerHTML = '<div class="col-span-full text-center py-12 text-slate-400">No prompts found matching your search.</div>';
                 return;
             }
 
-            prompts.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition-all shadow-lg";
+            prompts.forEach(promptItem => {
+                const card = document.createElement('article');
+                card.className = 'bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition-all shadow-lg';
                 card.innerHTML = `
                     <div>
                         <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">${p.category}</span>
-                            <span class="text-xs text-slate-500">#${p.id}</span>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">${escapeHTML(promptItem.category)}</span>
+                            <span class="text-xs text-slate-500">#${escapeHTML(promptItem.id)}</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">${p.title}</h3>
-                        <p class="text-slate-400 text-sm mb-4">${p.desc}</p>
-                        <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3 mb-4 text-xs font-mono text-slate-300 max-h-24 overflow-y-auto">${p.prompt}</div>
+                        <h3 class="text-lg font-bold text-white mb-2">${escapeHTML(promptItem.title)}</h3>
+                        <p class="text-slate-400 text-sm mb-4">${escapeHTML(promptItem.desc)}</p>
+                        <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3 mb-4 text-xs font-mono text-slate-300 max-h-24 overflow-y-auto whitespace-pre-wrap">${escapeHTML(promptItem.prompt)}</div>
+                        <div class="flex flex-wrap gap-2 mb-4">${(Array.isArray(promptItem.tags) ? promptItem.tags : []).map(tag => `<span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded-lg">${escapeHTML(tag)}</span>`).join('')}</div>
                     </div>
-                    <button onclick="copyToClipboard(${JSON.stringify(p.prompt).replace(/"/g, '&quot;')}, 'Prompt copied to clipboard!')" class="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2">
+                    <button type="button" class="copy-prompt-btn w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2">
                         <i class="fa-regular fa-copy"></i> Copy Prompt
-                    </button>
-                `;
+                    </button>`;
+                card.querySelector('.copy-prompt-btn').addEventListener('click', () => {
+                    copyToClipboard(promptItem.prompt, 'Prompt copied to clipboard!');
+                });
                 grid.appendChild(card);
             });
         }
 
-        function setCategory(cat) {
-            currentCategory = cat;
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.classList.remove('border-indigo-500/50', 'bg-slate-900');
-                btn.classList.add('bg-slate-900/60', 'border-slate-800');
+        function setCategory(category, button) {
+            currentCategory = category;
+            document.querySelectorAll('.cat-btn').forEach(item => {
+                item.classList.remove('border-indigo-500/50', 'bg-slate-900');
+                item.classList.add('bg-slate-900/60', 'border-slate-800');
             });
-            event.currentTarget.classList.remove('bg-slate-900/60', 'border-slate-800');
-            event.currentTarget.classList.add('border-indigo-500/50', 'bg-slate-900');
-
+            if (button) {
+                button.classList.remove('bg-slate-900/60', 'border-slate-800');
+                button.classList.add('border-indigo-500/50', 'bg-slate-900');
+            }
             filterPrompts();
         }
 
         function filterPrompts() {
-            const query = document.getElementById('promptSearch').value.toLowerCase();
-            const filtered = allPrompts.filter(p => {
-                const matchesCat = currentCategory === 'all' || p.category.toLowerCase() === currentCategory.toLowerCase();
-                const matchesQuery = p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.prompt.toLowerCase().includes(query);
-                return matchesCat && matchesQuery;
+            const searchInput = document.getElementById('promptSearch');
+            const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+            const filtered = allPrompts.filter(item => {
+                const categoryMatch = currentCategory === 'all' ||
+                    String(item.category || '').toLowerCase() === currentCategory.toLowerCase();
+                const searchable = [
+                    item.title, item.desc, item.prompt, item.category,
+                    ...(Array.isArray(item.tags) ? item.tags : [])
+                ].join(' ').toLowerCase();
+                return categoryMatch && searchable.includes(query);
             });
             renderPrompts(filtered);
         }
 
-        function copyToClipboard(text, msg) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast(msg);
-            });
+        async function copyToClipboard(text, message) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(String(text));
+                } else {
+                    const temporary = document.createElement('textarea');
+                    temporary.value = String(text);
+                    temporary.style.position = 'fixed';
+                    temporary.style.opacity = '0';
+                    document.body.appendChild(temporary);
+                    temporary.select();
+                    const copied = document.execCommand('copy');
+                    temporary.remove();
+                    if (!copied) throw new Error('Copy command failed');
+                }
+                showToast(message || 'Copied!');
+            } catch (error) {
+                console.error('Clipboard error:', error);
+                showToast('Unable to copy. Please select and copy the text manually.');
+            }
         }
 
-        function showToast(msg) {
+        function showToast(message) {
             const toast = document.getElementById('toast');
-            document.getElementById('toast-message').innerText = msg;
+            const messageNode = document.getElementById('toast-message');
+            if (!toast || !messageNode) return;
+            messageNode.innerText = message;
             toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-            setTimeout(() => {
+            clearTimeout(window.promptVerseToastTimer);
+            window.promptVerseToastTimer = setTimeout(() => {
                 toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
             }, 3000);
         }
 
         function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
+            const modal = document.getElementById(id);
+            if (modal) modal.classList.remove('hidden');
         }
 
         function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
+            const modal = document.getElementById(id);
+            if (modal) modal.classList.add('hidden');
         }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            if (menu) menu.classList.toggle('hidden');
         }
 
         function closeMobileMenu() {
@@ -712,36 +822,35 @@ crossorigin="anonymous"></script>
         }
 
         function handleMobileLinkClick(target) {
-            toggleMobileMenu();
-            window.location.href = target;
+            closeMobileMenu();
+            window.location.hash = target;
         }
 
         function runWordCounter() {
             const text = document.getElementById('wcInput').value;
             const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-            const chars = text.length;
-            const readTime = Math.ceil(words / 200) + 's';
             document.getElementById('wcWords').innerText = words;
-            document.getElementById('wcChars').innerText = chars;
-            document.getElementById('wcReadTime').innerText = readTime;
+            document.getElementById('wcChars').innerText = text.length;
+            document.getElementById('wcReadTime').innerText = Math.ceil(words / 200) + 's';
         }
 
         function convertCase(type) {
             let text = document.getElementById('ccInput').value;
             if (type === 'upper') text = text.toUpperCase();
             if (type === 'lower') text = text.toLowerCase();
-            if (type === 'title') text = text.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+            if (type === 'title') text = text.replace(/\w\S*/g, word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
             document.getElementById('ccInput').value = text;
         }
 
         function cleanSpaces() {
-            let text = document.getElementById('scInput').value;
-            document.getElementById('scInput').value = text.replace(/\s+/g, ' ').trim();
+            const input = document.getElementById('scInput');
+            input.value = input.value.replace(/\s+/g, ' ').trim();
+            showToast('Extra spaces removed!');
         }
 
         function repeatText() {
             const text = document.getElementById('trText').value;
-            const count = parseInt(document.getElementById('trCount').value) || 1;
+            const count = Math.min(100, Math.max(1, parseInt(document.getElementById('trCount').value, 10) || 1));
             document.getElementById('trOutput').value = Array(count).fill(text).join('\n');
         }
 
@@ -750,6 +859,8 @@ crossorigin="anonymous"></script>
             document.getElementById('blogContent').innerText = content;
             openModal('blogModal');
         }
+
+        document.addEventListener('DOMContentLoaded', loadPrompts);
     </script>
     <!-- Connect Us / Contact Section Start -->
 <section id="contact" class="py-20 bg-slate-900 border-t border-slate-800">
