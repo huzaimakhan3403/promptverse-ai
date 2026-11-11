@@ -6,4 +6,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <url><loc>https://promptverse-official.vercel.app/blog/how-to-craft-perfect-chatgpt-system-prompts.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://promptverse-official.vercel.app/blog/10-best-chatgpt-prompts-for-everyday-tasks.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://promptverse-official.vercel.app/blog/how-to-write-better-ai-image-generation-prompts.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://promptverse-official.vercel.app/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://promptverse-official.vercel.app/blog/how-to-use-ai-for-content-creation-and-marketing.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
