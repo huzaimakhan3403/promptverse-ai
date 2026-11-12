@@ -1,45 +1,905 @@
-import React, { useState } from 'react';
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta name="google-adsense-account" content="ca-pub-4485609330386151">
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9KQMHVC90N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-export const ProtectedRoute = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    sessionStorage.getItem('isAdminLoggedIn') === 'true'
-  );
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  gtag('config', 'G-9KQMHVC90N');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>PromptVerse AI | Free AI Prompts & Online Text Tools</title>
+    <meta name="google-site-verification" content="QduN13fPY_XGVYsfFZ8jV6ZJMjR0O-vBuIrefwT4Np0" />
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://promptverse-official.vercel.app/" />
+    <meta property="og:title" content="PromptVerse AI - Ultimate AI Prompts & Utility Tools Hub" />
+    <meta property="og:description" content="Discover AI prompts, tools, and resources on PromptVerse." />
+    <meta property="og:image" content="https://promptverse-official.vercel.app/og-image.jpg" />
 
-  // Apni pasand ka password yahan set karein
-  const ADMIN_PASSWORD = "ApnaSecretPassword123";
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://promptverse-official.vercel.app/" />
+    <meta name="twitter:title" content="PromptVerse AI - Ultimate AI Prompts & Utility Tools Hub" />
+    <meta name="twitter:description" content="Discover AI prompts, tools, and resources on PromptVerse." />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f5ff',
+                            100: '#e5edff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        accent: {
+                            500: '#ec4899',
+                            600: '#db2777',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom Mobile Scrollbars & Smooth transitions */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .light .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        /* Custom notification toast */
+        #toast {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+        }
+    </style>
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (password === ADMIN_PASSWORD) {
-      sessionStorage.setItem('isAdminLoggedIn', 'true');
-      setIsAuthenticated(true);
-    } else {
-      setError('Ghalat password! Dubara koshish karein.');
+    <!-- Additional SEO metadata (original page content retained) -->
+    <meta name="description" content="Explore practical AI prompts for writing, coding, marketing, business, careers and image generation, plus free online text tools and guides from PromptVerse AI.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="PromptVerse Official">
+    <meta name="application-name" content="PromptVerse AI">
+    <meta name="theme-color" content="#020617">
+    <link rel="canonical" href="https://promptverse-official.vercel.app/">
+    <link rel="alternate" hreflang="en" href="https://promptverse-official.vercel.app/">
+    <link rel="alternate" hreflang="x-default" href="https://promptverse-official.vercel.app/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236366f1'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='Arial'%3EP%3C/text%3E%3C/svg%3E">
+
+    <!-- Improved social sharing metadata -->
+    <meta property="og:site_name" content="PromptVerse AI">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image:alt" content="PromptVerse AI - AI prompts and utility tools">
+    <meta name="twitter:image" content="https://promptverse-official.vercel.app/og-image.jpg">
+    <meta name="twitter:image:alt" content="PromptVerse AI - AI prompts and utility tools">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://promptverse-official.vercel.app/#website",
+          "url": "https://promptverse-official.vercel.app/",
+          "name": "PromptVerse AI",
+          "alternateName": "PromptVerse Official",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://promptverse-official.vercel.app/#webapp",
+          "name": "PromptVerse AI",
+          "url": "https://promptverse-official.vercel.app/",
+          "description": "A website featuring AI prompts, a prompt library, browser-based text utilities, and educational guides.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "isAccessibleForFree": true,
+          "inLanguage": "en",
+          "publisher": {
+            "@type": "Organization",
+            "name": "PromptVerse Official",
+            "url": "https://promptverse-official.vercel.app/"
+          }
+        }
+      ]
     }
-  };
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white transition-colors duration-300">
 
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white p-4">
-        <form onSubmit={handleLogin} className="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 max-w-sm w-full text-center">
-          <h2 className="text-2xl font-bold mb-4">Admin Access</h2>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 mb-4 focus:outline-none focus:border-blue-500"
-          />
-          <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded font-semibold transition">
-            Login
-          </button>
-          {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
-        </form>
-      </div>
-    );
-  }
+    <!-- Toast Notification System -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 translate-y-24 opacity-0 pointer-events-none flex items-center gap-3 bg-indigo-600 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-indigo-400/30">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-xl"></i>
+        <span id="toast-message" class="text-sm font-semibold">Action completed successfully!</span>
+    </div>
 
-  return children;
-};
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 glass-nav border-b border-slate-800/80 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#home" onclick="closeMobileMenu()" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        Prompt<span class="text-indigo-500">Verse</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#home" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Home</a>
+                    <a href="#categories" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Categories</a>
+                    <a href="#prompts" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Prompts</a>
+                    <a href="#ai-tools" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Web Tools</a>
+                    <a href="#blog" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Blog</a>
+                    <a href="#faq" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">FAQ</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openModal('contactModal')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all shadow-md hover:shadow-indigo-500/20 active:scale-95 min-h-[44px]">
+                        <i class="fa-regular fa-paper-plane"></i> Contact Us
+                    </button>
+
+                    <!-- Mobile Menu Toggle Button (Strict 44px+ Touch Target) -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu" class="md:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors">
+                        <i id="menu-icon" class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown (Flawless Mobile Touch Support) -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 transition-all duration-300 ease-in-out">
+            <div class="flex flex-col space-y-1">
+                <a href="#home" onclick="handleMobileLinkClick('#home')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 active:bg-indigo-600/20 active:text-indigo-400 transition-colors min-h-[44px]">
+                    <i class="fa-solid fa-house w-6 text-indigo-400"></i> Home
+                </a>
+                <a href="#categories" onclick="handleMobileLinkClick('#categories')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 active:bg-indigo-600/20 active:text-indigo-400 transition-colors min-h-[44px]">
+                    <i class="fa-solid fa-layer-group w-6 text-indigo-400"></i> Categories
+                </a>
+                <a href="#prompts" onclick="handleMobileLinkClick('#prompts')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 active:bg-indigo-600/20 active:text-indigo-400 transition-colors min-h-[44px]">
+                    <i class="fa-solid fa-fire w-6 text-indigo-400"></i> Top AI Prompts
+                </a>
+                <a href="#ai-tools" onclick="handleMobileLinkClick('#ai-tools')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 active:bg-indigo-600/20 active:text-indigo-400 transition-colors min-h-[44px]">
+                    <i class="fa-solid fa-screwdriver-wrench w-6 text-indigo-400"></i> Browser Utilities
+                </a>
+                <a href="#blog" onclick="handleMobileLinkClick('#blog')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 active:bg-indigo-600/20 active:text-indigo-400 transition-colors min-h-[44px]">
+                    <i class="fa-solid fa-newspaper w-6 text-indigo-400"></i> AI Guides & Articles
+                </a>
+                <a href="#faq" onclick="handleMobileLinkClick('#faq')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 active:bg-indigo-600/20 active:text-indigo-400 transition-colors min-h-[44px]">
+                    <i class="fa-solid fa-circle-question w-6 text-indigo-400"></i> FAQ
+                </a>
+                
+                <div class="pt-4 border-t border-slate-800/80 flex flex-col gap-2">
+                    <button onclick="closeMobileMenu(); openModal('contactModal')" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-indigo-600 active:bg-indigo-700 text-white font-semibold shadow-lg min-h-[44px]">
+                        <i class="fa-solid fa-envelope"></i> Contact Us
+                    </button>
+                    <a href="mailto:huzaimakhan3403@gmail.com" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold min-h-[44px]">
+                        <i class="fa-solid fa-at text-indigo-400"></i> huzaimakhan3403@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="flex-grow">
+        
+        <!-- Hero Section -->
+        <section id="home" class="relative overflow-hidden py-16 sm:py-24 lg:py-32 border-b border-slate-800/50">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_50%)] pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs sm:text-sm font-medium mb-6">
+                    <i class="fa-solid fa-sparkles"></i> Ultimate Prompt Engineering & Tools Hub
+                </span>
+                
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
+                    Unlock Superhuman Productivity with <span class="bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">PromptVerse AI</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+                    Discover battle-tested ChatGPT & Midjourney prompts, plus powerful inline browser utilities designed to streamline your daily workflow.
+                </p>
+
+                <!-- Search Input Bar -->
+                <div class="max-w-2xl mx-auto mb-10">
+                    <div class="relative flex items-center">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400 text-lg pointer-events-none"></i>
+                        <input type="text" id="promptSearch" aria-label="Search AI prompts" oninput="filterPrompts()" placeholder="Search prompts (e.g. SEO, Coding, Marketing)..." 
+                            class="w-full pl-12 pr-28 py-4 rounded-2xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm sm:text-base min-h-[52px]">
+                        <button onclick="filterPrompts()" class="absolute right-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-sm font-semibold transition-colors min-h-[44px] flex items-center">
+                            Search
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Action Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 border-t border-slate-800/60">
+                    <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
+                        <div id="prompt-count" class="text-2xl sm:text-3xl font-extrabold text-white">0</div>
+                        <div class="text-xs sm:text-sm text-slate-400">Available Prompts</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400">4+</div>
+                        <div class="text-xs sm:text-sm text-slate-400">Web Utility Tools</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-white">100%</div>
+                        <div class="text-xs sm:text-sm text-slate-400">Free to Use</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-pink-400">Instant</div>
+                        <div class="text-xs sm:text-sm text-slate-400">Copy & Paste</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="py-16 sm:py-20 border-b border-slate-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mb-4">Browse by Category</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">Filter top prompts according to your creative or professional domain.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
+                    <button onclick="setCategory('all', this)" class="cat-btn active p-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-indigo-500/50 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                        <i class="fa-solid fa-shapes text-2xl text-indigo-400"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-white">All Prompts</span>
+                    </button>
+                    <button onclick="setCategory('Coding', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                        <i class="fa-solid fa-code text-2xl text-blue-400"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-white">Coding</span>
+                    </button>
+                    <button onclick="setCategory('Writing', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                        <i class="fa-solid fa-pen-nib text-2xl text-emerald-400"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-white">Writing</span>
+                    </button>
+                    <button onclick="setCategory('Marketing', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                        <i class="fa-solid fa-chart-line text-2xl text-amber-400"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-white">Marketing</span>
+                    </button>
+                    <button onclick="setCategory('Image Generation', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                        <i class="fa-solid fa-palette text-2xl text-pink-400"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-white">Image Generation</span>
+                    </button>
+                    <button onclick="setCategory('Business', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                        <i class="fa-solid fa-briefcase text-2xl text-purple-400"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-white">Business</span>
+                    </button>
+                    <button onclick="setCategory('Career', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                        <i class="fa-solid fa-user-tie text-2xl text-cyan-400"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-white">Career</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Prompts Section -->
+        <section id="prompts" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                    <div>
+                        <h2 class="text-2xl sm:text-4xl font-bold text-white mb-2">Featured AI Prompts</h2>
+                        <p class="text-slate-400 text-sm sm:text-base">Tap any prompt to copy directly to clipboard.</p>
+                    </div>
+                </div>
+
+                <!-- Prompt Cards Grid -->
+                <div id="prompts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic Prompts rendered via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive AI Browser Utility Tools Section -->
+        <section id="ai-tools" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-900/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-indigo-400">No Installation Required</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1 mb-4">Interactive Browser Utility Tools</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">Boost your writing and prompt crafting with built-in mobile-friendly tools.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Tool 1: Word Counter -->
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-calculator"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Word & Character Counter</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mb-6">Analyze text length, word count, line breaks, and estimated reading time.</p>
+                        </div>
+                        <button onclick="openModal('wordCounterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px]">
+                            Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- Tool 2: Case Converter -->
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-font"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Text Case Converter</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mb-6">Convert prompts to UPPERCASE, lowercase, Title Case, or Capitalized.</p>
+                        </div>
+                        <button onclick="openModal('caseConverterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px]">
+                            Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- Tool 3: Space Cleaner -->
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-broom"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Extra Space Remover</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mb-6">Strip duplicate spaces, clean trailing spaces, and trim messy text snippets.</p>
+                        </div>
+                        <button onclick="openModal('spaceCleanerModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px]">
+                            Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- Tool 4: Text Repeater -->
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-repeat"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Text Repeater Tool</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mb-6">Multiply prompt keywords or phrases N times with custom separators.</p>
+                        </div>
+                        <button onclick="openModal('textRepeaterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px]">
+                            Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Complete Blog System -->
+        <section id="blog" class="py-16 sm:py-20 border-b border-slate-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <span class="text-indigo-400 text-sm font-semibold uppercase">PromptVerse Learning Hub</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mt-3 mb-4">Latest AI Guides &amp; Tutorials</h2>
+                    <p class="text-slate-400">Practical guides to prompt engineering, AI tools, image generation and content creation.</p>
+                </div>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <label for="blog-search" class="sr-only">Search articles</label>
+                    <input id="blog-search" type="search" placeholder="Search AI guides and tutorials..." class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 px-4 text-white">
+                </div>
+                <div id="blog-filters" class="flex flex-wrap justify-center gap-2 mb-10">
+                    <button data-filter="all" class="blog-filter px-4 py-2 rounded-full bg-indigo-600 text-white text-sm">All articles</button>
+                    <button data-filter="Prompt Engineering" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Prompt Engineering</button>
+                    <button data-filter="ChatGPT Guides" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">ChatGPT Guides</button>
+                    <button data-filter="Image Generation" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Image Generation</button>
+                    <button data-filter="AI Tools" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">AI Tools</button>
+                    <button data-filter="Marketing" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Marketing</button>
+                </div>
+                <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                    <article data-blog-card data-category="Prompt Engineering" data-title="how to craft perfect chatgpt system prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
+                        <a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80" alt="How to Craft Perfect ChatGPT System Prompts" class="w-full h-48 object-cover" loading="lazy"></a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-semibold text-indigo-400 mb-2">Prompt Engineering</span>
+                            <h3 class="text-lg font-bold text-white mb-3">How to Craft Perfect ChatGPT System Prompts</h3>
+                            <p class="text-slate-400 text-sm mb-5 flex-grow">Learn a practical framework for clear system prompts using roles, context, rules, examples and output formats.</p>
+                            <a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </article>
+                    <article data-blog-card data-category="ChatGPT Guides" data-title="10 best chatgpt prompts for everyday tasks" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
+                        <a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80" alt="10 Best ChatGPT Prompts for Everyday Tasks" class="w-full h-48 object-cover" loading="lazy"></a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-semibold text-indigo-400 mb-2">ChatGPT Guides</span>
+                            <h3 class="text-lg font-bold text-white mb-3">10 Best ChatGPT Prompts for Everyday Tasks</h3>
+                            <p class="text-slate-400 text-sm mb-5 flex-grow">Ten adaptable ChatGPT prompts for planning, writing, learning, organizing work and everyday problem-solving.</p>
+                            <a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </article>
+                    <!-- FIXED: Fixed the Image Generation article card below -->
+                    <article data-blog-card data-category="Image Generation" data-title="how to write better ai image generation prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
+                        <a href="/blog/how-to-write-better-ai-image-generation-prompts.html"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&q=80" alt="How to Write Better AI Image Generation Prompts" class="w-full h-48 object-cover" loading="lazy"></a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-semibold text-indigo-400 mb-2">Image Generation</span>
+                            <h3 class="text-lg font-bold text-white mb-3">How to Write Better AI Image Generation Prompts</h3>
+                            <p class="text-slate-400 text-sm mb-5 flex-grow">A practical guide to subjects, composition, lighting, style and iteration for stronger AI images.</p>
+                            <a href="/blog/how-to-write-better-ai-image-generation-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </article>
+                    <article data-blog-card data-category="AI Tools" data-title="chatgpt vs other ai tools: what should you use?" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
+                        <a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html"><img src="https://images.unsplash.com/photo-1676299081847-824916de030a?w=900&q=80" alt="ChatGPT vs Other AI Tools: What Should You Use?" class="w-full h-48 object-cover" loading="lazy"></a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-semibold text-indigo-400 mb-2">AI Tools</span>
+                            <h3 class="text-lg font-bold text-white mb-3">ChatGPT vs Other AI Tools: What Should You Use?</h3>
+                            <p class="text-slate-400 text-sm mb-5 flex-grow">Choose an AI assistant by comparing task fit, features, privacy, integrations, cost and workflow.</p>
+                            <a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </article>
+                    <article data-blog-card data-category="Marketing" data-title="how to use ai for content creation and marketing" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
+                        <a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80" alt="How to Use AI for Content Creation and Marketing" class="w-full h-48 object-cover" loading="lazy"></a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-semibold text-indigo-400 mb-2">Marketing</span>
+                            <h3 class="text-lg font-bold text-white mb-3">How to Use AI for Content Creation and Marketing</h3>
+                            <p class="text-slate-400 text-sm mb-5 flex-grow">Build an AI-assisted workflow for research, outlines, drafting, repurposing, SEO and editorial review.</p>
+                            <a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </article>
+                    <!-- CMS_MANAGED_BLOG_CARDS -->
+                </div>
+                <p id="blog-empty" class="hidden text-center text-slate-400 py-10">No articles match your search.</p>
+            </div>
+        </section>
+        
+        <script>
+        (()=>{const q=document.getElementById('blog-search'),cards=[...document.querySelectorAll('[data-blog-card]')],btns=[...document.querySelectorAll('.blog-filter')],empty=document.getElementById('blog-empty');let cat='all';function apply(){let n=0;cards.forEach(c=>{const ok=(cat==='all'||c.dataset.category===cat)&&c.dataset.title.includes(q.value.trim().toLowerCase());c.classList.toggle('hidden',!ok);if(ok)n++;});empty.classList.toggle('hidden',n>0);}btns.forEach(b=>b.addEventListener('click',()=>{cat=b.dataset.filter;btns.forEach(x=>x.classList.remove('bg-indigo-600','text-white'));b.classList.add('bg-indigo-600','text-white');apply();}));q.addEventListener('input',apply);})();
+        </script>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-950">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">Everything you need to know about PromptVerse AI.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                        <h3 class="font-bold text-white text-base sm:text-lg mb-2">Are all prompts and tools free to use?</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Yes! PromptVerse AI is completely free. You can copy prompts, use browser tools, and read guides without registration or payment.</p>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                        <h3 class="font-bold text-white text-base sm:text-lg mb-2">How do I submit new prompt suggestions?</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">You can directly email our team at <a href="mailto:huzaimakhan3403@gmail.com" class="text-indigo-400 underline font-medium">huzaimakhan3403@gmail.com</a> or use the Contact Us modal form on this page.</p>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                        <h3 class="font-bold text-white text-base sm:text-lg mb-2">Do the browser utilities collect my text data?</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">No. All utility tools (Word Counter, Case Converter, Space Cleaner, Repeater) process text locally right inside your client-side web browser. Your data never touches a server.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Email Banner Section -->
+        <section class="py-16 bg-gradient-to-r from-indigo-900/40 via-purple-900/30 to-slate-900 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Have Questions or Suggestions?</h2>
+                <p class="text-slate-300 max-w-xl mx-auto mb-8 text-sm sm:text-base">Reach out to us directly for custom AI prompt design or platform support.</p>
+                <div class="inline-flex flex-col sm:flex-row items-center gap-4">
+                    <a href="mailto:huzaimakhan3403@gmail.com" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-base transition-all shadow-xl shadow-indigo-600/30 flex items-center justify-center gap-3 min-h-[48px]">
+                        <i class="fa-solid fa-envelope"></i> Email: huzaimakhan3403@gmail.com
+                    </a>
+                    <button onclick="copyToClipboard('huzaimakhan3403@gmail.com', 'Email address copied!')" class="w-full sm:w-auto px-6 py-4 rounded-2xl bg-slate-900 border border-slate-700 hover:bg-slate-800 text-white font-bold text-base transition-colors flex items-center justify-center gap-2 min-h-[48px]">
+                        <i class="fa-regular fa-copy"></i> Copy Email
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Trust, About and Policy Information -->
+    <section id="about" class="py-14 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-4">About PromptVerse AI</h2>
+            <p class="text-slate-300 leading-relaxed">PromptVerse AI is a free online resource that organizes example prompts and provides simple browser-based text utilities. The website is intended to help visitors structure instructions for AI tools and improve everyday writing workflows. Prompt results may vary depending on the AI service used. PromptVerse AI is an independent resource and is not affiliated with or endorsed by OpenAI, Midjourney, or other third-party AI providers.</p>
+            <p class="text-slate-400 mt-4">Questions or feedback: <a class="text-indigo-400 underline" href="mailto:huzaimakhan3403@gmail.com">huzaimakhan3403@gmail.com</a></p>
+        </div>
+    </section>
+
+    <section id="privacy-policy" class="py-14 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-4">Privacy Policy</h2>
+            <p class="text-slate-400 text-sm mb-4">Last updated: November 11, 2026</p>
+            <div class="space-y-4 text-slate-300 leading-relaxed">
+                <h3 class="text-lg font-semibold text-white">Information and contact</h3>
+                <p>When you contact us by email, the information you send may be used to respond to your request. The contact form is processed by Formspree, a third-party form service; the name, email address and message you submit are sent to that service and may be processed according to its privacy policy. Do not submit passwords, payment details, or other sensitive information through the contact form.</p>
+                <h3 class="text-lg font-semibold text-white">Browser utilities</h3>
+                <p>The Word Counter, Text Case Converter, Extra Space Remover and Text Repeater run in your browser. Text entered into these tools is processed on your device and is not intentionally sent to the PromptVerse AI website server. This statement does not cover third-party services you choose to open or use.</p>
+                <h3 class="text-lg font-semibold text-white">Cookies, analytics and advertising</h3>
+                <p>This website uses Google Analytics to understand website usage. Google Analytics may use cookies or similar technologies to collect information about visits and interactions, subject to Google's policies and your available browser settings.</p>
+                <p>Advertising scripts and sponsored placements are currently disabled on this website. If advertising is introduced later, this policy will be updated to explain the relevant providers and data practices.</p>
+                <h3 class="text-lg font-semibold text-white">Third-party websites</h3>
+                <p>Our pages may link to third-party websites. Those websites have their own privacy policies and practices. We do not control how third parties collect or use information.</p>
+                <h3 class="text-lg font-semibold text-white">Policy updates and contact</h3>
+                <p>We may update this policy when our website or services change. For privacy questions, contact <a class="text-indigo-400 underline" href="mailto:huzaimakhan3403@gmail.com">huzaimakhan3403@gmail.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="terms" class="py-14 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-4">Terms &amp; Conditions</h2>
+            <div class="space-y-4 text-slate-300 leading-relaxed">
+                <p>By accessing PromptVerse AI, you agree to use this website lawfully and responsibly. You are responsible for reviewing and adapting prompts before using them with any third-party AI service.</p>
+                <p>Prompts, guides and browser utilities are provided for general informational and productivity purposes. We do not guarantee that an AI tool will produce accurate, complete, original, or suitable results.</p>
+                <p>You must not use this website to violate laws, infringe intellectual property rights, distribute harmful content, or interfere with the website's operation. You should independently verify important information generated by AI.</p>
+                <p>Third-party services and links are governed by their own terms. We may update website content or these terms as the service changes. Questions can be sent to <a class="text-indigo-400 underline" href="mailto:huzaimakhan3403@gmail.com">huzaimakhan3403@gmail.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="disclaimer" class="py-14 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-4">Disclaimer</h2>
+            <div class="space-y-4 text-slate-300 leading-relaxed">
+                <p>PromptVerse AI provides example prompts, educational material and browser-based utilities on an “as is” basis. We make no warranties about the accuracy, reliability, availability or suitability of outputs produced by third-party AI tools.</p>
+                <p>References to third-party products and services are for identification and informational purposes. Their names and trademarks belong to their respective owners. PromptVerse AI is not affiliated with those providers unless explicitly stated.</p>
+                <p>Any future sponsored links or referral placements will be clearly identified. Visitors should review third-party destination websites before using their services.</p>
+                <p>Always check AI-generated content before relying on it, publishing it, or using it for professional, legal, financial, medical or other important decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-8 text-center text-slate-500 text-sm">
+        <nav aria-label="Footer navigation" class="flex flex-wrap justify-center gap-x-6 gap-y-3 px-4 mb-5">
+            <a href="#about" class="hover:text-indigo-400">About Us</a>
+            <a href="#privacy-policy" class="hover:text-indigo-400">Privacy Policy</a>
+            <a href="#terms" class="hover:text-indigo-400">Terms &amp; Conditions</a>
+            <a href="#disclaimer" class="hover:text-indigo-400">Disclaimer</a>
+            <a href="#contact" class="hover:text-indigo-400">Contact</a>
+        </nav>
+        <p>&copy; 2026 PromptVerse Official. All rights reserved.</p>
+    </footer>
+
+    <!-- All Modals (Contact, Tools, Blog) -->
+    <div id="contactModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 relative">
+            <button onclick="closeModal('contactModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-xl font-bold text-white mb-2">Contact Us</h3>
+            <p class="text-slate-400 text-sm mb-4">Send us your feedback or questions directly.</p>
+            <div class="space-y-4">
+                <a href="mailto:huzaimakhan3403@gmail.com" class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-envelope"></i> huzaimakhan3403@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Word Counter Modal -->
+    <div id="wordCounterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
+            <button onclick="closeModal('wordCounterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-white mb-2">Word & Character Counter</h3>
+            <textarea id="wcInput" oninput="runWordCounter()" rows="4" placeholder="Type or paste your text here..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+            <div class="grid grid-cols-3 gap-3 text-center">
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcWords" class="text-lg font-bold text-indigo-400">0</div><div class="text-xs text-slate-400">Words</div></div>
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcChars" class="text-lg font-bold text-indigo-400">0</div><div class="text-xs text-slate-400">Characters</div></div>
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcReadTime" class="text-lg font-bold text-indigo-400">0s</div><div class="text-xs text-slate-400">Read Time</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Converter Modal -->
+    <div id="caseConverterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
+            <button onclick="closeModal('caseConverterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-white mb-2">Text Case Converter</h3>
+            <textarea id="ccInput" rows="3" placeholder="Type your text..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="convertCase('upper')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">UPPERCASE</button>
+                <button onclick="convertCase('lower')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">lowercase</button>
+                <button onclick="convertCase('title')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">Title Case</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Space Cleaner Modal -->
+    <div id="spaceCleanerModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
+            <button onclick="closeModal('spaceCleanerModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-white mb-2">Extra Space Remover</h3>
+            <textarea id="scInput" rows="4" placeholder="Paste messy text with extra spaces..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+            <button onclick="cleanSpaces()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl">Remove Extra Spaces</button>
+        </div>
+    </div>
+
+    <!-- Text Repeater Modal -->
+    <div id="textRepeaterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
+            <button onclick="closeModal('textRepeaterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-white mb-2">Text Repeater Tool</h3>
+            <input type="text" id="trText" placeholder="Text to repeat" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none">
+            <input type="number" id="trCount" value="5" min="1" max="100" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none">
+            <button onclick="repeatText()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl">Repeat Text</button>
+            <textarea id="trOutput" rows="3" readonly placeholder="Output..." class="w-full p-3 mt-3 rounded-xl bg-slate-950 border border-slate-800 text-white outline-none"></textarea>
+        </div>
+    </div>
+
+    <!-- Blog Article Modal -->
+    <div id="blogModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-xl w-full p-6 relative">
+            <button onclick="closeModal('blogModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 id="blogTitle" class="text-xl font-bold text-white mb-4"></h3>
+            <p id="blogContent" class="text-slate-300 text-sm leading-relaxed"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Dynamic JSON Loading & Interactivity -->
+    <script>
+        let allPrompts = [];
+        let currentCategory = 'all';
+
+        function escapeHTML(value) {
+            return String(value ?? '').replace(/[&<>"']/g, char => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            })[char]);
+        }
+
+        async function loadPrompts() {
+            const grid = document.getElementById('prompts-grid');
+            try {
+                const response = await fetch('./prompts.json', { cache: 'no-cache' });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                if (!Array.isArray(data)) throw new Error('prompts.json must contain an array');
+                allPrompts = data.filter(item => item && item.id !== undefined && typeof item.title === 'string' && typeof item.category === 'string' && typeof item.prompt === 'string');
+                if (!allPrompts.length) throw new Error('No valid prompt records were found in prompts.json');
+                renderPrompts(allPrompts);
+                const count = document.getElementById('prompt-count');
+                if (count) count.textContent = allPrompts.length;
+            } catch (error) {
+                console.error('Error loading prompts.json:', error);
+                if (grid) {
+                    grid.innerHTML = '<div class="col-span-full text-center py-12 text-amber-300">Prompts could not be loaded. Please check that prompts.json is uploaded beside index.html.</div>';
+                }
+            }
+        }
+
+        function renderPrompts(prompts) {
+            const grid = document.getElementById('prompts-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            if (!prompts.length) {
+                grid.innerHTML = '<div class="col-span-full text-center py-12 text-slate-400">No prompts found matching your search.</div>';
+                return;
+            }
+
+            prompts.forEach(promptItem => {
+                const card = document.createElement('article');
+                card.className = 'bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition-all shadow-lg';
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">${escapeHTML(promptItem.category)}</span>
+                            <span class="text-xs text-slate-500">#${escapeHTML(promptItem.id)}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">${escapeHTML(promptItem.title)}</h3>
+                        <p class="text-slate-400 text-sm mb-4">${escapeHTML(promptItem.desc)}</p>
+                        <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3 mb-4 text-xs font-mono text-slate-300 max-h-24 overflow-y-auto whitespace-pre-wrap">${escapeHTML(promptItem.prompt)}</div>
+                        <div class="flex flex-wrap gap-2 mb-4">${(Array.isArray(promptItem.tags) ? promptItem.tags : []).map(tag => `<span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded-lg">${escapeHTML(tag)}</span>`).join('')}</div>
+                    </div>
+                    <button type="button" class="copy-prompt-btn w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copy Prompt
+                    </button>`;
+                card.querySelector('.copy-prompt-btn').addEventListener('click', () => {
+                    copyToClipboard(promptItem.prompt, 'Prompt copied to clipboard!');
+                });
+                grid.appendChild(card);
+            });
+        }
+
+        function setCategory(category, button) {
+            currentCategory = category;
+            document.querySelectorAll('.cat-btn').forEach(item => {
+                item.classList.remove('border-indigo-500/50', 'bg-slate-900');
+                item.classList.add('bg-slate-900/60', 'border-slate-800');
+            });
+            if (button) {
+                button.classList.remove('bg-slate-900/60', 'border-slate-800');
+                button.classList.add('border-indigo-500/50', 'bg-slate-900');
+            }
+            filterPrompts();
+        }
+
+        function filterPrompts() {
+            const searchInput = document.getElementById('promptSearch');
+            const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+            const filtered = allPrompts.filter(item => {
+                const categoryMatch = currentCategory === 'all' ||
+                    String(item.category || '').toLowerCase() === currentCategory.toLowerCase();
+                const searchable = [
+                    item.title, item.desc, item.prompt, item.category,
+                    ...(Array.isArray(item.tags) ? item.tags : [])
+                ].join(' ').toLowerCase();
+                return categoryMatch && searchable.includes(query);
+            });
+            renderPrompts(filtered);
+        }
+
+        async function copyToClipboard(text, message) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(String(text));
+                } else {
+                    const temporary = document.createElement('textarea');
+                    temporary.value = String(text);
+                    temporary.style.position = 'fixed';
+                    temporary.style.opacity = '0';
+                    document.body.appendChild(temporary);
+                    temporary.select();
+                    const copied = document.execCommand('copy');
+                    temporary.remove();
+                    if (!copied) throw new Error('Copy command failed');
+                }
+                showToast(message || 'Copied!');
+            } catch (error) {
+                console.error('Clipboard error:', error);
+                showToast('Unable to copy. Please select and copy the text manually.');
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const messageNode = document.getElementById('toast-message');
+            if (!toast || !messageNode) return;
+            messageNode.innerText = message;
+            toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+            clearTimeout(window.promptVerseToastTimer);
+            window.promptVerseToastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.add('hidden');
+        }
+
+        function handleMobileLinkClick(target) {
+            closeMobileMenu();
+            window.location.hash = target;
+        }
+
+        function runWordCounter() {
+            const text = document.getElementById('wcInput').value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            document.getElementById('wcWords').innerText = words;
+            document.getElementById('wcChars').innerText = text.length;
+            document.getElementById('wcReadTime').innerText = Math.ceil(words / 200) + 's';
+        }
+
+        function convertCase(type) {
+            let text = document.getElementById('ccInput').value;
+            if (type === 'upper') text = text.toUpperCase();
+            if (type === 'lower') text = text.toLowerCase();
+            if (type === 'title') text = text.replace(/\w\S*/g, word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+            document.getElementById('ccInput').value = text;
+        }
+
+        function cleanSpaces() {
+            const input = document.getElementById('scInput');
+            input.value = input.value.replace(/\s+/g, ' ').trim();
+            showToast('Extra spaces removed!');
+        }
+
+        function repeatText() {
+            const text = document.getElementById('trText').value;
+            const count = Math.min(100, Math.max(1, parseInt(document.getElementById('trCount').value, 10) || 1));
+            document.getElementById('trOutput').value = Array(count).fill(text).join('\n');
+        }
+
+        function openBlogArticle(title, content) {
+            document.getElementById('blogTitle').innerText = title;
+            document.getElementById('blogContent').innerText = content;
+            openModal('blogModal');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadPrompts);
+    </script>
+    
+    <!-- Connect Us / Contact Section Start -->
+    <section id="contact" class="py-20 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    Connect With Us
+                </h2>
+                <p class="mt-4 text-lg text-slate-400">
+                    Have a question, feedback, or want to collaborate? Drop us a message below!
+                </p>
+            </div>
+
+            <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl">
+                <form action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-6">
+                    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
+                    
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-slate-300">Your Name</label>
+                        <input type="text" name="name" id="name" required
+                            class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                            placeholder="John Doe">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-300">Your Email</label>
+                        <input type="email" name="email" id="email" required
+                            class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                            placeholder="huzaimakhan3403@gmail.com">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-slate-300">Your Message</label>
+                        <textarea name="message" id="message" rows="4" required
+                            class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                            placeholder="Write your message here..."></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                            class="w-full py-3 px-6 text-white font-medium bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-lg shadow-indigo-500/20">
+                            Send Message
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Connect Us / Contact Section End -->
+</body>
+</html>
