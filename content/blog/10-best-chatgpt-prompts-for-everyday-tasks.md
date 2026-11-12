@@ -4,7 +4,7 @@ slug: "10-best-chatgpt-prompts-for-everyday-tasks"
 date: "2026-11-11"
 category: "ChatGPT Guides"
 description: "Ten adaptable ChatGPT prompts for planning, writing, learning, organizing work and everyday problem-solving."
-featured_image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=85"
+featured_image: "/images/blog-chatgpt-prompts.svg"
 image_alt: "10 Best ChatGPT Prompts for Everyday Tasks"
 draft: false
 seo_title: "10 Best ChatGPT Prompts for Everyday Tasks | PromptVerse AI"
