@@ -4,7 +4,7 @@ slug: "how-to-write-better-ai-image-generation-prompts"
 date: "2026-11-11"
 category: "Image Generation"
 description: "A practical guide to subjects, composition, lighting, style and iteration for stronger AI images."
-featured_image: "/images/blog-image-generation.svg"
+featured_image: "/images/ai-image-prompt-guide.svg"
 image_alt: "How to Write Better AI Image Generation Prompts"
 draft: false
 seo_title: "How to Write Better AI Image Generation Prompts | PromptVerse AI"
