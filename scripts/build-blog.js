@@ -7,6 +7,7 @@ const ROOT = process.cwd();
 const OUT = path.join(ROOT, 'dist');
 const BASE = 'https://promptverse-official.vercel.app';
 const md = new MarkdownIt({ html: false, linkify: true, typographer: true });
+const FALLBACK_IMAGE = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 675%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x2=%221%22 y2=%221%22%3E%3Cstop stop-color=%22%230f172a%22/%3E%3Cstop offset=%221%22 stop-color=%22%234f46e5%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%221200%22 height=%22675%22 fill=%22url(%23g)%22/%3E%3Ctext x=%22600%22 y=%22310%22 fill=%22white%22 font-family=%22Arial,sans-serif%22 font-size=%2264%22 font-weight=%22700%22 text-anchor=%22middle%22%3EPromptVerse AI%3C/text%3E%3Ctext x=%22600%22 y=%22380%22 fill=%22%23c7d2fe%22 font-family=%22Arial,sans-serif%22 font-size=%2228%22 text-anchor=%22middle%22%3EPractical AI Guides%3C/text%3E%3C/svg%3E';
 
 function esc(value = '') {
   return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
@@ -30,7 +31,7 @@ function cards(posts) {
     const url = '/blog/' + p.slug + '.html';
     const image = p.featured_image || '/images/blog-system-prompts.svg';
     return '<article data-blog-card data-category="' + esc(p.category || 'AI Guides') + '" data-title="' + esc(p.title.toLowerCase()) + '" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">' +
-      '<a href="' + url + '"><img src="' + esc(image) + '" alt="' + esc(p.image_alt || p.title) + '" class="w-full h-48 object-cover" loading="lazy"></a>' +
+      '<a href="' + url + '" class="block bg-slate-900"><img src="' + esc(image) + '" alt="' + esc(p.image_alt || p.title) + '" class="w-full h-48 object-cover" width="1200" height="675" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=\'' + FALLBACK_IMAGE + '\'"></a>' +
       '<div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">' + esc(p.category || 'AI Guides') + '</span>' +
       '<h3 class="text-lg font-bold text-white mb-3">' + esc(p.title) + '</h3><p class="text-slate-400 text-sm mb-5 flex-grow">' + esc(p.description || '') + '</p>' +
       '<a href="' + url + '" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article>';
@@ -64,7 +65,7 @@ function article(p) {
     '<style>article.prose h2{font-size:1.6rem;font-weight:700;color:#fff;margin:2.2rem 0 1rem}article.prose h3{font-size:1.25rem;font-weight:700;color:#fff;margin:1.6rem 0 .8rem}article.prose p,article.prose li{color:#cbd5e1;line-height:2;margin:.8rem 0}article.prose a{color:#a5b4fc;text-decoration:underline}article.prose ul,article.prose ol{padding-left:1.5rem;list-style:disc}article.prose blockquote{border-left:3px solid #6366f1;padding-left:1rem;color:#cbd5e1}</style></head>' +
     '<body class="bg-slate-950 text-slate-100 min-h-screen"><header class="border-b border-slate-800"><div class="max-w-6xl mx-auto px-5 py-5 flex justify-between"><a href="/" class="font-bold text-xl"><span class="text-indigo-400">Prompt</span>Verse AI</a><nav class="flex gap-5 text-sm text-slate-300"><a href="/#prompts">Prompts</a><a href="/#ai-tools">Tools</a><a href="/#blog" class="text-indigo-300">Blog</a></nav></div></header>' +
     '<main class="max-w-6xl mx-auto px-5 py-12"><div class="max-w-4xl mx-auto"><a href="/#blog" class="text-indigo-300 text-sm">← All articles</a><div class="mt-8 mb-6"><span class="text-indigo-300 text-sm font-semibold">' + esc(p.category || 'AI Guides') + '</span><h1 class="text-3xl md:text-5xl font-extrabold leading-tight mt-3 mb-5">' + esc(p.title) + '</h1><p class="text-sm text-slate-500">' + esc(date) + ' · PromptVerse Editorial Team</p></div>' +
-    (p.featured_image ? '<img src="' + esc(image) + '" alt="' + esc(p.image_alt || p.title) + '" class="w-full aspect-[16/8] object-cover rounded-3xl border border-slate-800 mb-8">' : '') +
+    '<img src="' + esc(image) + '" alt="' + esc(p.image_alt || p.title) + '" class="w-full aspect-[16/8] object-cover rounded-3xl border border-slate-800 mb-8" width="1200" height="675" decoding="async" onerror="this.onerror=null;this.src=\'' + FALLBACK_IMAGE + '\'">' +
     '<div class="grid md:grid-cols-[230px_1fr] gap-10">' + toc + '<article class="prose min-w-0">' + rendered + '<div class="border-t border-slate-800 mt-10 pt-7"><h2 class="font-bold text-xl mb-4">Explore PromptVerse AI</h2><div class="flex flex-wrap gap-3"><a href="/#prompts" class="px-4 py-2 rounded-xl bg-slate-800 text-sm">AI Prompts</a><a href="/#ai-tools" class="px-4 py-2 rounded-xl bg-slate-800 text-sm">Free Web Tools</a><a href="/#blog" class="px-4 py-2 rounded-xl bg-indigo-600 text-sm">More AI Guides</a></div></div></article></div></div></main>' +
     '<footer class="border-t border-slate-800 py-8 text-center text-sm text-slate-500"><a href="/" class="text-indigo-300">PromptVerse AI</a> · Free AI prompts, tools and practical guides.</footer></body></html>';
 }
