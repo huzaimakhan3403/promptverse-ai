@@ -4,7 +4,7 @@ slug: "how-to-craft-perfect-chatgpt-system-prompts"
 date: "2026-11-11"
 category: "Prompt Engineering"
 description: "Learn a practical framework for clear system prompts using roles, context, rules, examples and output formats."
-featured_image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=85"
+featured_image: "/images/blog-system-prompts.svg"
 image_alt: "How to Craft Perfect ChatGPT System Prompts"
 draft: false
 seo_title: "How to Craft Perfect ChatGPT System Prompts | PromptVerse AI"
