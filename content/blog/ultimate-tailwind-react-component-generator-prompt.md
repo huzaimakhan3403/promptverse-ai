@@ -5,6 +5,7 @@ date: 2026-11-12
 category: Prompt Engineering
 description: Generate production-ready Tailwind CSS and React components
   instantly with this advanced master prompt.
+featured_image: /uploads/9a7cc57c-fea4-47a5-868a-aca8196bde01.webp
 draft: false
 seo_title: Ultimate Tailwind & React Component Generator Prompt (2026)
 seo_description: Generate responsive Tailwind CSS and React components
