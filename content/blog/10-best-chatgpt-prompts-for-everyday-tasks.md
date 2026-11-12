@@ -1,16 +1,17 @@
 ---
-title: "10 Best ChatGPT Prompts for Everyday Tasks"
-slug: "10-best-chatgpt-prompts-for-everyday-tasks"
-date: "2026-11-11"
-category: "ChatGPT Guides"
-description: "Ten adaptable ChatGPT prompts for planning, writing, learning, organizing work and everyday problem-solving."
-featured_image: "/images/blog-chatgpt-prompts.svg"
-image_alt: "10 Best ChatGPT Prompts for Everyday Tasks"
+title: 10 Best ChatGPT Prompts for Everyday Tasks
+slug: 10-best-chatgpt-prompts-for-everyday-tasks
+date: 2026-11-11
+category: ChatGPT Guides
+description: Ten adaptable ChatGPT prompts for planning, writing, learning,
+  organizing work and everyday problem-solving.
+featured_image: /uploads/photo-1676573408178-a5f280c3a320.avif
+image_alt: 10 Best ChatGPT Prompts for Everyday Tasks
 draft: false
-seo_title: "10 Best ChatGPT Prompts for Everyday Tasks | PromptVerse AI"
-seo_description: "Ten adaptable ChatGPT prompts for planning, writing, learning, organizing work and everyday problem-solving."
+seo_title: 10 Best ChatGPT Prompts for Everyday Tasks | PromptVerse AI
+seo_description: Ten adaptable ChatGPT prompts for planning, writing, learning,
+  organizing work and everyday problem-solving.
 ---
-
 Useful prompts explain what you need, provide context and describe the answer you want. These templates are starting points: personalize the bracketed details for your situation.
 
 ## 1. Plan your day
