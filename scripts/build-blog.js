@@ -28,7 +28,7 @@ function readPosts() {
 function cards(posts) {
   return posts.map(p => {
     const url = '/blog/' + p.slug + '.html';
-    const image = p.featured_image || 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80';
+    const image = p.featured_image || '/images/blog-system-prompts.svg';
     return '<article data-blog-card data-category="' + esc(p.category || 'AI Guides') + '" data-title="' + esc(p.title.toLowerCase()) + '" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">' +
       '<a href="' + url + '"><img src="' + esc(image) + '" alt="' + esc(p.image_alt || p.title) + '" class="w-full h-48 object-cover" loading="lazy"></a>' +
       '<div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">' + esc(p.category || 'AI Guides') + '</span>' +
@@ -54,7 +54,7 @@ function article(p) {
   }
   const rendered = md.renderer.render(tokens, md.options, {});
   const toc = headings.length ? '<aside class="md:sticky md:top-6 md:self-start bg-slate-900 border border-slate-800 rounded-2xl p-5"><h2 class="font-bold mb-4">On this page</h2><ol class="space-y-3 list-decimal list-inside text-sm">' + headings.map(h => '<li><a class="text-indigo-300 hover:text-indigo-200" href="#' + esc(h.id) + '">' + esc(h.text) + '</a></li>').join('') + '</ol></aside>' : '';
-  const image = p.featured_image || 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=85';
+  const image = p.featured_image || '/images/blog-system-prompts.svg';
   const date = p.date ? new Date(p.date).toISOString().slice(0,10) : new Date().toISOString().slice(0,10);
   const schema = {'@context':'https://schema.org','@type':'Article','headline':p.title,'description':description,'image':image,'mainEntityOfPage':url,'datePublished':date,'dateModified':date,'articleSection':p.category || 'AI Guides','author':{'@type':'Organization','name':'PromptVerse AI'},'publisher':{'@type':'Organization','name':'PromptVerse AI'}};
   return '<!doctype html><html lang="en" class="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
