@@ -14,20 +14,20 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>PromptVerse AI | Free AI Prompts & Online Text Tools</title>
+    <title>PromptVerse AI | Free AI Prompts, Prompt Library &amp; Text Tools</title>
     <meta name="google-site-verification" content="QduN13fPY_XGVYsfFZ8jV6ZJMjR0O-vBuIrefwT4Np0" />
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://promptverse-official.vercel.app/" />
-    <meta property="og:title" content="PromptVerse AI - Ultimate AI Prompts & Utility Tools Hub" />
-    <meta property="og:description" content="Discover AI prompts, tools, and resources on PromptVerse." />
+    <meta property="og:title" content="PromptVerse AI | Free AI Prompts, Prompt Library &amp; Text Tools" />
+    <meta property="og:description" content="Explore practical AI prompts, a searchable prompt library, free browser-based text tools, and step-by-step AI guides." />
     <meta property="og:image" content="https://promptverse-official.vercel.app/og-image.jpg" />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://promptverse-official.vercel.app/" />
-    <meta name="twitter:title" content="PromptVerse AI - Ultimate AI Prompts & Utility Tools Hub" />
-    <meta name="twitter:description" content="Discover AI prompts, tools, and resources on PromptVerse." />
+    <meta name="twitter:title" content="PromptVerse AI | Free AI Prompts, Prompt Library &amp; Text Tools" />
+    <meta name="twitter:description" content="Explore practical AI prompts, a searchable prompt library, free browser-based text tools, and step-by-step AI guides." />
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -67,6 +67,11 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
         /* Custom Mobile Scrollbars & Smooth transitions */
         .glass-nav {
@@ -84,7 +89,7 @@
     </style>
 
     <!-- Additional SEO metadata (original page content retained) -->
-    <meta name="description" content="Explore practical AI prompts for writing, coding, marketing, business, careers and image generation, plus free online text tools and guides from PromptVerse AI.">
+    <meta name="description" content="Explore practical AI prompts for writing, coding, marketing, business and image generation. Search reusable prompt templates, use free browser-based text tools, and learn with clear AI guides from PromptVerse AI.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="PromptVerse Official">
@@ -177,7 +182,7 @@
                     </button>
 
                     <!-- Mobile Menu Toggle Button (Strict 44px+ Touch Target) -->
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu" class="md:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors">
                         <i id="menu-icon" class="fa-solid fa-bars text-lg"></i>
                     </button>
                 </div>
@@ -235,7 +240,7 @@
                 </h1>
                 
                 <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-                    Discover battle-tested ChatGPT & Midjourney prompts, plus powerful inline browser utilities designed to streamline your daily workflow.
+                    Explore practical, reusable prompts for writing, coding, marketing and image creation, then use free browser-based text tools and clear guides to improve your everyday workflow.
                 </p>
 
                 <!-- Search Input Bar -->
@@ -401,7 +406,7 @@
             </div>
         </section>
 
-        <!-- Complete Blog System --><section id="blog" class="py-16 sm:py-20 border-b border-slate-800/50"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-3xl mx-auto mb-10"><span class="text-indigo-400 text-sm font-semibold uppercase">PromptVerse Learning Hub</span><h2 class="text-2xl sm:text-4xl font-bold text-white mt-3 mb-4">Latest AI Guides &amp; Tutorials</h2><p class="text-slate-400">Practical guides to prompt engineering, AI tools, image generation and content creation.</p></div><div class="max-w-2xl mx-auto mb-8"><label for="blog-search" class="sr-only">Search articles</label><input id="blog-search" type="search" placeholder="Search AI guides and tutorials..." class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 px-4 text-white"></div><div id="blog-filters" class="flex flex-wrap justify-center gap-2 mb-10"><button data-filter="all" class="blog-filter px-4 py-2 rounded-full bg-indigo-600 text-white text-sm">All articles</button><button data-filter="Prompt Engineering" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Prompt Engineering</button><button data-filter="ChatGPT Guides" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">ChatGPT Guides</button><button data-filter="Image Generation" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Image Generation</button><button data-filter="AI Tools" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">AI Tools</button><button data-filter="Marketing" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Marketing</button></div><div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"><article data-blog-card data-category="Prompt Engineering" data-title="how to craft perfect chatgpt system prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80" alt="How to Craft Perfect ChatGPT System Prompts" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">Prompt Engineering</span><h3 class="text-lg font-bold text-white mb-3">How to Craft Perfect ChatGPT System Prompts</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Learn a practical framework for clear system prompts using roles, context, rules, examples and output formats.</p><a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="ChatGPT Guides" data-title="10 best chatgpt prompts for everyday tasks" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80" alt="10 Best ChatGPT Prompts for Everyday Tasks" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">ChatGPT Guides</span><h3 class="text-lg font-bold text-white mb-3">10 Best ChatGPT Prompts for Everyday Tasks</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Ten adaptable ChatGPT prompts for planning, writing, learning, organizing work and everyday problem-solving.</p><a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="Image Generation" data-title="how to write better ai image generation prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/how-to-write-better-ai-image-generation-prompts.html"><img src="https://images.unsplash.com/photo-1686191128892-3b6b3c2f1c4e?w=900&q=80" alt="How to Write Better AI Image Generation Prompts" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">Image Generation</span><h3 class="text-lg font-bold text-white mb-3">How to Write Better AI Image Generation Prompts</h3><p class="text-slate-400 text-sm mb-5 flex-grow">A practical guide to subjects, composition, lighting, style and iteration for stronger AI images.</p><a href="/blog/how-to-write-better-ai-image-generation-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="AI Tools" data-title="chatgpt vs other ai tools: what should you use?" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html"><img src="https://images.unsplash.com/photo-1676299081847-824916de030a?w=900&q=80" alt="ChatGPT vs Other AI Tools: What Should You Use?" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">AI Tools</span><h3 class="text-lg font-bold text-white mb-3">ChatGPT vs Other AI Tools: What Should You Use?</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Choose an AI assistant by comparing task fit, features, privacy, integrations, cost and workflow.</p><a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="Marketing" data-title="how to use ai for content creation and marketing" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80" alt="How to Use AI for Content Creation and Marketing" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">Marketing</span><h3 class="text-lg font-bold text-white mb-3">How to Use AI for Content Creation and Marketing</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Build an AI-assisted workflow for research, outlines, drafting, repurposing, SEO and editorial review.</p><a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><!-- CMS_MANAGED_BLOG_CARDS --></div><p id="blog-empty" class="hidden text-center text-slate-400 py-10">No articles match your search.</p></div></section><script>(()=>{const q=document.getElementById('blog-search'),cards=[...document.querySelectorAll('[data-blog-card]')],btns=[...document.querySelectorAll('.blog-filter')],empty=document.getElementById('blog-empty');let cat='all';function apply(){let n=0;cards.forEach(c=>{const ok=(cat==='all'||c.dataset.category===cat)&&c.dataset.title.includes(q.value.trim().toLowerCase());c.classList.toggle('hidden',!ok);if(ok)n++;});empty.classList.toggle('hidden',n>0);}btns.forEach(b=>b.addEventListener('click',()=>{cat=b.dataset.filter;btns.forEach(x=>x.classList.remove('bg-indigo-600','text-white'));b.classList.add('bg-indigo-600','text-white');apply();}));q.addEventListener('input',apply);})();</script>
+        <!-- Complete Blog System --><section id="blog" class="py-16 sm:py-20 border-b border-slate-800/50"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-3xl mx-auto mb-10"><span class="text-indigo-400 text-sm font-semibold uppercase">PromptVerse Learning Hub</span><h2 class="text-2xl sm:text-4xl font-bold text-white mt-3 mb-4">Latest AI Guides &amp; Tutorials</h2><p class="text-slate-400">Practical guides to prompt engineering, AI tools, image generation and content creation.</p></div><div class="max-w-2xl mx-auto mb-8"><label for="blog-search" class="sr-only">Search articles</label><input id="blog-search" type="search" placeholder="Search AI guides and tutorials..." class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 px-4 text-white"></div><div id="blog-filters" class="flex flex-wrap justify-center gap-2 mb-10"><button data-filter="all" class="blog-filter px-4 py-2 rounded-full bg-indigo-600 text-white text-sm">All articles</button><button data-filter="Prompt Engineering" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Prompt Engineering</button><button data-filter="ChatGPT Guides" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">ChatGPT Guides</button><button data-filter="Image Generation" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Image Generation</button><button data-filter="AI Tools" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">AI Tools</button><button data-filter="Marketing" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Marketing</button></div><div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"><article data-blog-card data-category="Prompt Engineering" data-title="how to craft perfect chatgpt system prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html" class="block bg-gradient-to-br from-slate-900 to-indigo-950"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80" alt="How to Craft Perfect ChatGPT System Prompts" class="w-full h-48 object-cover" width="900" height="480" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('min-h-[12rem]','bg-gradient-to-br','from-indigo-950','to-slate-800');"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">Prompt Engineering</span><h3 class="text-lg font-bold text-white mb-3">How to Craft Perfect ChatGPT System Prompts</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Learn a practical framework for clear system prompts using roles, context, rules, examples and output formats.</p><a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="ChatGPT Guides" data-title="10 best chatgpt prompts for everyday tasks" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html" class="block bg-gradient-to-br from-slate-900 to-indigo-950"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80" alt="10 Best ChatGPT Prompts for Everyday Tasks" class="w-full h-48 object-cover" width="900" height="480" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('min-h-[12rem]','bg-gradient-to-br','from-indigo-950','to-slate-800');"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">ChatGPT Guides</span><h3 class="text-lg font-bold text-white mb-3">10 Best ChatGPT Prompts for Everyday Tasks</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Ten adaptable ChatGPT prompts for planning, writing, learning, organizing work and everyday problem-solving.</p><a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="Image Generation" data-title="how to write better ai image generation prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/how-to-write-better-ai-image-generation-prompts.html" class="block bg-gradient-to-br from-slate-900 to-indigo-950"><img src="https://images.unsplash.com/photo-1686191128892-3b6b3c2f1c4e?w=900&q=80" alt="How to Write Better AI Image Generation Prompts" class="w-full h-48 object-cover" width="900" height="480" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('min-h-[12rem]','bg-gradient-to-br','from-indigo-950','to-slate-800');"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">Image Generation</span><h3 class="text-lg font-bold text-white mb-3">How to Write Better AI Image Generation Prompts</h3><p class="text-slate-400 text-sm mb-5 flex-grow">A practical guide to subjects, composition, lighting, style and iteration for stronger AI images.</p><a href="/blog/how-to-write-better-ai-image-generation-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="AI Tools" data-title="chatgpt vs other ai tools: what should you use?" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html" class="block bg-gradient-to-br from-slate-900 to-indigo-950"><img src="https://images.unsplash.com/photo-1676299081847-824916de030a?w=900&q=80" alt="ChatGPT vs Other AI Tools: What Should You Use?" class="w-full h-48 object-cover" width="900" height="480" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('min-h-[12rem]','bg-gradient-to-br','from-indigo-950','to-slate-800');"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">AI Tools</span><h3 class="text-lg font-bold text-white mb-3">ChatGPT vs Other AI Tools: What Should You Use?</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Choose an AI assistant by comparing task fit, features, privacy, integrations, cost and workflow.</p><a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="Marketing" data-title="how to use ai for content creation and marketing" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html" class="block bg-gradient-to-br from-slate-900 to-indigo-950"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80" alt="How to Use AI for Content Creation and Marketing" class="w-full h-48 object-cover" width="900" height="480" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('min-h-[12rem]','bg-gradient-to-br','from-indigo-950','to-slate-800');"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">Marketing</span><h3 class="text-lg font-bold text-white mb-3">How to Use AI for Content Creation and Marketing</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Build an AI-assisted workflow for research, outlines, drafting, repurposing, SEO and editorial review.</p><a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><!-- CMS_MANAGED_BLOG_CARDS --></div><p id="blog-empty" class="hidden text-center text-slate-400 py-10">No articles match your search.</p></div></section><script>(()=>{const q=document.getElementById('blog-search'),cards=[...document.querySelectorAll('[data-blog-card]')],btns=[...document.querySelectorAll('.blog-filter')],empty=document.getElementById('blog-empty');let cat='all';function apply(){let n=0;cards.forEach(c=>{const ok=(cat==='all'||c.dataset.category===cat)&&c.dataset.title.includes(q.value.trim().toLowerCase());c.classList.toggle('hidden',!ok);if(ok)n++;});empty.classList.toggle('hidden',n>0);}btns.forEach(b=>b.addEventListener('click',()=>{cat=b.dataset.filter;btns.forEach(x=>x.classList.remove('bg-indigo-600','text-white'));b.classList.add('bg-indigo-600','text-white');apply();}));q.addEventListener('input',apply);})();</script>
 
         <!-- FAQ Section -->
         <section id="faq" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-950">
@@ -419,12 +424,12 @@
 
                     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
                         <h3 class="font-bold text-white text-base sm:text-lg mb-2">How do I submit new prompt suggestions?</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">You can directly email our team at <a href="mailto:huzaimakhan3403@gmail.com" class="text-indigo-400 underline font-medium">huzaimakhan3403@gmail.com</a> or use the Contact Us modal form on this page.</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">Send suggestions through the contact form near the bottom of this page or email <a href="mailto:huzaimakhan3403@gmail.com" class="text-indigo-400 underline font-medium">our contact address</a>. Include the prompt category and a short example so we can understand your suggestion.</p>
                     </div>
 
                     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
                         <h3 class="font-bold text-white text-base sm:text-lg mb-2">Do the browser utilities collect my text data?</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">No. All utility tools (Word Counter, Case Converter, Space Cleaner, Repeater) process text locally right inside your client-side web browser. Your data never touches a server.</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">The Word Counter, Case Converter, Space Cleaner and Text Repeater are designed to process the text locally in your browser. Avoid entering sensitive personal, financial or confidential information into any online tool.</p>
                     </div>
                 </div>
             </div>
@@ -463,19 +468,21 @@
     <section id="privacy-policy" class="py-14 bg-slate-950 border-t border-slate-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl font-bold text-white mb-4">Privacy Policy</h2>
-            <p class="text-slate-400 text-sm mb-4">Last updated: November 11, 2026</p>
+            <p class="text-slate-400 text-sm mb-4">Last updated: November 12, 2026</p>
             <div class="space-y-4 text-slate-300 leading-relaxed">
                 <h3 class="text-lg font-semibold text-white">Information and contact</h3>
-                <p>When you contact us by email, the information you send may be used to respond to your request. The contact form is processed by Formspree, a third-party form service; the name, email address and message you submit are sent to that service and may be processed according to its privacy policy. Do not submit passwords, payment details, or other sensitive information through the contact form.</p>
+                <p>When you contact us by email or through the contact form, we use the details you provide to read and respond to your request. The contact form is processed by Formspree, a third-party form service; the name, email address and message you submit are sent to Formspree and may be processed under its privacy policy. Do not submit passwords, payment details or other sensitive information.</p>
                 <h3 class="text-lg font-semibold text-white">Browser utilities</h3>
                 <p>The Word Counter, Text Case Converter, Extra Space Remover and Text Repeater run in your browser. Text entered into these tools is processed on your device and is not intentionally sent to the PromptVerse AI website server. This statement does not cover third-party services you choose to open or use.</p>
                 <h3 class="text-lg font-semibold text-white">Cookies, analytics and advertising</h3>
-                <p>This website uses Google Analytics to understand website usage. Google Analytics may use cookies or similar technologies to collect information about visits and interactions, subject to Google's policies and your available browser settings.</p>
-                <p>Advertising scripts and sponsored placements are currently disabled on this website. If advertising is introduced later, this policy will be updated to explain the relevant providers and data practices.</p>
+                <p>We use Google Analytics to understand general website traffic and how visitors use the site. Google Analytics may use cookies or similar technologies and may process information such as pages visited, device or browser information, and interactions. You can review Google privacy information and use available browser controls or Google opt-out options.</p>
+                <p>Advertising may be displayed if we enable an advertising partner on this website. When advertising is active, third-party advertising providers may use cookies or similar technologies to deliver, measure, limit or personalize ads, subject to their own privacy policies and applicable settings. We aim to identify sponsored links or placements clearly. This policy should be reviewed whenever an advertising provider or setup is added or changed.</p>
+                <h3 class="text-lg font-semibold text-white">Third-party resources</h3>
+                <p>This page loads resources such as fonts, icons, analytics and styling libraries from third-party providers. Those providers may receive technical information, such as your IP address and browser request data, when your browser requests those resources. Their services are governed by their own privacy policies.</p>
                 <h3 class="text-lg font-semibold text-white">Third-party websites</h3>
-                <p>Our pages may link to third-party websites. Those websites have their own privacy policies and practices. We do not control how third parties collect or use information.</p>
+                <p>Our pages may link to third-party websites and services. Opening those links takes you to services outside our control; their own privacy policies and terms apply. We do not control how those third parties collect or use information.</p>
                 <h3 class="text-lg font-semibold text-white">Policy updates and contact</h3>
-                <p>We may update this policy when our website or services change. For privacy questions, contact <a class="text-indigo-400 underline" href="mailto:huzaimakhan3403@gmail.com">huzaimakhan3403@gmail.com</a>.</p>
+                <p>We may update this policy when the website, analytics or advertising setup changes. The latest version will be published on this page with its update date. For privacy questions, contact <a class="text-indigo-400 underline" href="mailto:huzaimakhan3403@gmail.com">PromptVerse AI</a>.</p>
             </div>
         </div>
     </section>
@@ -730,12 +737,18 @@
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            if (menu) menu.classList.toggle('hidden');
+            const button = document.getElementById('mobile-menu-btn');
+            if (!menu) return;
+            const isOpening = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !isOpening);
+            if (button) button.setAttribute('aria-expanded', String(isOpening));
         }
 
         function closeMobileMenu() {
             const menu = document.getElementById('mobile-menu');
+            const button = document.getElementById('mobile-menu-btn');
             if (menu) menu.classList.add('hidden');
+            if (button) button.setAttribute('aria-expanded', 'false');
         }
 
         function handleMobileLinkClick(target) {
@@ -777,7 +790,14 @@
             openModal('blogModal');
         }
 
-        document.addEventListener('DOMContentLoaded', loadPrompts);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPrompts();
+            document.addEventListener('keydown', event => {
+                if (event.key !== 'Escape') return;
+                document.querySelectorAll('[id$="Modal"]').forEach(modal => modal.classList.add('hidden'));
+                closeMobileMenu();
+            });
+        });
     </script>
     <!-- Connect Us / Contact Section Start -->
 <section id="contact" class="py-20 bg-slate-900 border-t border-slate-800">
@@ -792,25 +812,25 @@
         </div>
 
         <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl">
-            <form action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-6"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
+            <form action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-6"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden"><input type="hidden" name="_subject" value="New message from PromptVerse AI website">
                 
                 <div>
                     <label for="name" class="block text-sm font-medium text-slate-300">Your Name</label>
-                    <input type="text" name="name" id="name" required
+                    <input type="text" name="name" id="name" autocomplete="name" maxlength="100" required
                         class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                         placeholder="John Doe">
                 </div>
 
                 <div>
                     <label for="email" class="block text-sm font-medium text-slate-300">Your Email</label>
-                    <input type="email" name="email" id="email" required
+                    <input type="email" name="email" id="email" autocomplete="email" maxlength="254" required
                         class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                         placeholder="huzaimakhan3403@gmail.com">
                 </div>
 
                 <div>
                     <label for="message" class="block text-sm font-medium text-slate-300">Your Message</label>
-                    <textarea name="message" id="message" rows="4" required
+                    <textarea name="message" id="message" rows="4" maxlength="5000" required
                         class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                         placeholder="Write your message here..."></textarea>
                 </div>
@@ -822,6 +842,7 @@
                     </button>
                 </div>
 
+                <p class="text-xs text-slate-500">Your message is sent through Formspree so we can reply. Please do not include sensitive information.</p>
             </form>
         </div>
     </div>
