@@ -4,7 +4,7 @@ slug: "how-to-use-ai-for-content-creation-and-marketing"
 date: "2026-11-11"
 category: "Marketing"
 description: "Build an AI-assisted workflow for research, outlines, drafting, repurposing, SEO and editorial review."
-featured_image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=85"
+featured_image: "/images/blog-content-marketing.svg"
 image_alt: "How to Use AI for Content Creation and Marketing"
 draft: false
 seo_title: "How to Use AI for Content Creation and Marketing | PromptVerse AI"
