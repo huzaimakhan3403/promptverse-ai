@@ -401,89 +401,7 @@
             </div>
         </section>
 
-        <!-- Complete Blog System -->
-        <section id="blog" class="py-16 sm:py-20 border-b border-slate-800/50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-10">
-                    <span class="text-indigo-400 text-sm font-semibold uppercase">PromptVerse Learning Hub</span>
-                    <h2 class="text-2xl sm:text-4xl font-bold text-white mt-3 mb-4">Latest AI Guides &amp; Tutorials</h2>
-                    <p class="text-slate-400">Practical guides to prompt engineering, AI tools, image generation and content creation.</p>
-                </div>
-                <div class="max-w-2xl mx-auto mb-8">
-                    <label for="blog-search" class="sr-only">Search articles</label>
-                    <input id="blog-search" type="search" placeholder="Search AI guides and tutorials..." class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 px-4 text-white">
-                </div>
-                <div id="blog-filters" class="flex flex-wrap justify-center gap-2 mb-10">
-                    <button data-filter="all" class="blog-filter px-4 py-2 rounded-full bg-indigo-600 text-white text-sm">All articles</button>
-                    <button data-filter="Prompt Engineering" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Prompt Engineering</button>
-                    <button data-filter="ChatGPT Guides" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">ChatGPT Guides</button>
-                    <button data-filter="Image Generation" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Image Generation</button>
-                    <button data-filter="AI Tools" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">AI Tools</button>
-                    <button data-filter="Marketing" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Marketing</button>
-                </div>
-                <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-                    <article data-blog-card data-category="Prompt Engineering" data-title="how to craft perfect chatgpt system prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
-                        <a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80" alt="How to Craft Perfect ChatGPT System Prompts" class="w-full h-48 object-cover" loading="lazy" decoding="async" onerror="blogImageFallback(this)"></a>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <span class="text-xs font-semibold text-indigo-400 mb-2">Prompt Engineering</span>
-                            <h3 class="text-lg font-bold text-white mb-3">How to Craft Perfect ChatGPT System Prompts</h3>
-                            <p class="text-slate-400 text-sm mb-5 flex-grow">Learn a practical framework for clear system prompts using roles, context, rules, examples and output formats.</p>
-                            <a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                        </div>
-                    </article>
-                    <article data-blog-card data-category="ChatGPT Guides" data-title="10 best chatgpt prompts for everyday tasks" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
-                        <a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80" alt="10 Best ChatGPT Prompts for Everyday Tasks" class="w-full h-48 object-cover" loading="lazy" decoding="async" onerror="blogImageFallback(this)"></a>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <span class="text-xs font-semibold text-indigo-400 mb-2">ChatGPT Guides</span>
-                            <h3 class="text-lg font-bold text-white mb-3">10 Best ChatGPT Prompts for Everyday Tasks</h3>
-                            <p class="text-slate-400 text-sm mb-5 flex-grow">Ten adaptable ChatGPT prompts for planning, writing, learning, organizing work and everyday problem-solving.</p>
-                            <a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                        </div>
-                    </article>
-                    <!-- FIXED: Fixed the Image Generation article card below -->
-                    <article data-blog-card data-category="Image Generation" data-title="how to write better ai image generation prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
-                        <a href="/blog/how-to-write-better-ai-image-generation-prompts.html"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80" alt="How to Write Better AI Image Generation Prompts" class="w-full h-48 object-cover" loading="lazy" decoding="async" onerror="blogImageFallback(this)"></a>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <span class="text-xs font-semibold text-indigo-400 mb-2">Image Generation</span>
-                            <h3 class="text-lg font-bold text-white mb-3">How to Write Better AI Image Generation Prompts</h3>
-                            <p class="text-slate-400 text-sm mb-5 flex-grow">A practical guide to subjects, composition, lighting, style and iteration for stronger AI images.</p>
-                            <a href="/blog/how-to-write-better-ai-image-generation-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                        </div>
-                    </article>
-                    <article data-blog-card data-category="AI Tools" data-title="chatgpt vs other ai tools: what should you use?" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
-                        <a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html"><img src="https://images.unsplash.com/photo-1676299081847-824916de030a?w=900&q=80" alt="ChatGPT vs Other AI Tools: What Should You Use?" class="w-full h-48 object-cover" loading="lazy" decoding="async" onerror="blogImageFallback(this)"></a>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <span class="text-xs font-semibold text-indigo-400 mb-2">AI Tools</span>
-                            <h3 class="text-lg font-bold text-white mb-3">ChatGPT vs Other AI Tools: What Should You Use?</h3>
-                            <p class="text-slate-400 text-sm mb-5 flex-grow">Choose an AI assistant by comparing task fit, features, privacy, integrations, cost and workflow.</p>
-                            <a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                        </div>
-                    </article>
-                    <article data-blog-card data-category="Marketing" data-title="how to use ai for content creation and marketing" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col">
-                        <a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80" alt="How to Use AI for Content Creation and Marketing" class="w-full h-48 object-cover" loading="lazy" decoding="async" onerror="blogImageFallback(this)"></a>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <span class="text-xs font-semibold text-indigo-400 mb-2">Marketing</span>
-                            <h3 class="text-lg font-bold text-white mb-3">How to Use AI for Content Creation and Marketing</h3>
-                            <p class="text-slate-400 text-sm mb-5 flex-grow">Build an AI-assisted workflow for research, outlines, drafting, repurposing, SEO and editorial review.</p>
-                            <a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                        </div>
-                    </article>
-                    <!-- CMS_MANAGED_BLOG_CARDS -->
-                </div>
-                <p id="blog-empty" class="hidden text-center text-slate-400 py-10">No articles match your search.</p>
-            </div>
-        </section>
-        
-        <script>
-        // Keep guide thumbnails visible if a third-party image host fails.
-        function blogImageFallback(img) {
-            const label = String(img.alt || 'AI Guide').replace(/[&<>"]/g, '');
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#312e81"/><stop offset="1" stop-color="#831843"/></linearGradient></defs><rect width="900" height="500" fill="#0f172a"/><rect x="18" y="18" width="864" height="464" rx="28" fill="url(#g)"/><circle cx="760" cy="95" r="110" fill="#fff" opacity=".08"/><circle cx="160" cy="420" r="150" fill="#fff" opacity=".06"/><text x="64" y="190" fill="#c7d2fe" font-family="Arial,sans-serif" font-size="27" font-weight="700">PROMPTVERSE AI GUIDE</text><text x="64" y="260" fill="#fff" font-family="Arial,sans-serif" font-size="38" font-weight="700">${label.slice(0,42)}</text><text x="64" y="315" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="22">Practical tips • AI tools • Better workflows</text></svg>`;
-            img.onerror = null;
-            img.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
-        }
-        (()=>{const q=document.getElementById('blog-search'),cards=[...document.querySelectorAll('[data-blog-card]')],btns=[...document.querySelectorAll('.blog-filter')],empty=document.getElementById('blog-empty');let cat='all';function apply(){let n=0;cards.forEach(c=>{const ok=(cat==='all'||c.dataset.category===cat)&&c.dataset.title.includes(q.value.trim().toLowerCase());c.classList.toggle('hidden',!ok);if(ok)n++;});empty.classList.toggle('hidden',n>0);}btns.forEach(b=>b.addEventListener('click',()=>{cat=b.dataset.filter;btns.forEach(x=>x.classList.remove('bg-indigo-600','text-white'));b.classList.add('bg-indigo-600','text-white');apply();}));q.addEventListener('input',apply);})();
-        </script>
+        <!-- Complete Blog System --><section id="blog" class="py-16 sm:py-20 border-b border-slate-800/50"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-3xl mx-auto mb-10"><span class="text-indigo-400 text-sm font-semibold uppercase">PromptVerse Learning Hub</span><h2 class="text-2xl sm:text-4xl font-bold text-white mt-3 mb-4">Latest AI Guides &amp; Tutorials</h2><p class="text-slate-400">Practical guides to prompt engineering, AI tools, image generation and content creation.</p></div><div class="max-w-2xl mx-auto mb-8"><label for="blog-search" class="sr-only">Search articles</label><input id="blog-search" type="search" placeholder="Search AI guides and tutorials..." class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 px-4 text-white"></div><div id="blog-filters" class="flex flex-wrap justify-center gap-2 mb-10"><button data-filter="all" class="blog-filter px-4 py-2 rounded-full bg-indigo-600 text-white text-sm">All articles</button><button data-filter="Prompt Engineering" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Prompt Engineering</button><button data-filter="ChatGPT Guides" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">ChatGPT Guides</button><button data-filter="Image Generation" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Image Generation</button><button data-filter="AI Tools" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">AI Tools</button><button data-filter="Marketing" class="blog-filter px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-sm">Marketing</button></div><div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"><article data-blog-card data-category="Prompt Engineering" data-title="how to craft perfect chatgpt system prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80" alt="How to Craft Perfect ChatGPT System Prompts" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">Prompt Engineering</span><h3 class="text-lg font-bold text-white mb-3">How to Craft Perfect ChatGPT System Prompts</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Learn a practical framework for clear system prompts using roles, context, rules, examples and output formats.</p><a href="/blog/how-to-craft-perfect-chatgpt-system-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="ChatGPT Guides" data-title="10 best chatgpt prompts for everyday tasks" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80" alt="10 Best ChatGPT Prompts for Everyday Tasks" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">ChatGPT Guides</span><h3 class="text-lg font-bold text-white mb-3">10 Best ChatGPT Prompts for Everyday Tasks</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Ten adaptable ChatGPT prompts for planning, writing, learning, organizing work and everyday problem-solving.</p><a href="/blog/10-best-chatgpt-prompts-for-everyday-tasks.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="Image Generation" data-title="how to write better ai image generation prompts" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/how-to-write-better-ai-image-generation-prompts.html"><img src="https://images.unsplash.com/photo-1686191128892-3b6b3c2f1c4e?w=900&q=80" alt="How to Write Better AI Image Generation Prompts" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">Image Generation</span><h3 class="text-lg font-bold text-white mb-3">How to Write Better AI Image Generation Prompts</h3><p class="text-slate-400 text-sm mb-5 flex-grow">A practical guide to subjects, composition, lighting, style and iteration for stronger AI images.</p><a href="/blog/how-to-write-better-ai-image-generation-prompts.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="AI Tools" data-title="chatgpt vs other ai tools: what should you use?" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html"><img src="https://images.unsplash.com/photo-1676299081847-824916de030a?w=900&q=80" alt="ChatGPT vs Other AI Tools: What Should You Use?" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">AI Tools</span><h3 class="text-lg font-bold text-white mb-3">ChatGPT vs Other AI Tools: What Should You Use?</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Choose an AI assistant by comparing task fit, features, privacy, integrations, cost and workflow.</p><a href="/blog/chatgpt-vs-other-ai-tools-what-should-you-use.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><article data-blog-card data-category="Marketing" data-title="how to use ai for content creation and marketing" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col"><a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80" alt="How to Use AI for Content Creation and Marketing" class="w-full h-48 object-cover" loading="lazy"></a><div class="p-6 flex flex-col flex-grow"><span class="text-xs font-semibold text-indigo-400 mb-2">Marketing</span><h3 class="text-lg font-bold text-white mb-3">How to Use AI for Content Creation and Marketing</h3><p class="text-slate-400 text-sm mb-5 flex-grow">Build an AI-assisted workflow for research, outlines, drafting, repurposing, SEO and editorial review.</p><a href="/blog/how-to-use-ai-for-content-creation-and-marketing.html" class="text-indigo-400 font-semibold text-sm">Read article <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article><!-- CMS_MANAGED_BLOG_CARDS --></div><p id="blog-empty" class="hidden text-center text-slate-400 py-10">No articles match your search.</p></div></section><script>(()=>{const q=document.getElementById('blog-search'),cards=[...document.querySelectorAll('[data-blog-card]')],btns=[...document.querySelectorAll('.blog-filter')],empty=document.getElementById('blog-empty');let cat='all';function apply(){let n=0;cards.forEach(c=>{const ok=(cat==='all'||c.dataset.category===cat)&&c.dataset.title.includes(q.value.trim().toLowerCase());c.classList.toggle('hidden',!ok);if(ok)n++;});empty.classList.toggle('hidden',n>0);}btns.forEach(b=>b.addEventListener('click',()=>{cat=b.dataset.filter;btns.forEach(x=>x.classList.remove('bg-indigo-600','text-white'));b.classList.add('bg-indigo-600','text-white');apply();}));q.addEventListener('input',apply);})();</script>
 
         <!-- FAQ Section -->
         <section id="faq" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-950">
@@ -527,6 +445,9 @@
                 </div>
             </div>
         </section>
+
+
+
 
     </main>
 
@@ -858,55 +779,54 @@
 
         document.addEventListener('DOMContentLoaded', loadPrompts);
     </script>
-    
     <!-- Connect Us / Contact Section Start -->
-    <section id="contact" class="py-20 bg-slate-900 border-t border-slate-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-                    Connect With Us
-                </h2>
-                <p class="mt-4 text-lg text-slate-400">
-                    Have a question, feedback, or want to collaborate? Drop us a message below!
-                </p>
-            </div>
-
-            <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl">
-                <form action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-6">
-                    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
-                    
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-slate-300">Your Name</label>
-                        <input type="text" name="name" id="name" required
-                            class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
-                            placeholder="John Doe">
-                    </div>
-
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-slate-300">Your Email</label>
-                        <input type="email" name="email" id="email" required
-                            class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
-                            placeholder="huzaimakhan3403@gmail.com">
-                    </div>
-
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-slate-300">Your Message</label>
-                        <textarea name="message" id="message" rows="4" required
-                            class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
-                            placeholder="Write your message here..."></textarea>
-                    </div>
-
-                    <div>
-                        <button type="submit"
-                            class="w-full py-3 px-6 text-white font-medium bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-lg shadow-indigo-500/20">
-                            Send Message
-                        </button>
-                    </div>
-
-                </form>
-            </div>
+<section id="contact" class="py-20 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                Connect With Us
+            </h2>
+            <p class="mt-4 text-lg text-slate-400">
+                Have a question, feedback, or want to collaborate? Drop us a message below!
+            </p>
         </div>
-    </section>
-    <!-- Connect Us / Contact Section End -->
+
+        <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl">
+            <form action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-6"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
+                
+                <div>
+                    <label for="name" class="block text-sm font-medium text-slate-300">Your Name</label>
+                    <input type="text" name="name" id="name" required
+                        class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                        placeholder="John Doe">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-slate-300">Your Email</label>
+                    <input type="email" name="email" id="email" required
+                        class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                        placeholder="huzaimakhan3403@gmail.com">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium text-slate-300">Your Message</label>
+                    <textarea name="message" id="message" rows="4" required
+                        class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                        placeholder="Write your message here..."></textarea>
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="w-full py-3 px-6 text-white font-medium bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-lg shadow-indigo-500/20">
+                        Send Message
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Connect Us / Contact Section End -->
 </body>
 </html>
