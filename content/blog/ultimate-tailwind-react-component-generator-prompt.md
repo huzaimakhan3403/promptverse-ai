@@ -30,3 +30,5 @@ Requirements:
 4. Accessible markup with proper semantic HTML tags.
 
 Provide the complete code snippet along with short customization instructions.
+```
+
