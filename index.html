@@ -259,33 +259,40 @@
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
-                    <button id="cat-all" onclick="setCategory('all', this)" class="cat-btn active p-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-indigo-500/50 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
-                        <i class="fa-solid fa-shapes text-2xl text-indigo-500"></i>
+                    <button id="cat-all" onclick="setCategory('all', this)" class="cat-btn active p-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-indigo-500/50 flex flex-col items-center justify-center gap-2 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-shapes text-xl text-indigo-500"></i>
                         <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">All Prompts</span>
+                        <span id="count-all" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono">0</span>
                     </button>
-                    <button onclick="setCategory('Coding', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
-                        <i class="fa-solid fa-code text-2xl text-blue-500"></i>
+                    <button onclick="setCategory('Coding', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-code text-xl text-blue-500"></i>
                         <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Coding</span>
+                        <span id="count-coding" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono">0</span>
                     </button>
-                    <button onclick="setCategory('Writing', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
-                        <i class="fa-solid fa-pen-nib text-2xl text-emerald-500"></i>
+                    <button onclick="setCategory('Writing', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-pen-nib text-xl text-emerald-500"></i>
                         <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Writing</span>
+                        <span id="count-writing" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono">0</span>
                     </button>
-                    <button onclick="setCategory('Marketing', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
-                        <i class="fa-solid fa-chart-line text-2xl text-amber-500"></i>
+                    <button onclick="setCategory('Marketing', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-chart-line text-xl text-amber-500"></i>
                         <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Marketing</span>
+                        <span id="count-marketing" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono">0</span>
                     </button>
-                    <button onclick="setCategory('Image Generation', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
-                        <i class="fa-solid fa-palette text-2xl text-pink-500"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Image Generation</span>
+                    <button onclick="setCategory('Image Generation', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-palette text-xl text-pink-500"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Image Gen</span>
+                        <span id="count-image-generation" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono">0</span>
                     </button>
-                    <button onclick="setCategory('Business', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
-                        <i class="fa-solid fa-briefcase text-2xl text-purple-500"></i>
+                    <button onclick="setCategory('Business', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-briefcase text-xl text-purple-500"></i>
                         <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Business</span>
+                        <span id="count-business" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono">0</span>
                     </button>
-                    <button onclick="setCategory('Career', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
-                        <i class="fa-solid fa-user-tie text-2xl text-cyan-500"></i>
+                    <button onclick="setCategory('Career', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-user-tie text-xl text-cyan-500"></i>
                         <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Career</span>
+                        <span id="count-career" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono">0</span>
                     </button>
                 </div>
             </div>
@@ -596,6 +603,10 @@
                 const data = await response.json();
                 if (!Array.isArray(data)) throw new Error('prompts.json must contain an array');
                 allPrompts = data.filter(item => item && item.id !== undefined && typeof item.title === 'string' && typeof item.category === 'string' && typeof item.prompt === 'string');
+                
+                // Update live category counts
+                updateCategoryCounts(allPrompts);
+
                 renderPrompts(allPrompts);
                 const count = document.getElementById('prompt-count');
                 if (count) count.textContent = allPrompts.length;
@@ -605,6 +616,21 @@
                     grid.innerHTML = '<div class="col-span-full text-center py-12 text-amber-500 dark:text-amber-300">Prompts could not be loaded. Please ensure prompts.json is uploaded.</div>';
                 }
             }
+        }
+
+        function updateCategoryCounts(prompts) {
+            const countAll = document.getElementById('count-all');
+            if (countAll) countAll.textContent = prompts.length;
+
+            const categories = ['Coding', 'Writing', 'Marketing', 'Image Generation', 'Business', 'Career'];
+            categories.forEach(cat => {
+                const count = prompts.filter(item => String(item.category || '').toLowerCase() === cat.toLowerCase()).length;
+                const elementId = 'count-' + cat.toLowerCase().replace(/\s+/g, '-');
+                const badge = document.getElementById(elementId);
+                if (badge) {
+                    badge.textContent = count;
+                }
+            });
         }
 
         function renderPrompts(prompts) {
