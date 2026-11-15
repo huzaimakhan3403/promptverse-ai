@@ -91,6 +91,10 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+        /* Light mode glass nav override */
+        html:not(.dark) .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+        }
         #toast {
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
         }
@@ -129,7 +133,7 @@
     }
     </script>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white transition-colors duration-300">
 
     <!-- Toast Notification System -->
     <div id="toast" class="fixed bottom-6 right-6 z-50 translate-y-24 opacity-0 pointer-events-none flex items-center gap-3 bg-indigo-600 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-indigo-400/30">
@@ -138,53 +142,58 @@
     </div>
 
     <!-- Header Navigation -->
-    <header class="sticky top-0 z-40 glass-nav border-b border-slate-800/80 transition-colors duration-300">
+    <header class="sticky top-0 z-40 glass-nav border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 sm:h-20">
                 <a href="#home" onclick="closeMobileMenu()" class="flex items-center gap-3 group focus:outline-none">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
                         <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
                     </div>
-                    <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                    <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 dark:from-white via-slate-700 dark:via-slate-200 to-slate-500 dark:to-slate-400 bg-clip-text text-transparent">
                         Prompt<span class="text-indigo-500">Verse</span>
                     </span>
                 </a>
 
                 <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
-                    <a href="#home" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Home</a>
-                    <a href="#categories" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Categories</a>
-                    <a href="#prompts" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Prompts</a>
-                    <a href="#ai-tools" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Web Tools</a>
-                    <a href="#blog" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Blog</a>
-                    <a href="#faq" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">FAQ</a>
+                    <a href="#home" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">Home</a>
+                    <a href="#categories" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">Categories</a>
+                    <a href="#prompts" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">Prompts</a>
+                    <a href="#ai-tools" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">Web Tools</a>
+                    <a href="#blog" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">Blog</a>
+                    <a href="#faq" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">FAQ</a>
                 </nav>
 
                 <div class="flex items-center gap-3">
+                    <!-- Theme Toggle Button -->
+                    <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark/Light Mode" class="flex items-center justify-center w-11 h-11 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors shadow-sm">
+                        <i id="theme-icon" class="fa-solid fa-sun text-amber-500 text-lg"></i>
+                    </button>
+
                     <button onclick="openModal('contactModal')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all shadow-md hover:shadow-indigo-500/20 active:scale-95 min-h-[44px]">
                         <i class="fa-regular fa-paper-plane"></i> Contact Us
                     </button>
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu" class="md:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu" class="md:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors shadow-sm">
                         <i id="menu-icon" class="fa-solid fa-bars text-lg"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 transition-all duration-300 ease-in-out">
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 transition-all duration-300 ease-in-out">
             <div class="flex flex-col space-y-1">
-                <a href="#home" onclick="handleMobileLinkClick('#home')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-house w-6 text-indigo-400"></i> Home</a>
-                <a href="#categories" onclick="handleMobileLinkClick('#categories')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-layer-group w-6 text-indigo-400"></i> Categories</a>
-                <a href="#prompts" onclick="handleMobileLinkClick('#prompts')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-fire w-6 text-indigo-400"></i> Top AI Prompts</a>
-                <a href="#ai-tools" onclick="handleMobileLinkClick('#ai-tools')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-screwdriver-wrench w-6 text-indigo-400"></i> Browser Utilities</a>
-                <a href="#blog" onclick="handleMobileLinkClick('#blog')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-newspaper w-6 text-indigo-400"></i> AI Guides & Articles</a>
-                <a href="#faq" onclick="handleMobileLinkClick('#faq')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-circle-question w-6 text-indigo-400"></i> FAQ</a>
+                <a href="#home" onclick="handleMobileLinkClick('#home')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-house w-6 text-indigo-500"></i> Home</a>
+                <a href="#categories" onclick="handleMobileLinkClick('#categories')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-layer-group w-6 text-indigo-500"></i> Categories</a>
+                <a href="#prompts" onclick="handleMobileLinkClick('#prompts')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-fire w-6 text-indigo-500"></i> Top AI Prompts</a>
+                <a href="#ai-tools" onclick="handleMobileLinkClick('#ai-tools')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-screwdriver-wrench w-6 text-indigo-500"></i> Browser Utilities</a>
+                <a href="#blog" onclick="handleMobileLinkClick('#blog')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-newspaper w-6 text-indigo-500"></i> AI Guides & Articles</a>
+                <a href="#faq" onclick="handleMobileLinkClick('#faq')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-circle-question w-6 text-indigo-500"></i> FAQ</a>
                 
-                <div class="pt-4 border-t border-slate-800/80 flex flex-col gap-2">
+                <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex flex-col gap-2">
                     <button onclick="closeMobileMenu(); openModal('contactModal')" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg min-h-[44px]">
                         <i class="fa-solid fa-envelope"></i> Contact Us
                     </button>
-                    <a href="mailto:huzaimakhan3403@gmail.com" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold min-h-[44px]">
-                        <i class="fa-solid fa-at text-indigo-400"></i> huzaimakhan3403@gmail.com
+                    <a href="mailto:huzaimakhan3403@gmail.com" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-semibold min-h-[44px]">
+                        <i class="fa-solid fa-at text-indigo-500"></i> huzaimakhan3403@gmail.com
                     </a>
                 </div>
             </div>
@@ -194,103 +203,103 @@
     <!-- Main Content -->
     <main class="flex-grow">
         <!-- Hero Section -->
-        <section id="home" class="relative overflow-hidden py-16 sm:py-24 lg:py-32 border-b border-slate-800/50">
+        <section id="home" class="relative overflow-hidden py-16 sm:py-24 lg:py-32 border-b border-slate-200 dark:border-slate-800/50">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_50%)] pointer-events-none"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs sm:text-sm font-medium mb-6">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs sm:text-sm font-medium mb-6">
                     <i class="fa-solid fa-sparkles"></i> Ultimate Prompt Engineering & Tools Hub
                 </span>
                 
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
-                    Unlock Superhuman Productivity with <span class="bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">PromptVerse AI</span>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
+                    Unlock Superhuman Productivity with <span class="bg-gradient-to-r from-indigo-600 dark:from-indigo-400 via-pink-600 dark:via-pink-400 to-purple-600 dark:to-purple-400 bg-clip-text text-transparent">PromptVerse AI</span>
                 </h1>
                 
-                <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+                <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
                     Discover battle-tested ChatGPT & Midjourney prompts, plus powerful inline browser utilities designed to streamline your daily workflow.
                 </p>
 
                 <div class="max-w-2xl mx-auto mb-10">
-                    <div class="relative flex items-center">
+                    <div class="relative flex items-center shadow-lg rounded-2xl">
                         <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400 text-lg pointer-events-none"></i>
                         <input type="text" id="promptSearch" aria-label="Search AI prompts" oninput="filterPrompts()" placeholder="Search prompts (e.g. SEO, Coding, Marketing)..." 
-                            class="w-full pl-12 pr-28 py-4 rounded-2xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base min-h-[52px]">
-                        <button onclick="scrollToPrompts()" class="absolute right-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-sm font-semibold transition-colors min-h-[44px] flex items-center">
+                            class="w-full pl-12 pr-28 py-4 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base min-h-[52px]">
+                        <button onclick="scrollToPrompts()" class="absolute right-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-sm font-semibold transition-colors min-h-[44px] flex items-center shadow-sm">
                             Search
                         </button>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 border-t border-slate-800/60">
-                    <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                        <div id="prompt-count" class="text-2xl sm:text-3xl font-extrabold text-white">0</div>
-                        <div class="text-xs sm:text-sm text-slate-400">Available Prompts</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 border-t border-slate-200 dark:border-slate-800/60">
+                    <div class="p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
+                        <div id="prompt-count" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">0</div>
+                        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Available Prompts</div>
                     </div>
-                    <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400">4+</div>
-                        <div class="text-xs sm:text-sm text-slate-400">Web Utility Tools</div>
+                    <div class="p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-600 dark:text-indigo-400">4+</div>
+                        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Web Utility Tools</div>
                     </div>
-                    <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                        <div class="text-2xl sm:text-3xl font-extrabold text-white">100%</div>
-                        <div class="text-xs sm:text-sm text-slate-400">Free to Use</div>
+                    <div class="p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">100%</div>
+                        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Free to Use</div>
                     </div>
-                    <div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-                        <div class="text-2xl sm:text-3xl font-extrabold text-pink-400">Instant</div>
-                        <div class="text-xs sm:text-sm text-slate-400">Copy & Paste</div>
+                    <div class="p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-pink-600 dark:text-pink-400">Instant</div>
+                        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Copy & Paste</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Categories Section -->
-        <section id="categories" class="py-16 sm:py-20 border-b border-slate-800/50">
+        <section id="categories" class="py-16 sm:py-20 border-b border-slate-200 dark:border-slate-800/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-2xl sm:text-4xl font-bold text-white mb-4">Browse by Category</h2>
-                    <p class="text-slate-400 text-sm sm:text-base">Filter top prompts according to your creative or professional domain.</p>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">Browse by Category</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Filter top prompts according to your creative or professional domain.</p>
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
-                    <button id="cat-all" onclick="setCategory('all', this)" class="cat-btn active p-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-indigo-500/50 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
-                        <i class="fa-solid fa-shapes text-2xl text-indigo-400"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-white">All Prompts</span>
+                    <button id="cat-all" onclick="setCategory('all', this)" class="cat-btn active p-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-indigo-500/50 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-shapes text-2xl text-indigo-500"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">All Prompts</span>
                     </button>
-                    <button onclick="setCategory('Coding', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
-                        <i class="fa-solid fa-code text-2xl text-blue-400"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-white">Coding</span>
+                    <button onclick="setCategory('Coding', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-code text-2xl text-blue-500"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Coding</span>
                     </button>
-                    <button onclick="setCategory('Writing', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
-                        <i class="fa-solid fa-pen-nib text-2xl text-emerald-400"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-white">Writing</span>
+                    <button onclick="setCategory('Writing', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-pen-nib text-2xl text-emerald-500"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Writing</span>
                     </button>
-                    <button onclick="setCategory('Marketing', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
-                        <i class="fa-solid fa-chart-line text-2xl text-amber-400"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-white">Marketing</span>
+                    <button onclick="setCategory('Marketing', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-chart-line text-2xl text-amber-500"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Marketing</span>
                     </button>
-                    <button onclick="setCategory('Image Generation', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
-                        <i class="fa-solid fa-palette text-2xl text-pink-400"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-white">Image Generation</span>
+                    <button onclick="setCategory('Image Generation', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-palette text-2xl text-pink-500"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Image Generation</span>
                     </button>
-                    <button onclick="setCategory('Business', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
-                        <i class="fa-solid fa-briefcase text-2xl text-purple-400"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-white">Business</span>
+                    <button onclick="setCategory('Business', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-briefcase text-2xl text-purple-500"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Business</span>
                     </button>
-                    <button onclick="setCategory('Career', this)" class="cat-btn p-4 rounded-2xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
-                        <i class="fa-solid fa-user-tie text-2xl text-cyan-400"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-white">Career</span>
+                    <button onclick="setCategory('Career', this)" class="cat-btn p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px] shadow-sm">
+                        <i class="fa-solid fa-user-tie text-2xl text-cyan-500"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Career</span>
                     </button>
                 </div>
             </div>
         </section>
 
         <!-- Prompts Section -->
-        <section id="prompts" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-950">
+        <section id="prompts" class="py-16 sm:py-20 border-b border-slate-200 dark:border-slate-800/50 bg-slate-100/50 dark:bg-slate-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
                     <div>
-                        <h2 class="text-2xl sm:text-4xl font-bold text-white mb-2">Featured AI Prompts</h2>
-                        <p id="filter-status" class="text-slate-400 text-sm sm:text-base">Tap any prompt to copy directly to clipboard.</p>
+                        <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2">Featured AI Prompts</h2>
+                        <p id="filter-status" class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Tap any prompt to copy directly to clipboard.</p>
                     </div>
-                    <button id="reset-filter-btn" onclick="resetFilters()" class="hidden self-start md:self-auto px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs sm:text-sm font-semibold transition-colors">
+                    <button id="reset-filter-btn" onclick="resetFilters()" class="hidden self-start md:self-auto px-4 py-2 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold transition-colors shadow-sm">
                         <i class="fa-solid fa-rotate-left mr-1.5"></i> Clear Filters
                     </button>
                 </div>
@@ -299,141 +308,141 @@
         </section>
 
         <!-- AI Tools Section -->
-        <section id="ai-tools" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-900/30">
+        <section id="ai-tools" class="py-16 sm:py-20 border-b border-slate-200 dark:border-slate-800/50 bg-slate-200/30 dark:bg-slate-900/30">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-indigo-400">No Installation Required</span>
-                    <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1 mb-4">Interactive Browser Utility Tools</h2>
-                    <p class="text-slate-400 text-sm sm:text-base">Boost your writing and prompt crafting with built-in mobile-friendly tools.</p>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">No Installation Required</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-1 mb-4">Interactive Browser Utility Tools</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Boost your writing and prompt crafting with built-in mobile-friendly tools.</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between shadow-sm">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-calculator"></i></div>
-                            <h3 class="text-lg font-bold text-white mb-2">Word & Character Counter</h3>
-                            <p class="text-slate-400 text-xs sm:text-sm mb-6">Analyze text length, word count, line breaks, and reading time.</p>
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-calculator"></i></div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Word & Character Counter</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6">Analyze text length, word count, line breaks, and reading time.</p>
                         </div>
-                        <button onclick="openModal('wordCounterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px]">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        <button onclick="openModal('wordCounterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between shadow-sm">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-font"></i></div>
-                            <h3 class="text-lg font-bold text-white mb-2">Text Case Converter</h3>
-                            <p class="text-slate-400 text-xs sm:text-sm mb-6">Convert prompts to UPPERCASE, lowercase, or Title Case.</p>
+                            <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-font"></i></div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Text Case Converter</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6">Convert prompts to UPPERCASE, lowercase, or Title Case.</p>
                         </div>
-                        <button onclick="openModal('caseConverterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px]">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        <button onclick="openModal('caseConverterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between shadow-sm">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-broom"></i></div>
-                            <h3 class="text-lg font-bold text-white mb-2">Extra Space Remover</h3>
-                            <p class="text-slate-400 text-xs sm:text-sm mb-6">Strip duplicate spaces and trim messy text snippets easily.</p>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-broom"></i></div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Extra Space Remover</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6">Strip duplicate spaces and trim messy text snippets easily.</p>
                         </div>
-                        <button onclick="openModal('spaceCleanerModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px]">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        <button onclick="openModal('spaceCleanerModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between shadow-sm">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-repeat"></i></div>
-                            <h3 class="text-lg font-bold text-white mb-2">Text Repeater Tool</h3>
-                            <p class="text-slate-400 text-xs sm:text-sm mb-6">Multiply prompt keywords or phrases N times instantly.</p>
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-repeat"></i></div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Text Repeater Tool</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6">Multiply prompt keywords or phrases N times instantly.</p>
                         </div>
-                        <button onclick="openModal('textRepeaterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px]">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        <button onclick="openModal('textRepeaterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Blog / Guides Section -->
-        <section id="blog" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-950">
+        <section id="blog" class="py-16 sm:py-20 border-b border-slate-200 dark:border-slate-800/50 bg-slate-100/50 dark:bg-slate-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-indigo-400">Expert Insights</span>
-                    <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1 mb-4">AI Guides & Articles</h2>
-                    <p class="text-slate-400 text-sm sm:text-base">Learn prompt engineering frameworks and strategies to unlock better AI outputs.</p>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Expert Insights</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-1 mb-4">AI Guides & Articles</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Learn prompt engineering frameworks and strategies to unlock better AI outputs.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all">
+                    <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all shadow-sm">
                         <div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering</span>
-                            <h3 class="text-lg font-bold text-white mt-4 mb-2">The R-C-T-F Framework for ChatGPT</h3>
-                            <p class="text-slate-400 text-sm mb-4 leading-relaxed">Define Role, Context, Task, and Format in every prompt to eliminate generic AI responses and get expert-level output.</p>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">Prompt Engineering</span>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4 mb-2">The R-C-T-F Framework for ChatGPT</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">Define Role, Context, Task, and Format in every prompt to eliminate generic AI responses and get expert-level output.</p>
                         </div>
-                        <a href="#prompts" class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold inline-flex items-center gap-1.5">Try in Prompt Library <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#prompts" class="text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 font-semibold inline-flex items-center gap-1.5">Try in Prompt Library <i class="fa-solid fa-arrow-right"></i></a>
                     </article>
 
-                    <article class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all">
+                    <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all shadow-sm">
                         <div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 border border-pink-500/20">Image Generation</span>
-                            <h3 class="text-lg font-bold text-white mt-4 mb-2">Midjourney Lighting & Camera Secrets</h3>
-                            <p class="text-slate-400 text-sm mb-4 leading-relaxed">Combine cinematic lighting keywords, focal lengths, and aspect ratios (--ar 16:9) to generate photorealistic visuals.</p>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20">Image Generation</span>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4 mb-2">Midjourney Lighting & Camera Secrets</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">Combine cinematic lighting keywords, focal lengths, and aspect ratios (--ar 16:9) to generate photorealistic visuals.</p>
                         </div>
-                        <a href="#prompts" class="text-xs text-pink-400 hover:text-pink-300 font-semibold inline-flex items-center gap-1.5">Explore Image Prompts <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#prompts" class="text-xs text-pink-600 dark:text-pink-400 hover:text-pink-500 font-semibold inline-flex items-center gap-1.5">Explore Image Prompts <i class="fa-solid fa-arrow-right"></i></a>
                     </article>
 
-                    <article class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all">
+                    <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all shadow-sm">
                         <div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Workflow</span>
-                            <h3 class="text-lg font-bold text-white mt-4 mb-2">Clean Text Before Feeding to LLMs</h3>
-                            <p class="text-slate-400 text-sm mb-4 leading-relaxed">Removing extra whitespace and formatting messy drafts saves tokens and improves AI comprehension accuracy.</p>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Workflow</span>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4 mb-2">Clean Text Before Feeding to LLMs</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">Removing extra whitespace and formatting messy drafts saves tokens and improves AI comprehension accuracy.</p>
                         </div>
-                        <button onclick="openModal('spaceCleanerModal')" class="text-left text-xs text-emerald-400 hover:text-emerald-300 font-semibold inline-flex items-center gap-1.5">Open Space Remover <i class="fa-solid fa-arrow-right"></i></button>
+                        <button onclick="openModal('spaceCleanerModal')" class="text-left text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 font-semibold inline-flex items-center gap-1.5">Open Space Remover <i class="fa-solid fa-arrow-right"></i></button>
                     </article>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-900/20">
+        <section id="faq" class="py-16 sm:py-20 border-b border-slate-200 dark:border-slate-800/50 bg-slate-200/20 dark:bg-slate-900/20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-2xl sm:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-                    <p class="text-slate-400 text-sm sm:text-base">Everything you need to know about PromptVerse AI.</p>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Everything you need to know about PromptVerse AI.</p>
                 </div>
 
                 <div class="space-y-4">
-                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-                        <h3 class="font-bold text-white text-base sm:text-lg mb-2">Are all prompts and tools free to use?</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Yes! PromptVerse AI is completely free. You can copy prompts, use browser tools, and read guides without registration or payment.</p>
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">Are all prompts and tools free to use?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Yes! PromptVerse AI is completely free. You can copy prompts, use browser tools, and read guides without registration or payment.</p>
                     </div>
-                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-                        <h3 class="font-bold text-white text-base sm:text-lg mb-2">How do I submit new prompt suggestions?</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">You can directly email our team at <a href="mailto:huzaimakhan3403@gmail.com" class="text-indigo-400 underline font-medium">huzaimakhan3403@gmail.com</a> or use the Contact form below.</p>
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">How do I submit new prompt suggestions?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">You can directly email our team at <a href="mailto:huzaimakhan3403@gmail.com" class="text-indigo-600 dark:text-indigo-400 underline font-medium">huzaimakhan3403@gmail.com</a> or use the Contact form below.</p>
                     </div>
-                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-                        <h3 class="font-bold text-white text-base sm:text-lg mb-2">Do the browser utilities collect my text data?</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">No. All utility tools process text locally right inside your client-side browser. Your data never touches a server.</p>
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">Do the browser utilities collect my text data?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">No. All utility tools process text locally right inside your client-side browser. Your data never touches a server.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-slate-900 border-t border-slate-800">
+        <section id="contact" class="py-20 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Connect With Us</h2>
-                    <p class="mt-4 text-lg text-slate-400">Have a question, prompt submission, or want to collaborate? Drop us a message below!</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Connect With Us</h2>
+                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Have a question, prompt submission, or want to collaborate? Drop us a message below!</p>
                 </div>
 
-                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl">
+                <div class="bg-slate-50 dark:bg-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl">
                     <form id="contactFormSection" action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-6">
                         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-slate-300">Your Name</label>
-                            <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="John Doe">
+                            <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Your Name</label>
+                            <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="John Doe">
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium text-slate-300">Your Email</label>
-                            <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="you@example.com">
+                            <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Your Email</label>
+                            <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="you@example.com">
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-medium text-slate-300">Your Message</label>
-                            <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Write your message or submit a prompt here..."></textarea>
+                            <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Your Message</label>
+                            <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-4 py-3 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Write your message or submit a prompt here..."></textarea>
                         </div>
                         <div>
                             <button type="submit" class="w-full py-3 px-6 text-white font-medium bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-lg shadow-indigo-500/20">Send Message</button>
@@ -445,29 +454,29 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800/80 py-8 text-center text-slate-500 text-sm">
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800/80 py-8 text-center text-slate-500 text-sm">
         <p>&copy; 2026 PromptVerse Official. All rights reserved.</p>
     </footer>
 
-    <!-- Contact Modal (Fixed Header Button) -->
+    <!-- Contact Modal -->
     <div id="contactModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
-            <button onclick="closeModal('contactModal')" aria-label="Close modal" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <h3 class="text-2xl font-bold text-white mb-1">Get in Touch</h3>
-            <p class="text-slate-400 text-sm mb-6">Submit a prompt idea or send us a message directly.</p>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeModal('contactModal')" aria-label="Close modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Get in Touch</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Submit a prompt idea or send us a message directly.</p>
             <form id="contactFormModal" action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-4">
                 <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
                 <div>
-                    <label class="block text-xs font-medium text-slate-300 mb-1">Your Name</label>
-                    <input type="text" name="name" required class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="John Doe">
+                    <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Your Name</label>
+                    <input type="text" name="name" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="John Doe">
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-slate-300 mb-1">Your Email</label>
-                    <input type="email" name="email" required class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="you@example.com">
+                    <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Your Email</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="you@example.com">
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-slate-300 mb-1">Message / Prompt</label>
-                    <textarea name="message" rows="3" required class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Write your message here..."></textarea>
+                    <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Message / Prompt</label>
+                    <textarea name="message" rows="3" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Write your message here..."></textarea>
                 </div>
                 <button type="submit" class="w-full py-3 px-6 text-white font-semibold bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-colors shadow-lg">Send Message</button>
             </form>
@@ -476,52 +485,52 @@
 
     <!-- Utility Modals -->
     <div id="wordCounterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
-            <button onclick="closeModal('wordCounterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <h3 class="text-xl font-bold text-white mb-2">Word & Character Counter</h3>
-            <textarea id="wcInput" oninput="runWordCounter()" rows="4" placeholder="Type or paste your text here..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal('wordCounterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Word & Character Counter</h3>
+            <textarea id="wcInput" oninput="runWordCounter()" rows="4" placeholder="Type or paste your text here..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
             <div class="grid grid-cols-3 gap-3 text-center">
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcWords" class="text-lg font-bold text-indigo-400">0</div><div class="text-xs text-slate-400">Words</div></div>
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcChars" class="text-lg font-bold text-indigo-400">0</div><div class="text-xs text-slate-400">Characters</div></div>
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcReadTime" class="text-lg font-bold text-indigo-400">0s</div><div class="text-xs text-slate-400">Read Time</div></div>
+                <div class="p-3 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800"><div id="wcWords" class="text-lg font-bold text-indigo-600 dark:text-indigo-400">0</div><div class="text-xs text-slate-500 dark:text-slate-400">Words</div></div>
+                <div class="p-3 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800"><div id="wcChars" class="text-lg font-bold text-indigo-600 dark:text-indigo-400">0</div><div class="text-xs text-slate-500 dark:text-slate-400">Characters</div></div>
+                <div class="p-3 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800"><div id="wcReadTime" class="text-lg font-bold text-indigo-600 dark:text-indigo-400">0s</div><div class="text-xs text-slate-500 dark:text-slate-400">Read Time</div></div>
             </div>
         </div>
     </div>
 
     <div id="caseConverterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
-            <button onclick="closeModal('caseConverterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <h3 class="text-xl font-bold text-white mb-2">Text Case Converter</h3>
-            <textarea id="ccInput" rows="3" placeholder="Type your text..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal('caseConverterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Text Case Converter</h3>
+            <textarea id="ccInput" rows="3" placeholder="Type your text..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
             <div class="flex flex-wrap gap-2">
                 <button onclick="convertCase('upper')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">UPPERCASE</button>
                 <button onclick="convertCase('lower')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">lowercase</button>
                 <button onclick="convertCase('title')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">Title Case</button>
-                <button onclick="copyToClipboard(document.getElementById('ccInput').value, 'Converted text copied!')" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs font-semibold text-slate-200 ml-auto"><i class="fa-regular fa-copy mr-1"></i> Copy</button>
+                <button onclick="copyToClipboard(document.getElementById('ccInput').value, 'Converted text copied!')" class="px-3 py-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 ml-auto"><i class="fa-regular fa-copy mr-1"></i> Copy</button>
             </div>
         </div>
     </div>
 
     <div id="spaceCleanerModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
-            <button onclick="closeModal('spaceCleanerModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <h3 class="text-xl font-bold text-white mb-2">Extra Space Remover</h3>
-            <textarea id="scInput" rows="4" placeholder="Paste messy text with extra spaces..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal('spaceCleanerModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Extra Space Remover</h3>
+            <textarea id="scInput" rows="4" placeholder="Paste messy text with extra spaces..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
             <div class="flex gap-2">
                 <button onclick="cleanSpaces()" class="flex-1 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl">Remove Extra Spaces</button>
-                <button onclick="copyToClipboard(document.getElementById('scInput').value, 'Cleaned text copied!')" class="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl"><i class="fa-regular fa-copy"></i></button>
+                <button onclick="copyToClipboard(document.getElementById('scInput').value, 'Cleaned text copied!')" class="px-4 py-3 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold rounded-xl"><i class="fa-regular fa-copy"></i></button>
             </div>
         </div>
     </div>
 
     <div id="textRepeaterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
-            <button onclick="closeModal('textRepeaterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <h3 class="text-xl font-bold text-white mb-2">Text Repeater Tool</h3>
-            <input type="text" id="trText" placeholder="Text to repeat" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none focus:ring-2 focus:ring-indigo-500">
-            <input type="number" id="trCount" value="5" min="1" max="100" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none focus:ring-2 focus:ring-indigo-500">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal('textRepeaterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Text Repeater Tool</h3>
+            <input type="text" id="trText" placeholder="Text to repeat" class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white mb-3 outline-none focus:ring-2 focus:ring-indigo-500">
+            <input type="number" id="trCount" value="5" min="1" max="100" class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white mb-3 outline-none focus:ring-2 focus:ring-indigo-500">
             <button onclick="repeatText()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl">Repeat Text</button>
-            <textarea id="trOutput" rows="3" readonly placeholder="Output..." class="w-full p-3 mt-3 rounded-xl bg-slate-950 border border-slate-800 text-white outline-none"></textarea>
+            <textarea id="trOutput" rows="3" readonly placeholder="Output..." class="w-full p-3 mt-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white outline-none"></textarea>
         </div>
     </div>
 
@@ -529,6 +538,49 @@
     <script>
         let allPrompts = [];
         let currentCategory = 'all';
+
+        // Theme Toggle Logic
+        function initTheme() {
+            const savedTheme = localStorage.getItem('promptverse_theme');
+            const htmlEl = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+
+            if (savedTheme === 'light') {
+                htmlEl.classList.remove('dark');
+                if (themeIcon) {
+                    themeIcon.className = 'fa-solid fa-moon text-indigo-600 text-lg';
+                }
+            } else {
+                htmlEl.classList.add('dark');
+                if (themeIcon) {
+                    themeIcon.className = 'fa-solid fa-sun text-amber-500 text-lg';
+                }
+            }
+        }
+
+        function toggleTheme() {
+            const htmlEl = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+
+            if (htmlEl.classList.contains('dark')) {
+                htmlEl.classList.remove('dark');
+                localStorage.setItem('promptverse_theme', 'light');
+                if (themeIcon) {
+                    themeIcon.className = 'fa-solid fa-moon text-indigo-600 text-lg';
+                }
+                showToast('Switched to Light Mode');
+            } else {
+                htmlEl.classList.add('dark');
+                localStorage.setItem('promptverse_theme', 'dark');
+                if (themeIcon) {
+                    themeIcon.className = 'fa-solid fa-sun text-amber-500 text-lg';
+                }
+                showToast('Switched to Dark Mode');
+            }
+        }
+
+        // Run theme init immediately on load
+        initTheme();
 
         function escapeHTML(value) {
             return String(value ?? '').replace(/[&<>"']/g, char => ({
@@ -550,7 +602,7 @@
             } catch (error) {
                 console.error('Error loading prompts.json:', error);
                 if (grid) {
-                    grid.innerHTML = '<div class="col-span-full text-center py-12 text-amber-300">Prompts could not be loaded. Please ensure prompts.json is uploaded.</div>';
+                    grid.innerHTML = '<div class="col-span-full text-center py-12 text-amber-500 dark:text-amber-300">Prompts could not be loaded. Please ensure prompts.json is uploaded.</div>';
                 }
             }
         }
@@ -560,24 +612,24 @@
             if (!grid) return;
             grid.innerHTML = '';
             if (!prompts.length) {
-                grid.innerHTML = '<div class="col-span-full text-center py-12 text-slate-400">No prompts found matching your search.</div>';
+                grid.innerHTML = '<div class="col-span-full text-center py-12 text-slate-500 dark:text-slate-400">No prompts found matching your search.</div>';
                 return;
             }
             prompts.forEach(promptItem => {
                 const card = document.createElement('article');
-                card.className = 'bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition-all shadow-lg';
+                card.className = 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition-all shadow-sm';
                 card.innerHTML = `
                     <div>
                         <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">${escapeHTML(promptItem.category)}</span>
-                            <span class="text-xs text-slate-500">#${escapeHTML(promptItem.id)}</span>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">${escapeHTML(promptItem.category)}</span>
+                            <span class="text-xs text-slate-400 dark:text-slate-500">#${escapeHTML(promptItem.id)}</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">${escapeHTML(promptItem.title)}</h3>
-                        <p class="text-slate-400 text-sm mb-4">${escapeHTML(promptItem.desc)}</p>
-                        <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3 mb-4 text-xs font-mono text-slate-300 max-h-24 overflow-y-auto whitespace-pre-wrap">${escapeHTML(promptItem.prompt)}</div>
-                        <div class="flex flex-wrap gap-2 mb-4">${(Array.isArray(promptItem.tags) ? promptItem.tags : []).map(tag => `<span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded-lg">${escapeHTML(tag)}</span>`).join('')}</div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">${escapeHTML(promptItem.title)}</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">${escapeHTML(promptItem.desc)}</p>
+                        <div class="bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800/80 rounded-xl p-3 mb-4 text-xs font-mono text-slate-700 dark:text-slate-300 max-h-24 overflow-y-auto whitespace-pre-wrap">${escapeHTML(promptItem.prompt)}</div>
+                        <div class="flex flex-wrap gap-2 mb-4">${(Array.isArray(promptItem.tags) ? promptItem.tags : []).map(tag => `<span class="text-xs text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg">${escapeHTML(tag)}</span>`).join('')}</div>
                     </div>
-                    <button type="button" class="copy-prompt-btn w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all flex items-center justify-center gap-2">
+                    <button type="button" class="copy-prompt-btn w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-sm">
                         <i class="fa-regular fa-copy"></i> Copy Prompt
                     </button>`;
                 const copyBtn = card.querySelector('.copy-prompt-btn');
@@ -600,12 +652,12 @@
         function setCategory(category, button) {
             currentCategory = category;
             document.querySelectorAll('.cat-btn').forEach(item => {
-                item.classList.remove('border-indigo-500/50', 'bg-slate-900');
-                item.classList.add('bg-slate-900/60', 'border-slate-800');
+                item.classList.remove('border-indigo-500/50', 'bg-white', 'dark:bg-slate-900', 'shadow-sm');
+                item.classList.add('bg-white/60', 'dark:bg-slate-900/60', 'border-slate-200', 'dark:border-slate-800');
             });
             if (button) {
-                button.classList.remove('bg-slate-900/60', 'border-slate-800');
-                button.classList.add('border-indigo-500/50', 'bg-slate-900');
+                button.classList.remove('bg-white/60', 'dark:bg-slate-900/60', 'border-slate-200', 'dark:border-slate-800');
+                button.classList.add('border-indigo-500/50', 'bg-white', 'dark:bg-slate-900', 'shadow-sm');
             }
             filterPrompts();
             scrollToPrompts();
