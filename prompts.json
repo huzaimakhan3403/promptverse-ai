@@ -46,5 +46,37 @@
     "desc": "Detects errors in your code, fixes bugs, and explains the solution clearly.",
     "prompt": "Act as a Senior Full-Stack Software Engineer. Analyze the following code snippet for bugs, performance issues, and best practices. Provide the corrected code and briefly explain what changes were made: [Paste Code]",
     "tags": ["JavaScript", "HTML/CSS", "Debugging"]
+  },
+  {
+    "id": 101,
+    "title": "Full-Stack Bug Fixer & Code Reviewer",
+    "category": "Coding",
+    "desc": "Analyze messy code snippets, find performance bottlenecks, and output clean, production-ready code with explanations.",
+    "prompt": "Act as an expert Senior Full-Stack Engineer. Review the following code for security vulnerabilities, memory leaks, and performance bottlenecks. Provide a refactored, clean, and optimized version along with a brief explanation of what was fixed:\n\n[Insert your code here]",
+    "tags": ["Coding", "Debugging", "JavaScript", "React"]
+  },
+  {
+    "id": 102,
+    "title": "High-Converting Viral Ad Copywriter",
+    "category": "Marketing",
+    "desc": "Generate high-CTR marketing hooks and ad copy frameworks (AIDA/PAS) for social media campaigns.",
+    "prompt": "Act as a world-class Direct Response Copywriter. Write 5 high-converting ad hooks and a full-length ad copy using the PAS (Problem-Agitate-Solution) framework for the following product/service. Target Audience: [Insert audience]. Product details: [Insert details]",
+    "tags": ["Marketing", "Copywriting", "Ads", "Growth"]
+  },
+  {
+    "id": 103,
+    "title": "SEO Optimized Blog Post Outliner",
+    "category": "Writing",
+    "desc": "Create comprehensive, keyword-rich article outlines with H2/H3 headings and intent matching.",
+    "prompt": "Act as an expert SEO Content Strategist. Create a detailed, click-worthy blog post outline for the target keyword '[Insert Keyword]'. Include suggested H2 and H3 headings, search intent breakdown, estimated word count per section, and internal linking ideas.",
+    "tags": ["Writing", "SEO", "Blogging", "Content"]
+  },
+  {
+    "id": 104,
+    "title": "Cinematic Midjourney v6 Photo Generator",
+    "category": "Image Generation",
+    "desc": "Craft hyper-realistic, cinematic portrait and landscape prompts with advanced camera parameters.",
+    "prompt": "A cinematic, ultra-realistic portrait of [Subject], dramatic volumetric studio lighting, moody atmosphere, shot on 35mm lens, f/1.8 aperture, photorealistic skin texture, highly detailed --ar 16:9 --v 6.0 --style raw",
+    "tags": ["Midjourney", "AI Art", "Image Generation", "Photography"]
   }
 ]
