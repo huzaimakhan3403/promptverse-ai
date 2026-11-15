@@ -214,7 +214,7 @@
                         <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400 text-lg pointer-events-none"></i>
                         <input type="text" id="promptSearch" aria-label="Search AI prompts" oninput="filterPrompts()" placeholder="Search prompts (e.g. SEO, Coding, Marketing)..." 
                             class="w-full pl-12 pr-28 py-4 rounded-2xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm sm:text-base min-h-[52px]">
-                        <button onclick="filterPrompts()" class="absolute right-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-sm font-semibold transition-colors min-h-[44px] flex items-center">
+                        <button onclick="scrollToPrompts()" class="absolute right-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-sm font-semibold transition-colors min-h-[44px] flex items-center">
                             Search
                         </button>
                     </div>
@@ -250,7 +250,7 @@
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
-                    <button onclick="setCategory('all', this)" class="cat-btn active p-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-indigo-500/50 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
+                    <button id="cat-all" onclick="setCategory('all', this)" class="cat-btn active p-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-indigo-500/50 flex flex-col items-center justify-center gap-3 transition-all text-center min-h-[100px]">
                         <i class="fa-solid fa-shapes text-2xl text-indigo-400"></i>
                         <span class="text-xs sm:text-sm font-semibold text-white">All Prompts</span>
                     </button>
@@ -288,8 +288,11 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
                     <div>
                         <h2 class="text-2xl sm:text-4xl font-bold text-white mb-2">Featured AI Prompts</h2>
-                        <p class="text-slate-400 text-sm sm:text-base">Tap any prompt to copy directly to clipboard.</p>
+                        <p id="filter-status" class="text-slate-400 text-sm sm:text-base">Tap any prompt to copy directly to clipboard.</p>
                     </div>
+                    <button id="reset-filter-btn" onclick="resetFilters()" class="hidden self-start md:self-auto px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs sm:text-sm font-semibold transition-colors">
+                        <i class="fa-solid fa-rotate-left mr-1.5"></i> Clear Filters
+                    </button>
                 </div>
                 <div id="prompts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </div>
@@ -344,8 +347,48 @@
             </div>
         </section>
 
+        <!-- Blog / Guides Section -->
+        <section id="blog" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-indigo-400">Expert Insights</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1 mb-4">AI Guides & Articles</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">Learn prompt engineering frameworks and strategies to unlock better AI outputs.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all">
+                        <div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering</span>
+                            <h3 class="text-lg font-bold text-white mt-4 mb-2">The R-C-T-F Framework for ChatGPT</h3>
+                            <p class="text-slate-400 text-sm mb-4 leading-relaxed">Define Role, Context, Task, and Format in every prompt to eliminate generic AI responses and get expert-level output.</p>
+                        </div>
+                        <a href="#prompts" class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold inline-flex items-center gap-1.5">Try in Prompt Library <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all">
+                        <div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 border border-pink-500/20">Image Generation</span>
+                            <h3 class="text-lg font-bold text-white mt-4 mb-2">Midjourney Lighting & Camera Secrets</h3>
+                            <p class="text-slate-400 text-sm mb-4 leading-relaxed">Combine cinematic lighting keywords, focal lengths, and aspect ratios (--ar 16:9) to generate photorealistic visuals.</p>
+                        </div>
+                        <a href="#prompts" class="text-xs text-pink-400 hover:text-pink-300 font-semibold inline-flex items-center gap-1.5">Explore Image Prompts <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all">
+                        <div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Workflow</span>
+                            <h3 class="text-lg font-bold text-white mt-4 mb-2">Clean Text Before Feeding to LLMs</h3>
+                            <p class="text-slate-400 text-sm mb-4 leading-relaxed">Removing extra whitespace and formatting messy drafts saves tokens and improves AI comprehension accuracy.</p>
+                        </div>
+                        <button onclick="openModal('spaceCleanerModal')" class="text-left text-xs text-emerald-400 hover:text-emerald-300 font-semibold inline-flex items-center gap-1.5">Open Space Remover <i class="fa-solid fa-arrow-right"></i></button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- FAQ Section -->
-        <section id="faq" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-950">
+        <section id="faq" class="py-16 sm:py-20 border-b border-slate-800/50 bg-slate-900/20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h2 class="text-2xl sm:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
@@ -359,7 +402,7 @@
                     </div>
                     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
                         <h3 class="font-bold text-white text-base sm:text-lg mb-2">How do I submit new prompt suggestions?</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">You can directly email our team at <a href="mailto:huzaimakhan3403@gmail.com" class="text-indigo-400 underline font-medium">huzaimakhan3403@gmail.com</a> or use the Contact form.</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">You can directly email our team at <a href="mailto:huzaimakhan3403@gmail.com" class="text-indigo-400 underline font-medium">huzaimakhan3403@gmail.com</a> or use the Contact form below.</p>
                     </div>
                     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
                         <h3 class="font-bold text-white text-base sm:text-lg mb-2">Do the browser utilities collect my text data?</h3>
@@ -374,11 +417,11 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Connect With Us</h2>
-                    <p class="mt-4 text-lg text-slate-400">Have a question, feedback, or want to collaborate? Drop us a message below!</p>
+                    <p class="mt-4 text-lg text-slate-400">Have a question, prompt submission, or want to collaborate? Drop us a message below!</p>
                 </div>
 
                 <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl">
-                    <form action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-6">
+                    <form id="contactFormSection" action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-6">
                         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
                         <div>
                             <label for="name" class="block text-sm font-medium text-slate-300">Your Name</label>
@@ -386,11 +429,11 @@
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium text-slate-300">Your Email</label>
-                            <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="huzaimakhan3403@gmail.com">
+                            <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="you@example.com">
                         </div>
                         <div>
                             <label for="message" class="block text-sm font-medium text-slate-300">Your Message</label>
-                            <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Write your message here..."></textarea>
+                            <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Write your message or submit a prompt here..."></textarea>
                         </div>
                         <div>
                             <button type="submit" class="w-full py-3 px-6 text-white font-medium bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-lg shadow-indigo-500/20">Send Message</button>
@@ -406,12 +449,37 @@
         <p>&copy; 2026 PromptVerse Official. All rights reserved.</p>
     </footer>
 
-    <!-- Modals (Word Counter, Case Converter, Space Cleaner, Repeater) -->
+    <!-- Contact Modal (Fixed Header Button) -->
+    <div id="contactModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeModal('contactModal')" aria-label="Close modal" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-2xl font-bold text-white mb-1">Get in Touch</h3>
+            <p class="text-slate-400 text-sm mb-6">Submit a prompt idea or send us a message directly.</p>
+            <form id="contactFormModal" action="https://formspree.io/f/xdeezvoe" method="POST" class="space-y-4">
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Your Name</label>
+                    <input type="text" name="name" required class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="John Doe">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Your Email</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="you@example.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Message / Prompt</label>
+                    <textarea name="message" rows="3" required class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Write your message here..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 px-6 text-white font-semibold bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-colors shadow-lg">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Utility Modals -->
     <div id="wordCounterModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
             <button onclick="closeModal('wordCounterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
             <h3 class="text-xl font-bold text-white mb-2">Word & Character Counter</h3>
-            <textarea id="wcInput" oninput="runWordCounter()" rows="4" placeholder="Type or paste your text here..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 outline-none"></textarea>
+            <textarea id="wcInput" oninput="runWordCounter()" rows="4" placeholder="Type or paste your text here..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
             <div class="grid grid-cols-3 gap-3 text-center">
                 <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcWords" class="text-lg font-bold text-indigo-400">0</div><div class="text-xs text-slate-400">Words</div></div>
                 <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><div id="wcChars" class="text-lg font-bold text-indigo-400">0</div><div class="text-xs text-slate-400">Characters</div></div>
@@ -424,11 +492,12 @@
         <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
             <button onclick="closeModal('caseConverterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
             <h3 class="text-xl font-bold text-white mb-2">Text Case Converter</h3>
-            <textarea id="ccInput" rows="3" placeholder="Type your text..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 outline-none"></textarea>
+            <textarea id="ccInput" rows="3" placeholder="Type your text..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
             <div class="flex flex-wrap gap-2">
                 <button onclick="convertCase('upper')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">UPPERCASE</button>
                 <button onclick="convertCase('lower')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">lowercase</button>
                 <button onclick="convertCase('title')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold text-white">Title Case</button>
+                <button onclick="copyToClipboard(document.getElementById('ccInput').value, 'Converted text copied!')" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs font-semibold text-slate-200 ml-auto"><i class="fa-regular fa-copy mr-1"></i> Copy</button>
             </div>
         </div>
     </div>
@@ -437,8 +506,11 @@
         <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
             <button onclick="closeModal('spaceCleanerModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
             <h3 class="text-xl font-bold text-white mb-2">Extra Space Remover</h3>
-            <textarea id="scInput" rows="4" placeholder="Paste messy text with extra spaces..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 outline-none"></textarea>
-            <button onclick="cleanSpaces()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl">Remove Extra Spaces</button>
+            <textarea id="scInput" rows="4" placeholder="Paste messy text with extra spaces..." class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+            <div class="flex gap-2">
+                <button onclick="cleanSpaces()" class="flex-1 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl">Remove Extra Spaces</button>
+                <button onclick="copyToClipboard(document.getElementById('scInput').value, 'Cleaned text copied!')" class="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl"><i class="fa-regular fa-copy"></i></button>
+            </div>
         </div>
     </div>
 
@@ -446,8 +518,8 @@
         <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 relative">
             <button onclick="closeModal('textRepeaterModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
             <h3 class="text-xl font-bold text-white mb-2">Text Repeater Tool</h3>
-            <input type="text" id="trText" placeholder="Text to repeat" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none">
-            <input type="number" id="trCount" value="5" min="1" max="100" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none">
+            <input type="text" id="trText" placeholder="Text to repeat" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none focus:ring-2 focus:ring-indigo-500">
+            <input type="number" id="trCount" value="5" min="1" max="100" class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white mb-3 outline-none focus:ring-2 focus:ring-indigo-500">
             <button onclick="repeatText()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl">Repeat Text</button>
             <textarea id="trOutput" rows="3" readonly placeholder="Output..." class="w-full p-3 mt-3 rounded-xl bg-slate-950 border border-slate-800 text-white outline-none"></textarea>
         </div>
@@ -505,11 +577,21 @@
                         <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3 mb-4 text-xs font-mono text-slate-300 max-h-24 overflow-y-auto whitespace-pre-wrap">${escapeHTML(promptItem.prompt)}</div>
                         <div class="flex flex-wrap gap-2 mb-4">${(Array.isArray(promptItem.tags) ? promptItem.tags : []).map(tag => `<span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded-lg">${escapeHTML(tag)}</span>`).join('')}</div>
                     </div>
-                    <button type="button" class="copy-prompt-btn w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2">
+                    <button type="button" class="copy-prompt-btn w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all flex items-center justify-center gap-2">
                         <i class="fa-regular fa-copy"></i> Copy Prompt
                     </button>`;
-                card.querySelector('.copy-prompt-btn').addEventListener('click', () => {
+                const copyBtn = card.querySelector('.copy-prompt-btn');
+                copyBtn.addEventListener('click', () => {
                     copyToClipboard(promptItem.prompt, 'Prompt copied to clipboard!');
+                    const originalHTML = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                    copyBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-500');
+                    copyBtn.classList.add('bg-emerald-600');
+                    setTimeout(() => {
+                        copyBtn.innerHTML = originalHTML;
+                        copyBtn.classList.remove('bg-emerald-600');
+                        copyBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-500');
+                    }, 2000);
                 });
                 grid.appendChild(card);
             });
@@ -526,6 +608,18 @@
                 button.classList.add('border-indigo-500/50', 'bg-slate-900');
             }
             filterPrompts();
+            scrollToPrompts();
+        }
+
+        function scrollToPrompts() {
+            document.getElementById('prompts')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function resetFilters() {
+            const searchInput = document.getElementById('promptSearch');
+            if (searchInput) searchInput.value = '';
+            const allBtn = document.getElementById('cat-all');
+            setCategory('all', allBtn);
         }
 
         function filterPrompts() {
@@ -536,6 +630,20 @@
                 const searchable = [item.title, item.desc, item.prompt, item.category, ...(Array.isArray(item.tags) ? item.tags : [])].join(' ').toLowerCase();
                 return categoryMatch && searchable.includes(query);
             });
+
+            const statusEl = document.getElementById('filter-status');
+            const resetBtn = document.getElementById('reset-filter-btn');
+            const isFiltered = currentCategory !== 'all' || query.length > 0;
+
+            if (statusEl) {
+                statusEl.textContent = isFiltered
+                    ? `Showing ${filtered.length} of ${allPrompts.length} prompts${currentCategory !== 'all' ? ` in ${currentCategory}` : ''}.`
+                    : 'Tap any prompt to copy directly to clipboard.';
+            }
+            if (resetBtn) {
+                resetBtn.classList.toggle('hidden', !isFiltered);
+            }
+
             renderPrompts(filtered);
         }
 
@@ -594,7 +702,44 @@
             document.getElementById('trOutput').value = Array(count).fill(text).join('\n');
         }
 
-        document.addEventListener('DOMContentLoaded', loadPrompts);
+        // AJAX Formspree Submission (No Page Reload)
+        function setupAjaxForm(formId, modalToClose = null) {
+            const form = document.getElementById(formId);
+            if (!form) return;
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Sending...';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        form.reset();
+                        if (modalToClose) closeModal(modalToClose);
+                        showToast('Message sent successfully! We will reply soon.');
+                    } else {
+                        showToast('Failed to send message. Please try again.');
+                    }
+                } catch (err) {
+                    showToast('Network error. Please check your connection.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPrompts();
+            setupAjaxForm('contactFormSection');
+            setupAjaxForm('contactFormModal', 'contactModal');
+        });
     </script>
 </body>
 </html>
