@@ -78,5 +78,117 @@
     "desc": "Craft hyper-realistic, cinematic portrait and landscape prompts with advanced camera parameters.",
     "prompt": "A cinematic, ultra-realistic portrait of [Subject], dramatic volumetric studio lighting, moody atmosphere, shot on 35mm lens, f/1.8 aperture, photorealistic skin texture, highly detailed --ar 16:9 --v 6.0 --style raw",
     "tags": ["Midjourney", "AI Art", "Image Generation", "Photography"]
+  },
+  {
+    "id": 105,
+    "title": "Full-Stack Code Reviewer & Optimizer",
+    "category": "Coding",
+    "desc": "Identify security flaws, memory leaks, and performance bottlenecks in any code snippet.",
+    "prompt": "Act as a Principal Software Engineer. Review the following [Language/Framework] code for security vulnerabilities, edge-case bugs, time/space complexity, and readability. Provide a refactored, production-ready version along with bullet-point explanations of each improvement:\n\n[Paste Code Here]",
+    "tags": ["Code Review", "Refactoring", "Clean Code"]
+  },
+  {
+    "id": 106,
+    "title": "SQL Query Builder & Performance Tuner",
+    "category": "Coding",
+    "desc": "Generate optimized SQL queries and indexing recommendations from plain English.",
+    "prompt": "Act as a Senior Database Administrator. Write an optimized [PostgreSQL/MySQL] query to achieve the following goal: [Describe Goal]. Assume these table schemas: [Insert Schema]. Also recommend specific database indexes to ensure fast execution on millions of rows.",
+    "tags": ["SQL", "Database", "Performance"]
+  },
+  {
+    "id": 107,
+    "title": "React + Tailwind Component Generator",
+    "category": "Coding",
+    "desc": "Build responsive, accessible React components styled with Tailwind CSS.",
+    "prompt": "Create a modern, fully responsive React functional component using Tailwind CSS for a [Component Name, e.g., Pricing Table / Dashboard Card]. Ensure dark mode support (`dark:` classes), keyboard accessibility, clean state management with hooks, and zero external UI library dependencies.",
+    "tags": ["React", "Tailwind CSS", "Frontend"]
+  },
+  {
+    "id": 108,
+    "title": "Viral YouTube Hook & Script Architect",
+    "category": "Writing",
+    "desc": "Craft high-retention YouTube video intros and structured scripts that keep viewers watching.",
+    "prompt": "Act as a YouTube retention strategist. Write a high-energy, curiosity-driven 45-second hook and a structured 5-minute script outline for a video titled '[Video Title]' aimed at [Target Audience]. Avoid clichés and include visual B-roll cues in brackets.",
+    "tags": ["YouTube", "Scriptwriting", "Content"]
+  },
+  {
+    "id": 109,
+    "title": "Complex Topic Simplifier (Feynman Technique)",
+    "category": "Writing",
+    "desc": "Break down difficult technical or academic concepts into crystal-clear explanations.",
+    "prompt": "Explain [Complex Topic] using the Feynman Technique. First, explain it in simple language a 12-year-old could understand using a real-world analogy. Second, highlight the 3 most common misconceptions. Finally, provide a concise summary for an industry professional.",
+    "tags": ["Education", "Simplifier", "Writing"]
+  },
+  {
+    "id": 110,
+    "title": "Executive Article & Newsletter Polisher",
+    "category": "Writing",
+    "desc": "Transform rough notes into a punchy, authoritative Substack or LinkedIn newsletter.",
+    "prompt": "Act as a senior editor. Rewrite the following rough draft into an engaging, punchy newsletter edition. Use short paragraphs, bold key takeaways, strong transitions, and end with a thought-provoking question to spark reader replies:\n\n[Paste Rough Draft]",
+    "tags": ["Newsletter", "Editing", "LinkedIn"]
+  },
+  {
+    "id": 111,
+    "title": "High-Converting Cold Email Sequence",
+    "category": "Marketing",
+    "desc": "Generate a 3-step B2B cold outreach email sequence that gets replies without sounding spammy.",
+    "prompt": "Write a 3-email B2B cold outreach sequence targeting [Job Title] at [Company Type] to pitch [Product/Service]. Email 1 should focus on a specific pain point and be under 100 words. Email 2 (3 days later) should share a quick case study/metric. Email 3 (7 days later) should be a polite breakup email.",
+    "tags": ["Cold Email", "B2B", "Outreach"]
+  },
+  {
+    "id": 112,
+    "title": "SEO Content Cluster & Pillar Strategy",
+    "category": "Marketing",
+    "desc": "Plan a complete topical authority content map around any seed keyword.",
+    "prompt": "Act as an SEO Director. Build a topical authority content cluster for the main niche '[Niche/Keyword]'. Provide 1 comprehensive Pillar Page topic and 10 supporting long-tail blog post titles, including search intent (Informational/Commercial) and primary target keywords for each.",
+    "tags": ["SEO", "Content Strategy", "Traffic"]
+  },
+  {
+    "id": 113,
+    "title": "Photorealistic Studio Product Photography",
+    "category": "Image Generation",
+    "desc": "Generate commercial-grade studio product shots in Midjourney v6.",
+    "prompt": "Commercial studio product photography of [Product Name, e.g., matte black wireless headphones] resting on a textured dark slate podium, dramatic rim lighting, subtle volumetric mist, water droplets, shot on Hasselblad H6D-100c, 85mm macro lens, f/2.8, ultra-detailed, photorealistic --ar 4:5 --v 6.0 --style raw",
+    "tags": ["Midjourney", "Product Photo", "Studio"]
+  },
+  {
+    "id": 114,
+    "title": "3D Isometric Tech App Icon",
+    "category": "Image Generation",
+    "desc": "Create sleek, modern 3D glassmorphism icons for websites and mobile apps.",
+    "prompt": "3D isometric icon of [Object, e.g., a glowing rocket / AI brain chip], frosted glassmorphism texture with vibrant indigo and neon cyan gradient accents, soft ambient occlusion shadows, floating over a clean dark slate background, Cinema 4D, Octane render, minimalist UI asset --ar 1:1 --v 6.0",
+    "tags": ["3D Icon", "UI Design", "Midjourney"]
+  },
+  {
+    "id": 115,
+    "title": "SaaS Pricing & Monetization Strategist",
+    "category": "Business",
+    "desc": "Design profitable Free, Pro, and Enterprise pricing tiers for digital products.",
+    "prompt": "Act as a SaaS monetization consultant. Design a 3-tier pricing structure (Free, Pro, Business) for [Product Description] targeting [Target Market]. Specify feature gates, usage limits, psychological anchoring tactics, and recommended monthly/annual pricing.",
+    "tags": ["SaaS", "Pricing", "Monetization"]
+  },
+  {
+    "id": 116,
+    "title": "Lean Startup One-Page Business Plan",
+    "category": "Business",
+    "desc": "Validate a new business or app idea using the Lean Canvas framework.",
+    "prompt": "Create a Lean Canvas business model for [Business/App Idea]. Clearly define: 1) Top 3 Customer Problems, 2) Unique Value Proposition, 3) Unfair Advantage, 4) Customer Segments, 5) Acquisition Channels, 6) Revenue Streams, and 7) Key Metrics to track in the first 90 days.",
+    "tags": ["Startup", "Strategy", "Lean Canvas"]
+  },
+  {
+    "id": 117,
+    "title": "ATS-Optimized Resume Bullet Rewriter",
+    "category": "Career",
+    "desc": "Turn weak job descriptions into quantifiable, impact-driven resume achievements.",
+    "prompt": "Act as an Executive Tech Recruiter. Rewrite the following resume bullet points using the Google XYZ formula (Accomplished [X] as measured by [Y], by doing [Z]). Incorporate strong action verbs and relevant ATS keywords for a [Target Role] position:\n\n[Paste Current Bullets]",
+    "tags": ["Resume", "ATS", "Job Search"]
+  },
+  {
+    "id": 118,
+    "title": "Mock Technical & Behavioral Interviewer",
+    "category": "Career",
+    "desc": "Practice tough interview questions with real-time feedback and sample answers.",
+    "prompt": "Act as a Hiring Manager interviewing me for a [Job Title] role at a top company. Ask me 1 challenging behavioral or technical question at a time. Wait for my response, grade my answer out of 10 using the STAR method, give specific feedback, and then ask the next question.",
+    "tags": ["Interview", "STAR Method", "Career"]
   }
 ]
