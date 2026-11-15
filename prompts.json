@@ -190,5 +190,205 @@
     "desc": "Practice tough interview questions with real-time feedback and sample answers.",
     "prompt": "Act as a Hiring Manager interviewing me for a [Job Title] role at a top company. Ask me 1 challenging behavioral or technical question at a time. Wait for my response, grade my answer out of 10 using the STAR method, give specific feedback, and then ask the next question.",
     "tags": ["Interview", "STAR Method", "Career"]
+  },
+  {
+    "id": 119,
+    "title": "TypeScript Type Definition Generator",
+    "category": "Coding",
+    "desc": "Convert raw JSON payloads or JavaScript objects into strict TypeScript interfaces.",
+    "prompt": "Act as a TypeScript expert. Convert the following JSON or JavaScript object into strict, production-ready TypeScript interfaces and types. Handle nested objects, optional properties, and readonly modifiers properly:\n\n[Paste JSON/JS Object Here]",
+    "tags": ["TypeScript", "Coding", "Types"]
+  },
+  {
+    "id": 120,
+    "title": "Docker & Dockerfile Optimizer",
+    "category": "Coding",
+    "desc": "Write multi-stage Dockerfiles optimized for security, small image size, and fast builds.",
+    "prompt": "Act as a DevOps Engineer. Write a secure, multi-stage Dockerfile for a [Node.js / Python / Go] application. Minimize image size, use non-root users for security, and optimize caching layers for faster CI/CD builds.",
+    "tags": ["Docker", "DevOps", "Coding"]
+  },
+  {
+    "id": 121,
+    "title": "API Documentation & Swagger Writer",
+    "category": "Coding",
+    "desc": "Generate clean OpenAPI / Swagger documentation from endpoint descriptions.",
+    "prompt": "Act as a Backend Developer. Write comprehensive OpenAPI 3.0 documentation (in YAML) for the following endpoint: [Describe Endpoint]. Include request headers, parameters, request body schemas, and success/error response examples.",
+    "tags": ["API", "Documentation", "Backend"]
+  },
+  {
+    "id": 122,
+    "title": "Unit Test & Jest/Vitest Generator",
+    "category": "Coding",
+    "desc": "Write robust unit tests with high code coverage for any function or component.",
+    "prompt": "Act as a Test Automation Engineer. Write comprehensive unit tests using [Jest / Vitest / PyTest] for the following code. Cover happy paths, edge cases, null inputs, and error handling:\n\n[Paste Code Here]",
+    "tags": ["Testing", "Jest", "Coding"]
+  },
+  {
+    "id": 123,
+    "title": "Tailwind CSS UI Animation Builder",
+    "category": "Coding",
+    "desc": "Create smooth CSS transitions and Tailwind animation classes for interactive UI elements.",
+    "prompt": "Write the HTML and Tailwind CSS classes for a smooth, modern [Animation Type, e.g., modal popup / dropdown menu / floating card hover effect]. Include transition durations, easing functions, and hover states.",
+    "tags": ["Tailwind CSS", "Animations", "UI"]
+  },
+  {
+    "id": 124,
+    "title": "Viral TikTok & Reels Hook Generator",
+    "category": "Writing",
+    "desc": "Hook viewers in the first 3 seconds with pattern-interrupt short-form video hooks.",
+    "prompt": "Act as a short-form video growth expert. Generate 10 high-converting pattern-interrupt hooks for TikTok and Instagram Reels about [Topic/Niche]. Group them by psychology angle (e.g., Curiosity Gap, Controversial Opinion, Secret Reveal).",
+    "tags": ["TikTok", "Reels", "Writing"]
+  },
+  {
+    "id": 125,
+    "title": "Professional Email & Apology Reframer",
+    "category": "Writing",
+    "desc": "Rewrite awkward or sensitive workplace emails into calm, professional, and clear messages.",
+    "prompt": "Act as an executive communication coach. Rewrite the following draft into a professional, empathetic, and clear business email. Remove emotional language while firmly conveying the main point:\n\n[Paste Draft Here]",
+    "tags": ["Email", "Professional", "Writing"]
+  },
+  {
+    "id": 126,
+    "title": "Podcast Guest Interview Question Sheet",
+    "category": "Writing",
+    "desc": "Prepare engaging, thought-provoking interview questions for podcast guests.",
+    "prompt": "Act as an expert podcast producer. Create 12 engaging interview questions for a guest who is an expert in [Guest's Niche/Topic]. Include an icebreaker, 8 deep-dive questions, 2 rapid-fire questions, and a closing promotion question.",
+    "tags": ["Podcast", "Interview", "Content"]
+  },
+  {
+    "id": 127,
+    "title": "Long-Form eBook Chapter Writer",
+    "category": "Writing",
+    "desc": "Draft comprehensive, engaging book chapters with real-world case studies and actionable takeaways.",
+    "prompt": "Act as a professional ghostwriter. Write Chapter [Number] titled '[Chapter Title]' for a book about [Book Topic]. Use an engaging storytelling voice, include a real-world case study, and end with 3 key actionable takeaways.",
+    "tags": ["eBook", "Writing", "Author"]
+  },
+  {
+    "id": 128,
+    "title": "Landing Page Copywriting Master (AIDA)",
+    "category": "Marketing",
+    "desc": "Create high-converting landing page copy from Hero section to FAQ.",
+    "prompt": "Act as a conversion rate optimization (CRO) copywriter. Write high-converting landing page copy for [Product/Service] using the AIDA (Attention, Interest, Desire, Action) framework. Include a punchy hero headline, subheadline, 3 core benefit blocks, and a CTA.",
+    "tags": ["Landing Page", "CRO", "Marketing"]
+  },
+  {
+    "id": 129,
+    "title": "Twitter / X Thread Virality Generator",
+    "category": "Marketing",
+    "desc": "Turn complex ideas into engaging, thread-formatted tweets that drive engagement.",
+    "prompt": "Act as a top X (Twitter) creator. Write a 7-part thread explaining [Topic]. Tweet 1 must be a viral hook. Tweets 2-6 must deliver high-value insights with formatting and spacing. Tweet 7 must be a CTA to retweet and follow.",
+    "tags": ["Twitter", "Threads", "Marketing"]
+  },
+  {
+    "id": 130,
+    "title": "Google Ads Search Campaign Copywriter",
+    "category": "Marketing",
+    "desc": "Write optimized responsive search ads with maximum keyword relevance.",
+    "prompt": "Act as a Google Ads specialist. Write 3 responsive search ad (RSA) variations for [Product/Service] targeting keyword '[Target Keyword]'. Provide 5 headlines (under 30 chars) and 4 descriptions (under 90 chars) with strong CTAs.",
+    "tags": ["Google Ads", "PPC", "Marketing"]
+  },
+  {
+    "id": 131,
+    "title": "Influencer Outreach & Collab Pitch",
+    "category": "Marketing",
+    "desc": "Craft partnership proposals that micro and macro influencers actually open and reply to.",
+    "prompt": "Write a personalized influencer collaboration pitch email for [Brand/Product] targeting creators in the [Niche] space. Keep it concise, highlight mutual value, compensation structure, and a clear next step.",
+    "tags": ["Influencer", "Outreach", "Marketing"]
+  },
+  {
+    "id": 132,
+    "title": "Cinematic Cyberpunk Neon Environment",
+    "category": "Image Generation",
+    "desc": "Generate moody cyberpunk cityscape environments with glowing neon reflections.",
+    "prompt": "Cinematic wide-angle shot of a futuristic cyberpunk city street in Neo-Tokyo during a heavy downpour, glowing neon signs reflecting in puddles on the asphalt, flying vehicles overhead, moody atmosphere, Unreal Engine 5 render, hyper-detailed --ar 16:9 --v 6.0",
+    "tags": ["Cyberpunk", "Midjourney", "Environment"]
+  },
+  {
+    "id": 133,
+    "title": "Minimalist Flat Vector Logo Concept",
+    "category": "Image Generation",
+    "desc": "Create clean, modern vector logo marks for tech startups and modern brands.",
+    "prompt": "Minimalist flat vector logo design for an AI tech startup named 'Nova', geometric fox head symbol integrated with a neural network node, clean lines, solid white background, corporate identity, modern branding --ar 1:1 --v 6.0 --style raw",
+    "tags": ["Logo", "Vector", "Midjourney"]
+  },
+  {
+    "id": 134,
+    "title": "Moody Dark Fantasy Character Art",
+    "category": "Image Generation",
+    "desc": "Design epic dark fantasy warrior characters with intricate armor and lighting.",
+    "prompt": "Epic dark fantasy concept art of a lone elven ranger in ancient shadowy woods, intricate silver filigree armor, glowing magical bow, atmospheric fog, volumetric moonlight filtering through giant trees, masterpiece, digital painting --ar 4:5 --v 6.0",
+    "tags": ["Fantasy", "Character", "Midjourney"]
+  },
+  {
+    "id": 135,
+    "title": "Cozy Interior Design & Architecture",
+    "category": "Image Generation",
+    "desc": "Generate warm, sunlit Scandinavian interior living room visualizations.",
+    "prompt": "Interior design photography of a cozy modern Scandinavian living room, warm natural sunlight streaming through large arched windows, light oak wood furniture, boucle sofa, minimalist indoor plants, architectural digest style, photorealistic --ar 16:9 --v 6.0",
+    "tags": ["Architecture", "Interior", "Midjourney"]
+  },
+  {
+    "id": 136,
+    "title": "Venture Capital Pitch Deck Outline",
+    "category": "Business",
+    "desc": "Structure a 10-slide investor pitch deck that secures seed funding.",
+    "prompt": "Act as a startup venture capitalist. Outline a 10-slide pitch deck for a [Industry] startup raising a Seed round. Detail what bullet points and metrics must appear on each slide: Problem, Solution, Market Size, Business Model, Traction, and Team.",
+    "tags": ["Pitch Deck", "Fundraising", "Business"]
+  },
+  {
+    "id": 137,
+    "title": "Customer Persona & Pain Point Mapper",
+    "category": "Business",
+    "desc": "Build deep psychological buyer personas to target marketing campaigns effectively.",
+    "prompt": "Act as a Chief Marketing Officer. Build a detailed buyer persona for [Product/Service]. Include demographic data, psychographics, daily frustrations, core desires, buying objections, and the specific trigger events that make them buy.",
+    "tags": ["Buyer Persona", "Strategy", "Business"]
+  },
+  {
+    "id": 138,
+    "title": "Quarterly OKR & KPI Goal Planner",
+    "category": "Business",
+    "desc": "Establish measurable Objectives and Key Results for business growth.",
+    "prompt": "Act as an agile business coach. Create 3 strategic Objectives with 3 measurable Key Results (OKRs) each for a [Department, e.g., Marketing / Engineering] team looking to achieve [Goal] this quarter.",
+    "tags": ["OKRs", "Management", "Business"]
+  },
+  {
+    "id": 139,
+    "title": "Crisis Management PR Statement Writer",
+    "category": "Business",
+    "desc": "Draft professional, transparent public relations statements for sensitive situations.",
+    "prompt": "Act as a Crisis PR Director. Write a professional, transparent public relations statement addressing [Describe Situation/Issue]. Ensure the tone expresses accountability, outlines corrective actions, and protects company reputation.",
+    "tags": ["PR", "Crisis Management", "Business"]
+  },
+  {
+    "id": 140,
+    "title": "LinkedIn Executive Bio & Headline Writer",
+    "category": "Career",
+    "desc": "Optimize your LinkedIn profile to attract recruiters and industry leaders.",
+    "prompt": "Act as an expert LinkedIn personal branding strategist. Write a high-impact LinkedIn headline and a compelling 'About' summary section for a [Job Title] with [X] years of experience specializing in [Key Skills]. Make it professional, searchable, and engaging.",
+    "tags": ["LinkedIn", "Personal Branding", "Career"]
+  },
+  {
+    "id": 141,
+    "title": "Career Pivot & Transition Strategy",
+    "category": "Career",
+    "desc": "Map out a step-by-step transition plan when switching industries or job roles.",
+    "prompt": "Act as an executive career transition mentor. Create a 6-month roadmap for transitioning from [Current Role/Industry] to [Target Role/Industry]. Highlight transferable skills to emphasize, skill gaps to bridge, and networking strategies.",
+    "tags": ["Career Transition", "Roadmap", "Career"]
+  },
+  {
+    "id": 142,
+    "title": "Performance Review & Promotion Request",
+    "category": "Career",
+    "desc": "Write a data-backed self-evaluation and promotion case for your manager.",
+    "prompt": "Act as an HR career advisor. Write a formal performance review summary and promotion case for my manager. Highlight 3 major business impacts I delivered over the past year using metric-driven achievements for a [Target Role] promotion.",
+    "tags": ["Promotion", "Performance Review", "Career"]
+  },
+  {
+    "id": 143,
+    "title": "Networking Coffee Chat Message Template",
+    "category": "Career",
+    "desc": "Send outreach messages to senior professionals that result in accepted coffee chats.",
+    "prompt": "Write a short, polite LinkedIn networking message asking a senior professional at [Target Company] for a 15-minute virtual coffee chat. Keep it respectful of their time, show genuine interest in their work, and avoid asking directly for a job.",
+    "tags": ["Networking", "Outreach", "Career"]
   }
 ]
