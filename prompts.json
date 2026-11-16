@@ -798,5 +798,53 @@
     "desc": "Build industry authority on LinkedIn or X with a 30-day 'Build in Public' content plan.",
     "prompt": "Act as a personal branding strategist. Create a 30-day 'Build in Public' content calendar for a [Your Role, e.g., Full-Stack Developer / AI Builder] aiming to attract [Goal, e.g., freelance clients / senior job offers]. Define 4 core content pillars and give 15 specific post hooks.",
     "tags": ["Personal Brand", "Build in Public", "Career", "2026"]
+  },
+  {
+    "id": 195,
+    "title": "Next.js 15 Server Components Security Auditor",
+    "category": "Coding",
+    "desc": "Audit React Server Components (RSC) and Server Actions for data leakage and auth flaws.",
+    "prompt": "Act as a Senior Web Security Engineer. Audit the following Next.js Server Action / Component for sensitive data exposure, missing server-side session validations, improper cache tags, and insecure direct object references (IDOR):\n\n[Paste Code Here]",
+    "tags": ["Next.js", "Security", "Coding", "2026"]
+  },
+  {
+    "id": 196,
+    "title": "Tailwind v4 CSS Theme & Animation Generator",
+    "category": "Coding",
+    "desc": "Configure modern Tailwind CSS v4 `@theme` variables, custom fonts, and keyframe animations.",
+    "prompt": "Act as a Frontend Architect. Write the CSS configuration using Tailwind CSS v4 `@theme` directives for a custom design system with custom color palettes, Google Fonts, and smooth custom keyframe animations for interactive UI states.",
+    "tags": ["Tailwind CSS", "Frontend", "CSS"]
+  },
+  {
+    "id": 197,
+    "title": "AI Answer Engine (Perplexity/ChatGPT) Content Optimizer",
+    "category": "Writing",
+    "desc": "Format articles and product pages so AI search engines cite your brand as the primary authority.",
+    "prompt": "Act as an AI Search Optimization (GEO) specialist. Rewrite the following content on '[Topic]' to maximize citation probability in Perplexity, ChatGPT Search, and Google AI Overviews. Include concise 40-word definitive answer summaries, factual statistics, and structured JSON-LD FAQ data blocks.",
+    "tags": ["GEO", "AI SEO", "Writing", "2026"]
+  },
+  {
+    "id": 198,
+    "title": "Viral GitHub README Portfolio Showcase",
+    "category": "Career",
+    "desc": "Design an eye-catching, recruiter-magnet GitHub profile README with stats, tech stacks, and badges.",
+    "prompt": "Act as a Senior Developer Advocate. Write a stunning, highly engaging GitHub profile `README.md` markdown file for [Your Name], a [Your Role, e.g., Full-Stack AI Builder]. Include dynamic GitHub stats cards, tech stack badge grids, featured project highlights, and a professional 'Contact / Hire Me' callout.",
+    "tags": ["GitHub", "Portfolio", "Career"]
+  },
+  {
+    "id": 199,
+    "title": "Landing Page Hero Section High-Converting Copy",
+    "category": "Marketing",
+    "desc": "Craft hook-driven hero section headlines, subheadlines, and CTA buttons that spike conversions.",
+    "prompt": "Act as a Senior Conversion Rate Optimization (CRO) Copywriter. Write 5 high-converting hero section variations for [Product/Service]. Each variation must include a punchy outcome-driven H1 headline, a clarifying subheadline, and a compelling button CTA.",
+    "tags": ["CRO", "Landing Page", "Copywriting"]
+  },
+  {
+    "id": 200,
+    "title": "AI Prompt Chaining Architecture Planner",
+    "category": "Coding",
+    "desc": "Design robust multi-step prompt chains where LLM output feeds seamlessly into downstream tasks.",
+    "prompt": "Act as an AI Solutions Architect. Design a 4-step prompt chaining workflow for [Complex Task, e.g., Automated Market Research Report Generation]. Define the input schema, system prompt, output format (JSON/Markdown), and error handling for each individual chain step.",
+    "tags": ["Prompt Chaining", "LLM", "AI Engineering", "2026"]
   }
 ]
