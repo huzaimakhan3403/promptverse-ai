@@ -13,12 +13,12 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>PromptVerse AI - Free AI Prompts, ChatGPT & Midjourney Hub</title>
+    <title>PromptVerse AI - Free AI Prompts, ChatGPT, Claude & Midjourney Hub</title>
     <meta name="google-site-verification" content="QduN13fPY_XGVYsfFZ8jV6ZJMjR0O-vBuIrefwT4Np0" />
     
-    <!-- Essential SEO Meta Tags -->
-    <meta name="description" content="Discover battle-tested ChatGPT, Midjourney, and coding prompts, plus free browser text tools on PromptVerse AI. Boost your daily productivity instantly.">
-    <meta name="keywords" content="AI prompts, ChatGPT prompts, Midjourney prompts, prompt engineering, online text tools, PromptVerse">
+    <!-- Essential SEO Meta Tags for High Impressions -->
+    <meta name="description" content="Explore 100+ battle-tested ChatGPT, Claude, Midjourney, and coding prompts on PromptVerse AI. Free online text tools & prompt engineering guides to boost productivity.">
+    <meta name="keywords" content="AI prompts, ChatGPT prompts, Midjourney prompts, Claude prompts, prompt engineering, coding prompts, SEO writing prompts, online text tools, PromptVerse">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="PromptVerse Official">
@@ -31,16 +31,16 @@
     <meta property="og:url" content="https://promptverse-official.vercel.app/" />
     <meta property="og:site_name" content="PromptVerse AI">
     <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="PromptVerse AI - Ultimate AI Prompts & Utility Tools Hub" />
-    <meta property="og:description" content="Discover free AI prompts, tools, and resources on PromptVerse." />
+    <meta property="og:title" content="PromptVerse AI - Free AI Prompts, ChatGPT & Midjourney Hub" />
+    <meta property="og:description" content="Discover free battle-tested AI prompts, coding utilities, and prompt engineering guides on PromptVerse." />
     <meta property="og:image" content="https://promptverse-official.vercel.app/og-image.jpg" />
     <meta property="og:image:alt" content="PromptVerse AI - AI prompts and utility tools">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://promptverse-official.vercel.app/" />
-    <meta name="twitter:title" content="PromptVerse AI - Ultimate AI Prompts & Utility Tools Hub" />
-    <meta name="twitter:description" content="Discover free AI prompts, tools, and resources on PromptVerse." />
+    <meta name="twitter:title" content="PromptVerse AI - Free AI Prompts, ChatGPT & Midjourney Hub" />
+    <meta name="twitter:description" content="Discover free battle-tested AI prompts, coding utilities, and prompt engineering guides on PromptVerse." />
     <meta name="twitter:image" content="https://promptverse-official.vercel.app/og-image.jpg">
     <meta name="twitter:image:alt" content="PromptVerse AI - AI prompts and utility tools">
 
@@ -111,7 +111,8 @@
           "url": "https://promptverse-official.vercel.app/",
           "name": "PromptVerse AI",
           "alternateName": "PromptVerse Official",
-          "inLanguage": "en"
+          "inLanguage": "en",
+          "description": "Free AI prompt library and web utilities hub for ChatGPT, Claude, and Midjourney."
         },
         {
           "@type": "WebApplication",
@@ -223,7 +224,7 @@
                 </h1>
                 
                 <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-                    Discover battle-tested ChatGPT & Midjourney prompts, plus powerful inline browser utilities designed to streamline your daily workflow.
+                    Discover battle-tested ChatGPT, Claude, & Midjourney prompts, plus powerful inline browser utilities designed to streamline your daily workflow.
                 </p>
 
                 <div class="max-w-2xl mx-auto mb-10">
@@ -878,9 +879,12 @@
                         body: new FormData(form),
                         headers: { 'Accept': 'application/json' }
                     });
-                    if (response.ok) {
+                    if (response.ok, modalToClose) {
                         form.reset();
                         if (modalToClose) closeModal(modalToClose);
+                        showToast('Message sent successfully! We will reply soon.');
+                    } else if (response.ok) {
+                        form.reset();
                         showToast('Message sent successfully! We will reply soon.');
                     } else {
                         showToast('Failed to send message. Please try again.');
