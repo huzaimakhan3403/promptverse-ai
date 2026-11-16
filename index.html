@@ -244,7 +244,7 @@
                         <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Available Prompts</div>
                     </div>
                     <div class="p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-600 dark:text-indigo-400">4+</div>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-600 dark:text-indigo-400">5+</div>
                         <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Web Utility Tools</div>
                     </div>
                     <div class="p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
@@ -332,7 +332,7 @@
                     <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Boost your writing and prompt crafting with built-in mobile-friendly tools.</p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-calculator"></i></div>
@@ -367,6 +367,16 @@
                             <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6">Multiply prompt keywords or phrases N times instantly.</p>
                         </div>
                         <button onclick="openModal('textRepeaterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+
+                    <!-- New Tool Card: AI Token & Cost Estimator -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-microchip"></i></div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">AI Token & Cost Estimator</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6">Estimate prompt word count, token size, and approximate LLM API cost.</p>
+                        </div>
+                        <button onclick="openModal('tokenEstimatorModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
                     </div>
                 </div>
             </div>
@@ -623,6 +633,21 @@
         </div>
     </div>
 
+    <!-- New Utility Modal: AI Token & Cost Estimator -->
+    <div id="tokenEstimatorModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal('tokenEstimatorModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">AI Token & Cost Estimator</h3>
+            <textarea id="tokenInput" oninput="runTokenEstimator()" rows="4" placeholder="Paste your AI prompt here..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white mb-4 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+            <div class="grid grid-cols-3 gap-3 text-center mb-4">
+                <div class="p-3 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800"><div id="teWords" class="text-lg font-bold text-indigo-600 dark:text-indigo-400">0</div><div class="text-xs text-slate-500 dark:text-slate-400">Words</div></div>
+                <div class="p-3 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800"><div id="teTokens" class="text-lg font-bold text-purple-600 dark:text-purple-400">0</div><div class="text-xs text-slate-500 dark:text-slate-400">Est. Tokens</div></div>
+                <div class="p-3 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800"><div id="teCost" class="text-lg font-bold text-emerald-600 dark:text-emerald-400">$0.000</div><div class="text-xs text-slate-500 dark:text-slate-400">Est. GPT-4o Cost</div></div>
+            </div>
+            <button onclick="copyToClipboard(document.getElementById('tokenInput').value, 'Prompt copied!')" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-sm shadow-sm"><i class="fa-regular fa-copy mr-1"></i> Copy Prompt Text</button>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
         let allPrompts = [];
@@ -862,6 +887,17 @@
             document.getElementById('trOutput').value = Array(count).fill(text).join('\n');
         }
 
+        function runTokenEstimator() {
+            const text = document.getElementById('tokenInput').value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const tokens = Math.ceil(words * 1.33);
+            const cost = (tokens / 1000000) * 5.00;
+
+            document.getElementById('teWords').innerText = words;
+            document.getElementById('teTokens').innerText = tokens;
+            document.getElementById('teCost').innerText = '$' + cost.toFixed(5);
+        }
+
         // AJAX Formspree Submission (No Page Reload)
         function setupAjaxForm(formId, modalToClose = null) {
             const form = document.getElementById(formId);
@@ -879,12 +915,9 @@
                         body: new FormData(form),
                         headers: { 'Accept': 'application/json' }
                     });
-                    if (response.ok, modalToClose) {
+                    if (response.ok) {
                         form.reset();
                         if (modalToClose) closeModal(modalToClose);
-                        showToast('Message sent successfully! We will reply soon.');
-                    } else if (response.ok) {
-                        form.reset();
                         showToast('Message sent successfully! We will reply soon.');
                     } else {
                         showToast('Failed to send message. Please try again.');
