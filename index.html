@@ -17,7 +17,7 @@
     <meta name="google-site-verification" content="QduN13fPY_XGVYsfFZ8jV6ZJMjR0O-vBuIrefwT4Np0" />
     
     <!-- Essential SEO Meta Tags for High Impressions -->
-    <meta name="description" content="Explore 100+ battle-tested ChatGPT, Claude, Midjourney, and coding prompts on PromptVerse AI. Free online text tools & prompt engineering guides to boost productivity.">
+    <meta name="description" content="Explore battle-tested ChatGPT, Claude, Midjourney, and coding prompts on PromptVerse AI. Free online text tools & prompt engineering guides to boost productivity.">
     <meta name="keywords" content="AI prompts, ChatGPT prompts, Midjourney prompts, Claude prompts, prompt engineering, coding prompts, SEO writing prompts, online text tools, PromptVerse">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -258,7 +258,7 @@
                     </div>
                     <div class="p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
                         <div class="text-2xl sm:text-3xl font-extrabold text-pink-600 dark:text-pink-400">Instant</div>
-                        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Copy & Paste</div>
+                        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Copy & Share</div>
                     </div>
                 </div>
             </div>
@@ -318,7 +318,7 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
                     <div>
                         <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2">Featured AI Prompts</h2>
-                        <p id="filter-status" class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Tap any prompt to copy directly, launch in AI, or bookmark it.</p>
+                        <p id="filter-status" class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Tap any prompt to copy, share, or bookmark it.</p>
                     </div>
                     <button id="reset-filter-btn" onclick="resetFilters()" class="hidden self-start md:self-auto px-4 py-2 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold transition-colors shadow-sm">
                         <i class="fa-solid fa-rotate-left mr-1.5"></i> Clear Filters
@@ -447,7 +447,7 @@
                 <div class="space-y-4">
                     <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
                         <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">Are all prompts and tools free to use?</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Yes! PromptVerse AI is completely free. You can copy prompts, save bookmarks, use browser tools, and read guides without registration or payment.</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Yes! PromptVerse AI is completely free. You can copy prompts, share them with friends, save bookmarks, use browser tools, and read guides without registration or payment.</p>
                     </div>
                     <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
                         <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">How do I submit new prompt suggestions?</h3>
@@ -908,6 +908,20 @@
                 renderPrompts(allPrompts);
                 const count = document.getElementById('prompt-count');
                 if (count) count.textContent = allPrompts.length;
+
+                // Deep-link check on load (e.g., ?prompt=201)
+                const urlParams = new URLSearchParams(window.location.search);
+                const promptId = urlParams.get('prompt');
+                if (promptId) {
+                    const target = allPrompts.find(p => p.id == promptId);
+                    if (target) {
+                        const searchInput = document.getElementById('promptSearch');
+                        if (searchInput) {
+                            searchInput.value = target.title;
+                            filterPrompts();
+                        }
+                    }
+                }
             } catch (error) {
                 console.error('Error loading prompts.json:', error);
                 if (grid) {
@@ -961,9 +975,14 @@
                         <div class="flex flex-wrap gap-2 mb-4">${(Array.isArray(promptItem.tags) ? promptItem.tags : []).map(tag => `<span class="text-xs text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg">${escapeHTML(tag)}</span>`).join('')}</div>
                     </div>
                     <div class="space-y-2">
-                        <button type="button" class="copy-prompt-btn w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-sm">
-                            <i class="fa-regular fa-copy"></i> Copy Prompt
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="copy-prompt-btn flex-1 py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-sm">
+                                <i class="fa-regular fa-copy"></i> Copy Prompt
+                            </button>
+                            <button type="button" onclick="sharePrompt(${promptItem.id})" class="share-prompt-btn py-2.5 px-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm" title="Share Prompt">
+                                <i class="fa-solid fa-share-nodes text-indigo-500"></i> Share
+                            </button>
+                        </div>
                         <div class="grid grid-cols-2 gap-2">
                             <a href="https://chatgpt.com/?q=${encodedPrompt}" target="_blank" rel="noopener noreferrer" class="py-2 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold text-center transition-colors flex items-center justify-center gap-1.5">
                                 <i class="fa-solid fa-arrow-up-right-from-square text-indigo-500"></i> ChatGPT
@@ -994,6 +1013,30 @@
                 });
                 grid.appendChild(card);
             });
+        }
+
+        // Share Prompt Function (Native Web Share API + Clipboard Fallback)
+        async function sharePrompt(id) {
+            const item = allPrompts.find(p => Number(p.id) === Number(id));
+            if (!item) return;
+
+            const shareData = {
+                title: item.title,
+                text: `Check out this AI prompt: "${item.title}"\n\n${item.prompt}\n\n`,
+                url: `${window.location.origin}${window.location.pathname}?prompt=${item.id}`
+            };
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    console.log('Share canceled or failed', err);
+                }
+            } else {
+                // Desktop fallback: copy formatted text & link to clipboard
+                const textToCopy = `${shareData.text}${shareData.url}`;
+                copyToClipboard(textToCopy, 'Share link & prompt copied!');
+            }
         }
 
         function setCategory(category, button) {
@@ -1037,7 +1080,7 @@
             if (statusEl) {
                 statusEl.textContent = isFiltered
                     ? `Showing ${filtered.length} of ${allPrompts.length} prompts${currentCategory !== 'all' ? ` in ${currentCategory}` : ''}.`
-                    : 'Tap any prompt to copy directly, launch in AI, or bookmark it.';
+                    : 'Tap any prompt to copy, share, or bookmark it.';
             }
             if (resetBtn) {
                 resetBtn.classList.toggle('hidden', !isFiltered);
