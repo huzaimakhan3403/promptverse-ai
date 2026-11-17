@@ -244,7 +244,7 @@
                         <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Available Prompts</div>
                     </div>
                     <div class="p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
-                        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-600 dark:text-indigo-400">5+</div>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-600 dark:text-indigo-400">6+</div>
                         <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Web Utility Tools</div>
                     </div>
                     <div class="p-4 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
@@ -369,7 +369,6 @@
                         <button onclick="openModal('textRepeaterModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
                     </div>
 
-                    <!-- New Tool Card: AI Token & Cost Estimator -->
                     <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 transition-all flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-microchip"></i></div>
@@ -377,6 +376,17 @@
                             <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6">Estimate prompt word count, token size, and approximate LLM API cost.</p>
                         </div>
                         <button onclick="openModal('tokenEstimatorModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+
+                    <!-- NEW TRENDING TOOL (2026): Prompt Variable Filler / Template Builder -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-indigo-500/40 hover:border-indigo-500 transition-all flex flex-col justify-between shadow-sm relative overflow-hidden">
+                        <span class="absolute top-3 right-3 bg-indigo-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Trending</span>
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-sliders"></i></div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Prompt Variable Filler</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6">Fill placeholders like [Topic], [Tone], and [Audience] to build final ready prompts.</p>
+                        </div>
+                        <button onclick="openModal('promptBuilderModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
                     </div>
                 </div>
             </div>
@@ -643,7 +653,7 @@
         </div>
     </div>
 
-    <!-- New Utility Modal: AI Token & Cost Estimator -->
+    <!-- AI Token & Cost Estimator Modal -->
     <div id="tokenEstimatorModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
             <button onclick="closeModal('tokenEstimatorModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
@@ -655,6 +665,35 @@
                 <div class="p-3 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800"><div id="teCost" class="text-lg font-bold text-emerald-600 dark:text-emerald-400">$0.000</div><div class="text-xs text-slate-500 dark:text-slate-400">Est. GPT-4o Cost</div></div>
             </div>
             <button onclick="copyToClipboard(document.getElementById('tokenInput').value, 'Prompt copied!')" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-sm shadow-sm"><i class="fa-regular fa-copy mr-1"></i> Copy Prompt Text</button>
+        </div>
+    </div>
+
+    <!-- NEW TRENDING TOOL MODAL: Prompt Variable Filler -->
+    <div id="promptBuilderModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal('promptBuilderModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Prompt Variable Filler</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Template: <code class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-indigo-500">Write an expert guide on [Topic] targeting [Audience] with [Tone] tone.</code></p>
+            
+            <div class="space-y-3 mb-4">
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">[Topic]</label>
+                    <input type="text" id="pbTopic" oninput="runPromptBuilder()" placeholder="e.g. Artificial Intelligence" class="w-full p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">[Audience]</label>
+                    <input type="text" id="pbAudience" oninput="runPromptBuilder()" placeholder="e.g. Beginner Developers" class="w-full p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">[Tone]</label>
+                    <input type="text" id="pbTone" oninput="runPromptBuilder()" placeholder="e.g. Professional & Engaging" class="w-full p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+            </div>
+
+            <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Generated Final Prompt:</label>
+            <textarea id="pbOutput" rows="3" readonly class="w-full p-3 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white font-mono text-xs mb-4 outline-none">Write an expert guide on [Topic] targeting [Audience] with [Tone] tone.</textarea>
+            
+            <button onclick="copyToClipboard(document.getElementById('pbOutput').value, 'Custom prompt copied!')" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-sm shadow-sm"><i class="fa-regular fa-copy mr-1"></i> Copy Customized Prompt</button>
         </div>
     </div>
 
@@ -906,6 +945,15 @@
             document.getElementById('teWords').innerText = words;
             document.getElementById('teTokens').innerText = tokens;
             document.getElementById('teCost').innerText = '$' + cost.toFixed(5);
+        }
+
+        function runPromptBuilder() {
+            const topic = document.getElementById('pbTopic').value.trim() || '[Topic]';
+            const audience = document.getElementById('pbAudience').value.trim() || '[Audience]';
+            const tone = document.getElementById('pbTone').value.trim() || '[Tone]';
+            
+            const template = `Write an expert guide on ${topic} targeting ${audience} with ${tone} tone.`;
+            document.getElementById('pbOutput').value = template;
         }
 
         // AJAX Formspree Submission (No Page Reload)
