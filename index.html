@@ -91,7 +91,6 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
-        /* Light mode glass nav override */
         html:not(.dark) .glass-nav {
             background: rgba(255, 255, 255, 0.85);
         }
@@ -164,7 +163,13 @@
                     <a href="#faq" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">FAQ</a>
                 </nav>
 
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Saved Bookmarks Button -->
+                    <button onclick="toggleFavoritesModal()" aria-label="Saved Bookmarks" title="Saved Bookmarks" class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors shadow-sm">
+                        <i class="fa-solid fa-bookmark text-pink-500 text-lg"></i>
+                        <span id="bookmark-badge" class="hidden absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 bg-pink-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow">0</span>
+                    </button>
+
                     <!-- Theme Toggle Button -->
                     <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark/Light Mode" class="flex items-center justify-center w-11 h-11 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors shadow-sm">
                         <i id="theme-icon" class="fa-solid fa-sun text-amber-500 text-lg"></i>
@@ -195,15 +200,15 @@
                 <a href="#faq" onclick="handleMobileLinkClick('#faq')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-circle-question w-6 text-indigo-500"></i> FAQ</a>
                 
                 <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex flex-col gap-2">
+                    <button onclick="closeMobileMenu(); toggleFavoritesModal()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-600 dark:text-pink-400 font-semibold min-h-[44px]">
+                        <i class="fa-solid fa-bookmark"></i> Saved Bookmarks
+                    </button>
                     <button onclick="closeMobileMenu(); openModal('submitPromptModal')" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold min-h-[44px]">
                         <i class="fa-solid fa-plus text-indigo-500"></i> Submit Prompt
                     </button>
                     <button onclick="closeMobileMenu(); openModal('contactModal')" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-lg min-h-[44px]">
                         <i class="fa-solid fa-envelope"></i> Contact Us
                     </button>
-                    <a href="mailto:huzaimakhan3403@gmail.com" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-semibold min-h-[44px]">
-                        <i class="fa-solid fa-at text-indigo-500"></i> huzaimakhan3403@gmail.com
-                    </a>
                 </div>
             </div>
         </div>
@@ -313,7 +318,7 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
                     <div>
                         <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2">Featured AI Prompts</h2>
-                        <p id="filter-status" class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Tap any prompt to copy directly to clipboard.</p>
+                        <p id="filter-status" class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Tap any prompt to copy directly or bookmark it for later.</p>
                     </div>
                     <button id="reset-filter-btn" onclick="resetFilters()" class="hidden self-start md:self-auto px-4 py-2 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold transition-colors shadow-sm">
                         <i class="fa-solid fa-rotate-left mr-1.5"></i> Clear Filters
@@ -378,7 +383,6 @@
                         <button onclick="openModal('tokenEstimatorModal')" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors min-h-[44px] shadow-sm">Launch Tool <i class="fa-solid fa-arrow-right ml-1"></i></button>
                     </div>
 
-                    <!-- NEW TRENDING TOOL (2026): Prompt Variable Filler / Template Builder -->
                     <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-indigo-500/40 hover:border-indigo-500 transition-all flex flex-col justify-between shadow-sm relative overflow-hidden">
                         <span class="absolute top-3 right-3 bg-indigo-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Trending</span>
                         <div>
@@ -443,15 +447,15 @@
                 <div class="space-y-4">
                     <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
                         <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">Are all prompts and tools free to use?</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Yes! PromptVerse AI is completely free. You can copy prompts, use browser tools, and read guides without registration or payment.</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Yes! PromptVerse AI is completely free. You can copy prompts, save bookmarks, use browser tools, and read guides without registration or payment.</p>
                     </div>
                     <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
                         <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">How do I submit new prompt suggestions?</h3>
                         <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">You can directly email our team at <a href="mailto:huzaimakhan3403@gmail.com" class="text-indigo-600 dark:text-indigo-400 underline font-medium">huzaimakhan3403@gmail.com</a> or use the Contact form below.</p>
                     </div>
                     <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
-                        <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">Do the browser utilities collect my text data?</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">No. All utility tools process text locally right inside your client-side browser. Your data never touches a server.</p>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2">Where are my bookmarked prompts saved?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">All bookmarked prompts and utility inputs are saved locally inside your web browser's LocalStorage. Your data stays completely private on your device.</p>
                     </div>
                 </div>
             </div>
@@ -503,6 +507,25 @@
             <p>&copy; 2026 PromptVerse Official. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Saved Bookmarks Modal -->
+    <div id="favoritesModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl my-8 max-h-[85vh] flex flex-col">
+            <button onclick="closeModal('favoritesModal')" aria-label="Close modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-500 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Your Saved Bookmarks</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs">Saved locally in your browser for instant access.</p>
+                </div>
+            </div>
+            <div id="favorites-list" class="overflow-y-auto space-y-4 pr-1 flex-grow"></div>
+        </div>
+    </div>
 
     <!-- Contact Modal -->
     <div id="contactModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
@@ -668,7 +691,7 @@
         </div>
     </div>
 
-    <!-- NEW TRENDING TOOL MODAL: Prompt Variable Filler -->
+    <!-- Prompt Variable Filler Modal -->
     <div id="promptBuilderModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
             <button onclick="closeModal('promptBuilderModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
@@ -742,8 +765,98 @@
             }
         }
 
-        // Run theme init immediately on load
         initTheme();
+
+        // LocalStorage Bookmarks / Favorites System
+        function getFavorites() {
+            try {
+                const raw = JSON.parse(localStorage.getItem('promptverse_favorites'));
+                return Array.isArray(raw) ? raw.map(Number) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function isFavorite(id) {
+            return getFavorites().includes(Number(id));
+        }
+
+        function toggleFavorite(id) {
+            let favs = getFavorites();
+            const numId = Number(id);
+            if (favs.includes(numId)) {
+                favs = favs.filter(item => item !== numId);
+                showToast('Removed from saved bookmarks');
+            } else {
+                favs.push(numId);
+                showToast('Prompt saved to bookmarks!');
+            }
+            localStorage.setItem('promptverse_favorites', JSON.stringify(favs));
+            updateBookmarkBadge();
+            filterPrompts();
+        }
+
+        function updateBookmarkBadge() {
+            const favs = getFavorites();
+            const badge = document.getElementById('bookmark-badge');
+            if (!badge) return;
+            if (favs.length > 0) {
+                badge.textContent = favs.length;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function toggleFavoritesModal() {
+            renderFavoritesList();
+            openModal('favoritesModal');
+        }
+
+        function renderFavoritesList() {
+            const favs = getFavorites();
+            const container = document.getElementById('favorites-list');
+            if (!container) return;
+
+            const savedPrompts = allPrompts.filter(p => favs.includes(Number(p.id)));
+            container.innerHTML = '';
+
+            if (savedPrompts.length === 0) {
+                container.innerHTML = '<div class="text-center py-12 text-slate-500 dark:text-slate-400 text-sm">No saved bookmarks yet. Click the bookmark icon on any prompt card to save it here!</div>';
+                return;
+            }
+
+            savedPrompts.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 flex flex-col justify-between';
+                item.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">${escapeHTML(p.category)}</span>
+                            <button type="button" class="remove-fav-btn text-rose-500 hover:text-rose-600 text-xs font-semibold">
+                                <i class="fa-solid fa-trash mr-1"></i> Remove
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">${escapeHTML(p.title)}</h4>
+                        <div class="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 max-h-24 overflow-y-auto whitespace-pre-wrap mb-3">${escapeHTML(p.prompt)}</div>
+                    </div>
+                    <button type="button" class="copy-fav-btn w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-regular fa-copy"></i> Copy Prompt
+                    </button>
+                `;
+
+                item.querySelector('.remove-fav-btn').addEventListener('click', () => {
+                    toggleFavorite(p.id);
+                    renderFavoritesList();
+                });
+
+                item.querySelector('.copy-fav-btn').addEventListener('click', () => {
+                    copyToClipboard(p.prompt, 'Saved prompt copied!');
+                });
+
+                container.appendChild(item);
+            });
+        }
 
         function escapeHTML(value) {
             return String(value ?? '').replace(/[&<>"']/g, char => ({
@@ -760,9 +873,7 @@
                 if (!Array.isArray(data)) throw new Error('prompts.json must contain an array');
                 allPrompts = data.filter(item => item && item.id !== undefined && typeof item.title === 'string' && typeof item.category === 'string' && typeof item.prompt === 'string');
                 
-                // Update live category counts
                 updateCategoryCounts(allPrompts);
-
                 renderPrompts(allPrompts);
                 const count = document.getElementById('prompt-count');
                 if (count) count.textContent = allPrompts.length;
@@ -798,13 +909,19 @@
                 return;
             }
             prompts.forEach(promptItem => {
+                const fav = isFavorite(promptItem.id);
                 const card = document.createElement('article');
                 card.className = 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition-all shadow-sm';
                 card.innerHTML = `
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">${escapeHTML(promptItem.category)}</span>
-                            <span class="text-xs text-slate-400 dark:text-slate-500">#${escapeHTML(promptItem.id)}</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs text-slate-400 dark:text-slate-500">#${escapeHTML(promptItem.id)}</span>
+                                <button type="button" aria-label="Bookmark prompt" title="${fav ? 'Remove Bookmark' : 'Save Bookmark'}" class="fav-prompt-btn w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors">
+                                    <i class="${fav ? 'fa-solid text-pink-500' : 'fa-regular text-slate-400'} fa-bookmark text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">${escapeHTML(promptItem.title)}</h3>
                         <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">${escapeHTML(promptItem.desc)}</p>
@@ -814,6 +931,12 @@
                     <button type="button" class="copy-prompt-btn w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-sm">
                         <i class="fa-regular fa-copy"></i> Copy Prompt
                     </button>`;
+
+                const favBtn = card.querySelector('.fav-prompt-btn');
+                favBtn.addEventListener('click', () => {
+                    toggleFavorite(promptItem.id);
+                });
+
                 const copyBtn = card.querySelector('.copy-prompt-btn');
                 copyBtn.addEventListener('click', () => {
                     copyToClipboard(promptItem.prompt, 'Prompt copied to clipboard!');
@@ -872,7 +995,7 @@
             if (statusEl) {
                 statusEl.textContent = isFiltered
                     ? `Showing ${filtered.length} of ${allPrompts.length} prompts${currentCategory !== 'all' ? ` in ${currentCategory}` : ''}.`
-                    : 'Tap any prompt to copy directly to clipboard.';
+                    : 'Tap any prompt to copy directly or bookmark it for later.';
             }
             if (resetBtn) {
                 resetBtn.classList.toggle('hidden', !isFiltered);
@@ -990,6 +1113,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            updateBookmarkBadge();
             loadPrompts();
             setupAjaxForm('contactFormSection');
             setupAjaxForm('contactFormModal', 'contactModal');
