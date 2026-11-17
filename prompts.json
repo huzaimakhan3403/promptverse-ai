@@ -2578,5 +2578,653 @@
       "Growth",
       "2026"
     ]
+  },
+  {
+    "id": 301,
+    "title": "DeepSeek R1 Reasoning Chain-of-Thought Prompt Builder",
+    "category": "Coding",
+    "desc": "Engineer specialized prompts that harness advanced reasoning models for complex mathematical and logical problem solving.",
+    "prompt": "Act as an Advanced Reasoning AI Architect. Structure a reasoning prompt for [Complex Logic Problem] that forces the model to articulate explicit step-by-step chain-of-thought hypothesis generation, self-verification checkpoints, and rigorous edge-case testing before delivering the final answer.",
+    "tags": [
+      "DeepSeek",
+      "Reasoning",
+      "LLM",
+      "2026"
+    ]
+  },
+  {
+    "id": 302,
+    "title": "v0 by Vercel React UI Component Generator",
+    "category": "Coding",
+    "desc": "Craft precise prompt instructions to generate stunning, accessible Tailwind and React UI components in v0.",
+    "prompt": "Act as an Expert UI/UX Engineer using v0. Create a production-ready component for [Component Description, e.g., an interactive pricing toggle card with monthly/annual discounts]. Specify color themes, micro-interactions, mobile responsiveness, and accessibility attributes.",
+    "tags": [
+      "v0",
+      "React",
+      "Tailwind CSS",
+      "Frontend"
+    ]
+  },
+  {
+    "id": 303,
+    "title": "Autonomous Multi-Agent Swarm Orchestrator",
+    "category": "Coding",
+    "desc": "Design collaborative AI agent swarms with specialized roles (Researcher, Writer, Reviewer, Coder).",
+    "prompt": "Act as a Multi-Agent Systems Architect. Design a collaborative agent swarm framework for executing [Project Goal]. Define inter-agent communication protocols, task delegation logic, shared blackboard memory state, and output consensus verification.",
+    "tags": [
+      "Agent Swarms",
+      "AI Agents",
+      "Architecture",
+      "2026"
+    ]
+  },
+  {
+    "id": 304,
+    "title": "Next.js 16 Server-Side Caching & Revalidation Architect",
+    "category": "Coding",
+    "desc": "Optimize data fetching, ISR, and tag-based revalidation in Next.js App Router for lightning-fast speeds.",
+    "prompt": "Act as a Principal Next.js Performance Engineer. Write an optimized data-fetching layer for [Feature/Page] using Next.js App Router. Implement proper `fetch` caching configurations, tag-based `revalidateTag` strategies, and error boundaries.",
+    "tags": [
+      "Next.js",
+      "Caching",
+      "Performance",
+      "Backend"
+    ]
+  },
+  {
+    "id": 305,
+    "title": "Tailwind CSS v4 Container Queries & Dynamic Grid Layout",
+    "category": "Coding",
+    "desc": "Build highly adaptive responsive components using modern Tailwind v4 container queries.",
+    "prompt": "Act as a Modern CSS Specialist. Write the HTML and Tailwind CSS v4 code for a card component that dynamically reorganizes its layout based on container width rather than viewport size using container queries (`@container`, `@md:grid-cols-2`).",
+    "tags": [
+      "Tailwind CSS",
+      "CSS",
+      "Frontend"
+    ]
+  },
+  {
+    "id": 306,
+    "title": "PostgreSQL Vector Extension (pgvector) Similarity Search",
+    "category": "Coding",
+    "desc": "Write high-performance SQL queries for vector embedding similarity search using pgvector in PostgreSQL.",
+    "prompt": "Act as a Database Performance Specialist. Write an optimized PostgreSQL migration script and similarity query using `pgvector` for semantic search over a table of document embeddings. Include HNSW index creation parameters for fast approximate nearest neighbor search.",
+    "tags": [
+      "PostgreSQL",
+      "Vector DB",
+      "SQL",
+      "RAG"
+    ]
+  },
+  {
+    "id": 307,
+    "title": "Zod Schema Validation & TypeScript Type Inference Wizard",
+    "category": "Coding",
+    "desc": "Create bulletproof runtime validation schemas and infer strict TypeScript types instantly.",
+    "prompt": "Act as a TypeScript Wizard. Write a comprehensive Zod validation schema for a complex user onboarding payload containing nested objects, optional fields, custom regex string matching, and refined cross-field validations. Show how to infer the static TypeScript type.",
+    "tags": [
+      "TypeScript",
+      "Zod",
+      "Validation",
+      "Coding"
+    ]
+  },
+  {
+    "id": 308,
+    "title": "Cloudflare Workers Edge AI Inference Pipeline",
+    "category": "Coding",
+    "desc": "Deploy lightning-fast serverless AI inference microservices on Cloudflare Workers AI.",
+    "prompt": "Act as an Edge Computing Architect. Write a Cloudflare Worker script in TypeScript that handles incoming HTTP requests, runs low-latency text generation or embedding inference using Workers AI bindings, and returns streamed responses with CORS headers.",
+    "tags": [
+      "Cloudflare",
+      "Serverless",
+      "Edge Computing",
+      "AI"
+    ]
+  },
+  {
+    "id": 309,
+    "title": "Stripe Billing Metered Usage & Invoicing Engine",
+    "category": "Coding",
+    "desc": "Implement consumption-based metered billing and invoice generation for modern usage SaaS models.",
+    "prompt": "Act as a SaaS Monetization Engineer. Write a Node.js/TypeScript script using the Stripe Node SDK to report metered usage events for a usage-based billing model, handle subscription billing cycles, and listen to invoice payment failure webhooks.",
+    "tags": [
+      "Stripe",
+      "SaaS",
+      "Billing",
+      "Node.js"
+    ]
+  },
+  {
+    "id": 310,
+    "title": "GitHub Actions Automated Semantic Release & Changelog",
+    "category": "Coding",
+    "desc": "Automate version bumping, git tagging, and changelog generation on every main branch merge.",
+    "prompt": "Act as a CI/CD DevOps Engineer. Create a robust GitHub Actions workflow file (`release.yml`) that runs tests, determines semantic version increments based on conventional commit messages, generates changelogs, and publishes releases automatically.",
+    "tags": [
+      "GitHub Actions",
+      "DevOps",
+      "CI/CD",
+      "Automation"
+    ]
+  },
+  {
+    "id": 311,
+    "title": "Flux.1 Hyper-Realistic Cinematic Product Macro Shot",
+    "category": "Image Generation",
+    "desc": "Generate commercial luxury product macro photography with ultra-fine material details and dramatic bokeh.",
+    "prompt": "Macro product photography of a luxury titanium wristwatch resting on a wet dark volcanic stone, microscopic metallic brushing textures, soft morning window light with dramatic caustic reflections, shot on 100mm macro lens f/2.8, 8k hyper-detailed render --ar 4:5 --style raw",
+    "tags": [
+      "Flux",
+      "Product Photography",
+      "Midjourney",
+      "Studio"
+    ]
+  },
+  {
+    "id": 312,
+    "title": "Cyberpunk Holographic UI HUD Design Asset",
+    "category": "Image Generation",
+    "desc": "Create glowing futuristic sci-fi user interface heads-up displays for game design and sci-fi mockups.",
+    "prompt": "Futuristic sci-fi holographic user interface HUD design asset, complex glowing neon cyan and amber data graphs, tactical targeting reticles, floating floating hexadecimal code matrices, translucent glassmorphism panels, dark obsidian sci-fi background, Octane render --ar 16:9 --v 6.0",
+    "tags": [
+      "Cyberpunk",
+      "UI Design",
+      "Sci-Fi",
+      "Midjourney"
+    ]
+  },
+  {
+    "id": 313,
+    "title": "Minimalist Scandinavian Architectural Exterior",
+    "category": "Image Generation",
+    "desc": "Render serene, sunlit modern architectural concrete and warm wood buildings in nature.",
+    "prompt": "Architectural exterior photography of a minimalist Scandinavian concrete and warm cedarwood cabin nestled in a tranquil misty pine forest, floor-to-ceiling glass windows reflecting soft golden hour sunlight, architectural digest cover style --ar 16:9 --v 6.0 --style raw",
+    "tags": [
+      "Architecture",
+      "Design",
+      "Minimalist",
+      "Photography"
+    ]
+  },
+  {
+    "id": 314,
+    "title": "Surrealist Dreamscape Concept Art (Magritte Inspired)",
+    "category": "Image Generation",
+    "desc": "Design thought-provoking surrealist digital art filled with paradoxical visual metaphors.",
+    "prompt": "Surrealist fine art painting inspired by René Magritte, a vintage bowler hat floating above a calm ocean where clouds take the shape of classic Greek marble columns, poetic visual paradox, painterly canvas texture, dramatic lighting --ar 4:5 --v 6.0",
+    "tags": [
+      "Surrealism",
+      "Fine Art",
+      "Concept Art",
+      "Midjourney"
+    ]
+  },
+  {
+    "id": 315,
+    "title": "Cyberpunk Neon Samurai Character Portrait",
+    "category": "Image Generation",
+    "desc": "Design striking cybernetic warrior portraits with intricate armor and neon city backdrops.",
+    "prompt": "Cinematic close-up portrait of a cybernetic cyberpunk samurai wearing intricate carbon-fiber armor with glowing neon purple fiber-optic accents, rain droplets on visor, moody Neo-Tokyo neon alleyway background reflecting in sleek surfaces, masterwork digital painting --ar 4:5 --v 6.0",
+    "tags": [
+      "Cyberpunk",
+      "Character",
+      "Digital Art",
+      "Midjourney"
+    ]
+  },
+  {
+    "id": 316,
+    "title": "Editorial Architecture & Brutalist Concrete Interior",
+    "category": "Image Generation",
+    "desc": "Capture moody, sculptural brutalist interior spaces with dramatic natural light play.",
+    "prompt": "Interior architectural photography of a minimalist brutalist concrete art gallery, dramatic harsh diagonal sunlight casting sharp geometric shadows across raw textured concrete walls, lone sculpture in the center, museum curation style --ar 16:9 --v 6.0 --style raw",
+    "tags": [
+      "Architecture",
+      "Brutalist",
+      "Interior",
+      "Design"
+    ]
+  },
+  {
+    "id": 317,
+    "title": "Vintage 35mm Film Still of 1970s Road Trip",
+    "category": "Image Generation",
+    "desc": "Generate nostalgic analog film snapshots with authentic sun flare and vintage color grading.",
+    "prompt": "Nostalgic 1970s analog film still of a vintage convertible driving down an empty desert highway under a vast sun-drenched sky, warm golden hour sun flare, heavy Kodak Ektachrome film grain, authentic vintage travel aesthetic --ar 16:9 --v 6.0 --style raw",
+    "tags": [
+      "Vintage",
+      "Analog Film",
+      "Photography",
+      "Retro"
+    ]
+  },
+  {
+    "id": 318,
+    "title": "Abstract Fluid 3D Glass & Chrome Sculpture",
+    "category": "Image Generation",
+    "desc": "Create hyper-modern abstract liquid glass and polished chrome sculptures for digital branding.",
+    "prompt": "Abstract 3D sculpture made of twisted liquid blown glass and polished chrome metal ribbons intertwining gracefully, iridescent color refractions, soft studio gradient background, hyper-detailed Octane render, luxury brand visual asset --ar 1:1 --v 6.0",
+    "tags": [
+      "3D Render",
+      "Abstract",
+      "Glassmorphism",
+      "Design"
+    ]
+  },
+  {
+    "id": 319,
+    "title": "Cozy Fantasy Treehouse Village at Dusk",
+    "category": "Image Generation",
+    "desc": "Design enchanting fairytale treehouse communities glowing warmly under twilight skies.",
+    "prompt": "Enchanting fairytale illustration of a cozy interconnected treehouse village built into giant ancient glowing willow trees, warm amber lantern lights glowing from windows, hanging rope bridges, twilight purple sky with twinkling stars, cinematic fantasy art --ar 16:9 --v 6.0",
+    "tags": [
+      "Fantasy",
+      "Illustration",
+      "Fairytale",
+      "Concept Art"
+    ]
+  },
+  {
+    "id": 320,
+    "title": "Hyper-Detailed Steampunk Mechanical Clockwork Heart",
+    "category": "Image Generation",
+    "desc": "Craft intricate brass and copper Victorian machinery art pieces with glowing internal gears.",
+    "prompt": "Macro conceptual art of an intricate steampunk mechanical clockwork human heart made of polished brass, copper gears, ruby jewel bearings, and tiny ticking springs, resting on an old velvet jeweler's tray, dramatic side lighting, 8k resolution --ar 4:5 --v 6.0",
+    "tags": [
+      "Steampunk",
+      "Mechanical",
+      "Concept Art",
+      "Detailed"
+    ]
+  },
+  {
+    "id": 321,
+    "title": "Generative Engine Optimization (GEO) FAQ Schema Masterclass",
+    "category": "Writing",
+    "desc": "Write structured content blocks optimized for LLM answer engines and Google AI search citations.",
+    "prompt": "Act as an AI Search Optimization (GEO) Director. Rewrite the following topic overview into a multi-tiered citation-optimized format: start with a direct 35-word authoritative answer block, followed by an objective comparison table and structured Q&A pairs designed for Perplexity and ChatGPT Search extraction.",
+    "tags": [
+      "GEO",
+      "AI SEO",
+      "Content Strategy",
+      "2026"
+    ]
+  },
+  {
+    "id": 322,
+    "title": "Viral YouTube Documentary Scriptwriting Framework",
+    "category": "Writing",
+    "desc": "Draft high-retention investigative documentary scripts with powerful psychological hooks and pacing.",
+    "prompt": "Act as an investigative documentary filmmaker and retention specialist. Write an engaging 1,200-word script opening for a documentary on '[Topic]'. Incorporate a cold open hook, dramatic narrative tension beats every 90 seconds, and seamless curiosity loops.",
+    "tags": [
+      "YouTube",
+      "Documentary",
+      "Scriptwriting",
+      "Storytelling"
+    ]
+  },
+  {
+    "id": 323,
+    "title": "Humanizing AI Content & Tone Polisher",
+    "category": "Writing",
+    "desc": "Remove robotic AI patterns and inject natural cadence, rhythm, and authority into drafts.",
+    "prompt": "Act as a veteran executive editor. Humanize the following AI-generated draft by eliminating clichés ('delve', 'testament', 'beacon'), varying sentence lengths from punchy 3-word sentences to flowing clauses, and injecting an authentic personal voice:\n\n[Paste Draft]",
+    "tags": [
+      "Humanizer",
+      "Editing",
+      "Copywriting"
+    ]
+  },
+  {
+    "id": 324,
+    "title": "Substack & Beehiiv High-Conversion Welcome Email Series",
+    "category": "Writing",
+    "desc": "Welcome new newsletter subscribers with a 3-part automated sequence that builds instant trust and readership.",
+    "prompt": "Act as a top newsletter creator. Design a 3-part welcome email sequence for my publication '[Publication Name]' covering '[Niche]'. Email 1: Instant value delivery + best-of links. Email 2: Personal origin story + core philosophy. Email 3: Community engagement prompt + social handles.",
+    "tags": [
+      "Newsletter",
+      "Substack",
+      "Email Marketing",
+      "Writing"
+    ]
+  },
+  {
+    "id": 325,
+    "title": "Programmatic SEO (pSEO) Dataset & Matrix Planner",
+    "category": "Writing",
+    "desc": "Map out high-intent data variables and programmatic article structures for massive organic traffic scaling.",
+    "prompt": "Act as a Programmatic SEO Strategist. Build a comprehensive pSEO data matrix for the seed modifier '[Seed Modifier, e.g., Best AI Tool for {Profession} in {City}]'. Define 3 primary modifier categories, 20 variable combinations, and unique data table structures to prevent thin content flags.",
+    "tags": [
+      "Programmatic SEO",
+      "SEO",
+      "Traffic",
+      "Growth"
+    ]
+  },
+  {
+    "id": 326,
+    "title": "High-Ticket B2B Case Study Narrative Builder",
+    "category": "Writing",
+    "desc": "Transform raw client metrics into a persuasive story-driven B2B case study that closes enterprise deals.",
+    "prompt": "Act as a B2B copywriter. Transform these raw project metrics and testimonials into a high-converting case study using the Problem-Solution-Transformation framework. Emphasize quantifiable ROI, speed to results, and risk reversal.",
+    "tags": [
+      "Case Study",
+      "B2B",
+      "Sales",
+      "Copywriting"
+    ]
+  },
+  {
+    "id": 327,
+    "title": "LinkedIn Thought Leadership Carousel Scriptwriter",
+    "category": "Writing",
+    "desc": "Turn complex frameworks into swipe-worthy, high-engagement 10-slide PDF carousel presentations.",
+    "prompt": "Act as a LinkedIn ghostwriter. Convert '[Framework/Topic]' into a 10-slide document carousel script. Slide 1: Bold contrarian statement. Slides 2-8: Step-by-step framework breakdown with minimal text. Slide 9: Key summary takeaway. Slide 10: Clear follow & repost CTA.",
+    "tags": [
+      "LinkedIn",
+      "Carousel",
+      "Content",
+      "Growth"
+    ]
+  },
+  {
+    "id": 328,
+    "title": "Technical Documentation & SDK Quickstart Guide",
+    "category": "Writing",
+    "desc": "Write frictionless developer documentation and SDK quickstart guides that developers love.",
+    "prompt": "Act as a Developer Advocate. Write a crystal-clear quickstart guide for [SDK/API Name] explaining installation, authentication setup, a basic code example in TypeScript/Python, and error handling best practices.",
+    "tags": [
+      "Documentation",
+      "Developer",
+      "API",
+      "Writing"
+    ]
+  },
+  {
+    "id": 329,
+    "title": "Viral Twitter / X Thread Hook & Architecture Writer",
+    "category": "Writing",
+    "desc": "Craft high-engagement X threads that break down deep insights into digestible, shareable nuggets.",
+    "prompt": "Act as an expert X (Twitter) creator. Write an 8-part viral thread about '[Topic]'. Tweet 1: High-curiosity pattern-interrupt hook. Tweets 2-7: Dense, scannable insights with bullet points and spacing. Tweet 8: Summary takeaway + CTA to follow and retweet.",
+    "tags": [
+      "Twitter",
+      "Threads",
+      "Writing",
+      "Growth"
+    ]
+  },
+  {
+    "id": 330,
+    "title": "Academic Literature Review Synthesizer",
+    "category": "Writing",
+    "desc": "Synthesize multiple academic papers into a coherent, structured literature review summary.",
+    "prompt": "Act as a Senior Academic Researcher. Synthesize the core findings, methodologies, and contrasting arguments from these research notes into a cohesive literature review section complete with thematic grouping and critical analysis:\n\n[Paste Research Notes]",
+    "tags": [
+      "Academic",
+      "Research",
+      "Writing",
+      "Students"
+    ]
+  },
+  {
+    "id": 331,
+    "title": "Zero-Budget Product Hunt Launch Strategy & Copy",
+    "category": "Marketing",
+    "desc": "Dominate Product Hunt leaderboard with optimized maker comments, taglines, and hunter outreach.",
+    "prompt": "Act as a Product Hunt launch expert. Create a complete launch day playbook for '[Product Name]': 1) 60-character catchy tagline, 2) First comment maker story, 3) Social media announcement templates, and 4) Community engagement checklist for launch day.",
+    "tags": [
+      "Product Hunt",
+      "Launch",
+      "Marketing",
+      "Indie Hacker"
+    ]
+  },
+  {
+    "id": 332,
+    "title": "Meta & TikTok UGC Ad Creative Brief Generator",
+    "category": "Marketing",
+    "desc": "Write high-converting User-Generated Content briefs that creators can shoot immediately.",
+    "prompt": "Act as a Paid Media Growth Marketer. Create a detailed UGC ad creative brief for '[Product]' targeting '[Audience]'. Include hook angles (Problem/Solution, Unboxing, Reaction), body talking points, visual overlays, and call-to-action guidelines.",
+    "tags": [
+      "UGC",
+      "Meta Ads",
+      "TikTok Ads",
+      "Marketing"
+    ]
+  },
+  {
+    "id": 333,
+    "title": "Google AdSense High-RPM Ad Layout & Policy Optimizer",
+    "category": "Marketing",
+    "desc": "Maximize display ad revenue while staying 100% compliant with Google AdSense policies and Core Web Vitals.",
+    "prompt": "Act as a Publisher AdOps Specialist. Audit my website layout for AdSense optimization. Recommend optimal ad unit placement (In-Article, Anchor, Sidebar) for desktop and mobile, and specify CSS container dimensions to prevent Cumulative Layout Shift (CLS).",
+    "tags": [
+      "AdSense",
+      "Monetization",
+      "SEO",
+      "Marketing"
+    ]
+  },
+  {
+    "id": 334,
+    "title": "B2B Cold Email Hyper-Personalization Framework",
+    "category": "Marketing",
+    "desc": "Book sales meetings with enterprise prospects using customized, low-friction cold email sequences.",
+    "prompt": "Act as a B2B Sales Development Director. Write a 3-step cold email sequence targeting [Job Title] at [Company Type] for [Product/Service]. Focus on a specific trigger event, zero fluff, and a low-friction question for the CTA.",
+    "tags": [
+      "Cold Email",
+      "Sales",
+      "B2B",
+      "Outreach"
+    ]
+  },
+  {
+    "id": 335,
+    "title": "SaaS Lifecycle Email Onboarding & Retention Drip",
+    "category": "Marketing",
+    "desc": "Convert free trial signups into paying customers with behavior-triggered email sequences.",
+    "prompt": "Act as a SaaS Retention Marketer. Outline a 5-email onboarding drip campaign for new signups of '[App Name]'. Day 0: Welcome + Quick Win. Day 1: Core feature walkthrough. Day 3: Case study success. Day 5: Overcoming obstacles. Day 7: Trial expiration & upgrade incentive.",
+    "tags": [
+      "SaaS",
+      "Email Marketing",
+      "Retention",
+      "Marketing"
+    ]
+  },
+  {
+    "id": 336,
+    "title": "Reddit Organic Growth & Community Value Funnel",
+    "category": "Marketing",
+    "desc": "Drive massive targeted traffic from Reddit subreddits without violating self-promotion rules.",
+    "prompt": "Act as a Community Growth Marketer. Outline an organic Reddit engagement strategy for r/[Subreddit]. Provide 3 post angles that share deep educational value or lessons learned while organically positioning '[Your Tool/Resource]' as part of the solution.",
+    "tags": [
+      "Reddit",
+      "Organic Traffic",
+      "Community",
+      "Growth"
+    ]
+  },
+  {
+    "id": 337,
+    "title": "Pinterest SEO Traffic Machine Pin Optimizer",
+    "category": "Marketing",
+    "desc": "Generate keyword-rich pin titles and descriptions to drive passive search traffic from Pinterest.",
+    "prompt": "Act as a Pinterest SEO Expert. Generate 5 keyword-optimized Pin titles, rich descriptions (under 500 chars), and visual text-overlay ideas for my blog post/tool about '[Topic/URL]' to capture high organic search volume.",
+    "tags": [
+      "Pinterest",
+      "SEO",
+      "Traffic",
+      "Marketing"
+    ]
+  },
+  {
+    "id": 338,
+    "title": "Affiliate & Partner Program Commission Structure Designer",
+    "category": "Marketing",
+    "desc": "Design attractive recurring affiliate programs that incentivize top creators to promote your software.",
+    "prompt": "Act as a Partner Marketing Director. Design a competitive affiliate program structure for '[SaaS/Digital Product]'. Recommend recurring commission percentages, cookie duration windows, tier bonuses, and promotional resource swipe copy for partners.",
+    "tags": [
+      "Affiliate Marketing",
+      "Partnerships",
+      "Growth",
+      "SaaS"
+    ]
+  },
+  {
+    "id": 339,
+    "title": "Landing Page CRO Heatmap & Conversion Audit",
+    "category": "Marketing",
+    "desc": "Identify UX friction points and psychological conversion barriers on landing pages.",
+    "prompt": "Act as a Conversion Rate Optimization (CRO) Expert. Review my landing page structure: [Describe Page/Offer]. Identify 5 potential friction points in the user journey, weak CTAs, or missing trust signals, and suggest high-impact A/B test ideas.",
+    "tags": [
+      "CRO",
+      "Landing Page",
+      "UX",
+      "Marketing"
+    ]
+  },
+  {
+    "id": 340,
+    "title": "YouTube Channel Packaging & High-CTR Title Generator",
+    "category": "Marketing",
+    "desc": "Combine curiosity-gap titles with psychological thumbnail concepts to maximize click-through rate.",
+    "prompt": "Act as a YouTube Packaging Strategist. Generate 10 high-CTR Title and Thumbnail concepts for a video titled '[Video Idea]'. Ensure titles use curiosity loops under 55 characters and describe explicit thumbnail imagery with max 3 words of bold text.",
+    "tags": [
+      "YouTube",
+      "CTR",
+      "Thumbnails",
+      "Marketing"
+    ]
+  },
+  {
+    "id": 341,
+    "title": "Solo-Founder Micro-SaaS Financial & Runway Model",
+    "category": "Business",
+    "desc": "Calculate MRR targets, churn impact, and server cost margins for bootstrapped software startups.",
+    "prompt": "Act as a Bootstrapped SaaS CFO. Build a financial model outline for a solo-founder SaaS targeting $[Target MRR] with $[Price]/mo subscription. Calculate required active subscribers, allowable Customer Acquisition Cost (CAC), and server scaling margins.",
+    "tags": [
+      "Micro-SaaS",
+      "Finance",
+      "Startup",
+      "Business"
+    ]
+  },
+  {
+    "id": 342,
+    "title": "AI Automation Agency (AAA) Client Pitch Deck",
+    "category": "Business",
+    "desc": "Package high-ticket AI workflow automation services for traditional local and regional businesses.",
+    "prompt": "Act as an AI Agency Consultant. Structure a 6-slide client pitch deck for selling custom AI customer support agents and lead-qualification workflows to [Target Industry, e.g., Real Estate Agencies]. Highlight time saved, increased conversion, and flat monthly retainer pricing.",
+    "tags": [
+      "AI Agency",
+      "Automation",
+      "B2B",
+      "Business"
+    ]
+  },
+  {
+    "id": 343,
+    "title": "Client Scope Creep Boundary Setting & Upsell Script",
+    "category": "Business",
+    "desc": "Handle out-of-scope client requests professionally while turning extra work into paid add-on revenue.",
+    "prompt": "Act as an Agency Client Success Director. A client is requesting '[Out-of-Scope Task]' outside our agreed SOW. Write a firm, polite response that validates their goal, clarifies original project boundaries, and offers a paid change-order quote.",
+    "tags": [
+      "Freelancing",
+      "Scope Creep",
+      "Client Management",
+      "Business"
+    ]
+  },
+  {
+    "id": 344,
+    "title": "SaaS Lifetime Deal (LTD) Profitability & Risk Analyst",
+    "category": "Business",
+    "desc": "Evaluate whether running a lifetime software deal on AppSumo or privately makes financial sense.",
+    "prompt": "Act as a SaaS Pricing Strategist. Analyze the financial pros and cons of offering a lifetime deal (LTD) at $[Price] for '[Software Product]' given monthly API/server costs of $[Cost] per user. Calculate break-even server lifespan and potential churn risks.",
+    "tags": [
+      "SaaS",
+      "Pricing",
+      "Lifetime Deal",
+      "Business"
+    ]
+  },
+  {
+    "id": 345,
+    "title": "Investor Pitch Deck 10-Slide Seed Round Storyline",
+    "category": "Business",
+    "desc": "Structure a compelling seed-stage investor presentation that highlights traction, market size, and team.",
+    "prompt": "Act as a Venture Capitalist. Outline a 10-slide seed round pitch deck for a '[Industry]' startup. Detail the exact narrative arc, key metrics, and bullet points required for the Problem, Solution, Market Opportunity, Traction, and Asks slides.",
+    "tags": [
+      "Pitch Deck",
+      "Fundraising",
+      "Startups",
+      "Business"
+    ]
+  },
+  {
+    "id": 346,
+    "title": "Founder Eisenhower Matrix Weekly Priority Planner",
+    "category": "Business",
+    "desc": "Organize chaotic solo-founder to-do lists into high-impact revenue generators vs trivial busywork.",
+    "prompt": "Act as an Executive Productivity Coach. Categorize my messy founder task list below into the Eisenhower Matrix (Do First, Schedule, Delegate/Automate, Eliminate) based strictly on impact on product quality, traffic growth, and revenue generation:\n\n[Paste Task List]",
+    "tags": [
+      "Productivity",
+      "Founders",
+      "Time Management",
+      "Business"
+    ]
+  },
+  {
+    "id": 347,
+    "title": "Standard Operating Procedure (SOP) Systemizer",
+    "category": "Business",
+    "desc": "Turn messy team operations into crystal-clear, repeatable step-by-step SOP documents.",
+    "prompt": "Act as a Chief Operating Officer. Convert these rough workflow notes into a standardized SOP document. Include Objective, Prerequisites, Step-by-Step Execution Checklist, Quality Assurance guidelines, and Troubleshooting fixes:\n\n[Paste Notes]",
+    "tags": [
+      "SOP",
+      "Operations",
+      "Business",
+      "Productivity"
+    ]
+  },
+  {
+    "id": 348,
+    "title": "B2B SaaS Churn Reduction & Exit Survey Flow",
+    "category": "Business",
+    "desc": "Design cancellation survey funnels and dynamic save offers that retain departing subscribers.",
+    "prompt": "Act as a SaaS Retention Specialist. Design a 3-step cancellation flow for '[Product]'. Include 5 exit survey reasons, tailored discount/pause offers for each reason, and an automated win-back email sequence sent 30 days later.",
+    "tags": [
+      "Churn",
+      "Retention",
+      "SaaS",
+      "Business"
+    ]
+  },
+  {
+    "id": 349,
+    "title": "Enterprise MEDDIC Sales Qualification Battlecard",
+    "category": "Business",
+    "desc": "Audit complex enterprise deals against the MEDDIC framework to eliminate blind spots and close faster.",
+    "prompt": "Act as a VP of Enterprise Sales. Audit my open deal notes below using the MEDDIC framework (Metrics, Economic Buyer, Decision Criteria, Decision Process, Identify Pain, Champion). Score deal health out of 10 and give 3 precise questions to uncover hidden risks:\n\n[Paste Notes]",
+    "tags": [
+      "Sales",
+      "MEDDIC",
+      "B2B",
+      "Business"
+    ]
+  },
+  {
+    "id": 350,
+    "title": "Remote Async Work Culture & Handbook Architect",
+    "category": "Business",
+    "desc": "Draft clear async communication guidelines and remote team handbooks that eliminate endless meetings.",
+    "prompt": "Act as a Remote Work Operations Lead. Write a concise asynchronous work policy for distributed teams covering communication tools (Slack vs Notion vs Loom), expected response time SLAs, meeting reduction rules, and deep-work protection blocks.",
+    "tags": [
+      "Remote Work",
+      "Operations",
+      "Culture",
+      "Business"
+    ]
   }
 ]
