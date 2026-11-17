@@ -2500,5 +2500,83 @@
       "Financial Freedom",
       "Career"
     ]
+  },
+  {
+    "id": 295,
+    "title": "Advanced MCP (Model Context Protocol) Server Architect",
+    "category": "Coding",
+    "desc": "Build production-ready Model Context Protocol servers to securely connect AI models to local databases and internal APIs.",
+    "prompt": "Act as an Expert AI Infrastructure Engineer. Design and write a complete Model Context Protocol (MCP) server in TypeScript using `@modelcontextprotocol/sdk`. Expose custom tools for [Describe Tools, e.g., querying a PostgreSQL database and fetching Jira issues]. Include Zod input validation schemas, comprehensive error handling, and stdio transport initialization.",
+    "tags": [
+      "MCP",
+      "AI Agents",
+      "Claude",
+      "2026"
+    ]
+  },
+  {
+    "id": 296,
+    "title": "Autonomous AI Agent Multi-Step Workflow Designer",
+    "category": "Coding",
+    "desc": "Architect self-correcting agentic workflows with strict verification loops and JSON parsing guardrails.",
+    "prompt": "Act as a Lead AI Systems Architect. Build an autonomous agent execution loop for [Task, e.g., Automated Market Research & Report Generation]. Design the step-by-step state machine, tool-selection criteria, reflection/critique phase, and final JSON output formatting.",
+    "tags": [
+      "AI Agents",
+      "Workflow",
+      "LLM",
+      "2026"
+    ]
+  },
+  {
+    "id": 297,
+    "title": "Generative Engine Optimization (GEO) Content Formatter",
+    "category": "Writing",
+    "desc": "Optimize articles and landing pages so Perplexity, ChatGPT Search, and Google AI Overviews cite your brand.",
+    "prompt": "Act as an AI Search Optimization (GEO) specialist. Rewrite the following article draft on '[Topic]' to maximize citation frequency in generative search engines. Include explicit 40-word definitive answer summaries, verifiable statistical claims, comparison matrices, and FAQ JSON-LD schema.",
+    "tags": [
+      "GEO",
+      "AI SEO",
+      "Perplexity",
+      "2026"
+    ]
+  },
+  {
+    "id": 298,
+    "title": "Vibe Coding & Cursor IDE Context Rules (.cursorrules)",
+    "category": "Coding",
+    "desc": "Generate custom AI rules and architectural guardrails for Cursor, Windsurf, and Claude Code.",
+    "prompt": "Act as a Principal Staff Engineer. Create a comprehensive `.cursorrules` configuration file for a project utilizing [Tech Stack, e.g., Next.js 16, Tailwind v4, Drizzle ORM]. Define strict code style rules, folder structure constraints, error-handling conventions, and prohibited anti-patterns.",
+    "tags": [
+      "Vibe Coding",
+      "Cursor",
+      "Claude Code",
+      "2026"
+    ]
+  },
+  {
+    "id": 299,
+    "title": "High-RPM AdSense Layout & Core Web Vitals Protector",
+    "category": "Marketing",
+    "desc": "Deploy high-earning Google AdSense placements while reserving layout space to prevent CLS penalties.",
+    "prompt": "Act as a Publisher AdOps & Monetization Specialist. Design an optimized ad placement strategy for a '[Website Type, e.g., AI Prompt Library / Tech Blog]' across desktop and mobile. Detail exact CSS container sizing rules to protect Cumulative Layout Shift (CLS) and maximize RPM.",
+    "tags": [
+      "AdSense",
+      "Monetization",
+      "Core Web Vitals",
+      "2026"
+    ]
+  },
+  {
+    "id": 300,
+    "title": "Programmatic SEO (pSEO) Data-Driven Page Generator",
+    "category": "Marketing",
+    "desc": "Architect scalable landing page templates and variable datasets to rank for thousands of long-tail search queries.",
+    "prompt": "Act as a Programmatic SEO Director. Design a high-converting pSEO template for '[Niche, e.g., Best AI Prompts for {Profession}]'. Define dynamic CSV variables, unique data-interpolation blocks to avoid thin-content flags, internal linking logic, and FAQ schema integration.",
+    "tags": [
+      "Programmatic SEO",
+      "SEO",
+      "Growth",
+      "2026"
+    ]
   }
 ]
