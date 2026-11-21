@@ -163,6 +163,7 @@
                     <a href="#ai-tools" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">Web Tools</a>
                     <a href="#blog" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">Blog</a>
                     <a href="#faq" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">FAQ</a>
+                    <a href="/about.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-all">About</a>
                 </nav>
 
                 <div class="flex items-center gap-2 sm:gap-3">
@@ -200,6 +201,9 @@
                 <a href="#ai-tools" onclick="handleMobileLinkClick('#ai-tools')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-screwdriver-wrench w-6 text-indigo-500"></i> Browser Utilities</a>
                 <a href="#blog" onclick="handleMobileLinkClick('#blog')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-newspaper w-6 text-indigo-500"></i> AI Guides & Articles</a>
                 <a href="#faq" onclick="handleMobileLinkClick('#faq')" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]"><i class="fa-solid fa-circle-question w-6 text-indigo-500"></i> FAQ</a>
+                <a href="/about.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]">About Us</a>
+                <a href="/privacy-policy.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]">Privacy Policy</a>
+                <a href="/terms-and-disclaimer.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 min-h-[44px]">Terms & Disclaimer</a>
                 
                 <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex flex-col gap-2">
                     <button onclick="closeMobileMenu(); toggleFavoritesModal()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-600 dark:text-pink-400 font-semibold min-h-[44px]">
@@ -398,44 +402,77 @@
             </div>
         </section>
 
-        <!-- Blog / Guides Section -->
+        <!-- Original educational blog guides -->
         <section id="blog" class="py-16 sm:py-20 border-b border-slate-200 dark:border-slate-800/50 bg-slate-100/50 dark:bg-slate-950">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Expert Insights</span>
-                    <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-1 mb-4">AI Guides & Articles</h2>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Learn prompt engineering frameworks and strategies to unlock better AI outputs.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all shadow-sm">
-                        <div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">Prompt Engineering</span>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4 mb-2">The R-C-T-F Framework for ChatGPT</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">Define Role, Context, Task, and Format in every prompt to eliminate generic AI responses and get expert-level output.</p>
-                        </div>
-                        <a href="#prompts" class="text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 font-semibold inline-flex items-center gap-1.5">Try in Prompt Library <i class="fa-solid fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all shadow-sm">
-                        <div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20">Image Generation</span>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4 mb-2">Midjourney Lighting & Camera Secrets</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">Combine cinematic lighting keywords, focal lengths, and aspect ratios (--ar 16:9) to generate photorealistic visuals.</p>
-                        </div>
-                        <a href="#prompts" class="text-xs text-pink-600 dark:text-pink-400 hover:text-pink-500 font-semibold inline-flex items-center gap-1.5">Explore Image Prompts <i class="fa-solid fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all shadow-sm">
-                        <div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Workflow</span>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4 mb-2">Clean Text Before Feeding to LLMs</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">Removing extra whitespace and formatting messy drafts saves tokens and improves AI comprehension accuracy.</p>
-                        </div>
-                        <button onclick="openModal('spaceCleanerModal')" class="text-left text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 font-semibold inline-flex items-center gap-1.5">Open Space Remover <i class="fa-solid fa-arrow-right"></i></button>
-                    </article>
-                </div>
+          <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+              <span class="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Practical learning resources</span>
+              <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">AI Guides & Prompt Engineering Articles</h2>
+              <p class="text-slate-600 dark:text-slate-400">Step-by-step explanations, examples, and review tips to help you use AI tools thoughtfully. Always verify important outputs before relying on them.</p>
             </div>
+            <div class="space-y-8">
+              <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <p class="text-xs font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-400">Prompt engineering · Beginner guide</p>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-2 mb-4">How to Write a Clear AI Prompt: Role, Context, Task and Format</h3>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">A useful prompt gives an AI assistant enough information to understand the job without making the request unnecessarily complicated. One practical structure is Role, Context, Task and Format (RCTF). The role describes the perspective you want the assistant to take. Context explains the situation, audience and constraints. The task states the action. The format tells the assistant how to organise its answer.</p>
+                <h4 class="font-bold text-slate-900 dark:text-white mb-2">Example you can adapt</h4>
+                <div class="rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 p-4 text-sm text-slate-700 dark:text-slate-300 mb-4"><strong>Role:</strong> Act as an experienced science tutor.<br><strong>Context:</strong> I am a beginner learning photosynthesis for a school exam.<br><strong>Task:</strong> Explain the process, why sunlight matters, and two common misconceptions.<br><strong>Format:</strong> Use simple language, numbered steps and a short five-question quiz.</div>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Start with a narrow task, then add details only when they improve the result. If the answer is too advanced, ask for a simpler explanation and specify what you already understand. If it is too broad, divide the work into smaller steps. For factual subjects, ask for sources you can independently check rather than treating generated citations as automatically correct.</p>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">Before using the result, check whether it follows your instructions, covers the intended audience and makes unsupported claims. RCTF is a helpful checklist, not a guarantee of accuracy. <a href="#prompts" class="text-indigo-600 dark:text-indigo-400 underline">Browse the prompt library</a> for starting points you can customise.</p>
+              </article>
+              <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <p class="text-xs font-semibold uppercase tracking-wide text-pink-600 dark:text-pink-400">Image generation · Practical workflow</p>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Build Better AI Image Prompts with Subject, Setting, Lighting and Composition</h3>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">Image-generation systems respond more consistently when the prompt describes the visual scene in a logical order. Begin with the main subject, then describe the setting, action, visual style, lighting, camera perspective and composition. Include only details that matter to the image you want; a long list of conflicting adjectives can make the result less predictable.</p>
+                <h4 class="font-bold text-slate-900 dark:text-white mb-2">A reusable example</h4>
+                <div class="rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 p-4 text-sm text-slate-700 dark:text-slate-300 mb-4">A small ceramic coffee cup on a wooden table beside a rainy window, quiet morning atmosphere, soft natural window light, warm neutral colour palette, close-up product photography, shallow depth of field, clean composition with empty space on the left.</div>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">If the first image is close but not correct, change one variable at a time. For example, keep the subject and composition fixed while changing the lighting from soft daylight to dramatic side lighting. This makes it easier to understand which instruction affected the output. Aspect ratios and other settings differ by platform, so check the image tool's current documentation.</p>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">Avoid relying on a style name alone when the visual requirements are important. Describe visible characteristics such as contrast, colour, texture and framing. Review generated images for distorted text, unwanted objects and details that could misrepresent a real person or product.</p>
+              </article>
+              <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <p class="text-xs font-semibold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">Writing workflow · Editing checklist</p>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Use AI to Draft and Edit Content Without Losing Your Own Voice</h3>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">AI can help organise ideas, create an outline or identify unclear sentences, but a useful publishing workflow still needs human judgement. Start by writing down the reader's question and the specific value your article will provide. Ask the tool for an outline, review the structure, and then draft each section using your own expertise, examples and research.</p>
+                <h4 class="font-bold text-slate-900 dark:text-white mb-2">Editing prompt example</h4>
+                <div class="rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 p-4 text-sm text-slate-700 dark:text-slate-300 mb-4">Review the text below for clarity, logical order and grammar. Preserve my meaning and personal tone. Do not add facts, statistics or quotations. Return (1) a lightly edited version and (2) a short list explaining the most important changes. Mark anything that needs fact-checking.</div>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Check names, dates, statistics, quotations and links against reliable sources. Remove generic filler and add concrete examples that reflect the intended audience. Make sure headings accurately describe the sections below them. If you use AI-generated text, images or code, review the result for originality, accuracy, permissions and suitability before publishing.</p>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">The final article should answer the reader's question better than a generic summary. Add your own testing notes, comparisons, limitations or lessons learned where relevant. Do not publish an unreviewed draft simply because it reads smoothly.</p>
+              </article>
+              <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <p class="text-xs font-semibold uppercase tracking-wide text-amber-600 dark:text-amber-400">Productivity · Browser utilities</p>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Prepare Clean Text Before Using an AI Assistant</h3>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">Copied text often contains repeated spaces, inconsistent line breaks, formatting fragments or unrelated notes. Cleaning the input before sending it to an AI assistant makes the task easier to read and can reduce avoidable confusion. It does not automatically make the model more accurate, but it helps you provide a clearer source.</p>
+                <h4 class="font-bold text-slate-900 dark:text-white mb-2">A simple preparation routine</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-slate-700 dark:text-slate-300 mb-4"><li>Keep the original document as a backup.</li><li>Remove duplicated spaces and accidental blank lines.</li><li>Separate instructions from the source material.</li><li>Label tables, headings and quoted passages clearly.</li><li>Remove personal or confidential information that the tool does not need.</li><li>Check the cleaned text against the original before using it.</li></ol>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">For example, instead of pasting a long unlabelled email thread and asking “summarise this”, state whether you need decisions, action items, deadlines or unresolved questions. If the text includes multiple speakers, preserve speaker labels so the summary does not confuse who said what.</p>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">PromptVerse includes browser-based text utilities for common preparation tasks. Avoid pasting passwords, financial details or sensitive personal records into any online service unless you have checked its privacy and security practices.</p>
+              </article>
+              <article class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <p class="text-xs font-semibold uppercase tracking-wide text-cyan-600 dark:text-cyan-400">Evaluation · Responsible AI use</p>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-2 mb-4">How to Check an AI-Generated Answer Before You Use It</h3>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">A confident tone is not proof that an AI answer is correct. Models can omit context, make arithmetic mistakes, produce outdated information or invent references. Treat generated output as a draft that needs review, especially when it may affect health, money, legal rights, safety, employment or important business decisions.</p>
+                <h4 class="font-bold text-slate-900 dark:text-white mb-2">Five checks to perform</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-slate-700 dark:text-slate-300 mb-4"><li><strong>Source check:</strong> open cited sources and confirm that they support the claim.</li><li><strong>Date check:</strong> verify that prices, rules, software instructions and statistics are current.</li><li><strong>Logic check:</strong> test calculations and look for contradictions.</li><li><strong>Context check:</strong> confirm that the answer applies to your location, audience and situation.</li><li><strong>Risk check:</strong> ask a qualified professional when the decision requires specialist advice.</li></ol>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">You can ask an assistant to list assumptions, identify uncertain points and suggest ways to verify them. That can make review easier, but it does not replace independent checking. Do not treat an AI system as the final authority for high-impact decisions.</p>
+              </article>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-8">Editorial note: These guides are educational resources. AI products and their features can change; consult each provider's current documentation for product-specific instructions.</p>
+          </div>
+        </section>
+
+        <section id="about" class="py-16 sm:py-20 border-b border-slate-200 dark:border-slate-800/50 bg-white dark:bg-slate-900">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">About the project</span>
+            <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-5">About PromptVerse</h2>
+            <div class="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p>PromptVerse is an independent educational resource designed to help people write clearer instructions for AI tools and complete everyday text tasks in their browser. The website brings together a searchable collection of prompts, simple text utilities and practical learning guides in one place.</p>
+              <p>Our prompt library covers areas such as writing, marketing, coding, business, career development and image generation. Prompts are intended as editable starting points, not guaranteed solutions. Visitors should adapt each prompt to their goals, review generated results and verify important information before acting on it.</p>
+              <p>We aim to make the site straightforward to use: visitors can explore prompt categories, copy examples, save bookmarks in their browser and use supported text utilities without creating an account. Some external services linked or mentioned on the site have their own terms, pricing and privacy practices.</p>
+              <p>PromptVerse is an independent project and is not affiliated with, endorsed by or sponsored by OpenAI, Anthropic, Midjourney or other AI providers. Product names belong to their respective owners.</p>
+              <p>For corrections, feedback, accessibility issues or prompt suggestions, contact <a class="text-indigo-600 dark:text-indigo-400 underline" href="mailto:huzaimakhan3403@gmail.com">huzaimakhan3403@gmail.com</a> or use the <a class="text-indigo-600 dark:text-indigo-400 underline" href="#contact">contact form</a>.</p>
+            </div>
+            <p class="mt-6"><a href="/about.html" class="text-indigo-600 dark:text-indigo-400 underline font-semibold">Read the full About page</a></p>
+          </div>
         </section>
 
         <!-- FAQ Section -->
@@ -503,6 +540,7 @@
                 <a href="#prompts" class="hover:text-indigo-500 transition-colors">Prompts</a>
                 <a href="#ai-tools" class="hover:text-indigo-500 transition-colors">Web Tools</a>
                 <a href="/about.html" class="hover:text-indigo-500 transition-colors">About Us</a>
+                <a href="#contact" class="hover:text-indigo-500 transition-colors">Contact</a>
                 <a href="/privacy-policy.html" class="hover:text-indigo-500 transition-colors">Privacy Policy</a>
                 <a href="/terms-and-disclaimer.html" class="hover:text-indigo-500 transition-colors">Terms & Disclaimer</a>
             </div>
