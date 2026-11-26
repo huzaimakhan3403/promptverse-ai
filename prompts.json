@@ -12,9 +12,9 @@
     ],
     "guide": {
       "when_to_use": "Use Ultra-Detailed Studio Portrait when you need to create photorealistic 8K portrait photography with natural studio lighting. It is especially useful when you can provide the real context, constraints, source material, and a clear definition of a successful result.",
-      "how_to_customize": "Replace the prompt fields (Subject) with details from your actual task. Specify the subject's appearance, setting, framing, lighting, palette, visual medium, and aspect ratio. State what should remain unchanged and what to avoid. Remove irrelevant fields and never invent facts, credentials, metrics, or results.",
-      "example_input": "A cinematic studio portrait of a confident young architect in a charcoal suit, soft box lighting, 85mm lens, depth of field, sharp focus on eyes, ultra-realistic skin texture, 8k resolution, photorealistic render --ar 16:9 --v 6.0",
-      "expected_output": "Expect a detailed image-generation prompt for ultra-detailed studio portrait. It should create photorealistic 8K portrait photography with natural studio lighting and follow the requested format, audience, and constraints. Check factual claims, calculations, names, and any assumptions before using or sharing the result.",
+      "how_to_customize": "Replace the subject description with your desired person, character, or subject. Specify appearance, clothing, background, framing, lighting, camera angle, visual style, and aspect ratio. Include details about the mood and composition, and mention anything that should be avoided.",
+      "example_input": "A photorealistic studio portrait of a professional young architect wearing a charcoal suit, confident expression, clean neutral studio background, softbox lighting, 85mm portrait lens, shallow depth of field, sharp focus on the eyes, realistic skin texture, cinematic composition, high-detail photography --ar 16:9 --v 6.0",
+      "expected_output": "Expect a photorealistic, ultra-detailed studio portrait of the specified subject. The generated image should feature natural-looking studio lighting, realistic skin texture, sharp facial details, balanced composition, and the requested aspect ratio. Review the final image to ensure it matches your subject description and visual requirements.",
       "pro_tips": "Describe the main subject first, then composition, lighting, materials, camera or rendering style; change one visual variable per iteration."
     }
   },
