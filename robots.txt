@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://promptverse-official.vercel.app/sitemap.xml
