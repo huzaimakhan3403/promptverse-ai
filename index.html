@@ -5012,6 +5012,31 @@ Finish with exact file names, where each change belongs, and a practical test ch
             });
         }
 
+        function buildPromptGuide(promptItem) {
+            if (promptItem && promptItem.guide) return promptItem.guide;
+            const title = String(promptItem.title || 'this task');
+            const desc = String(promptItem.desc || 'this type of task');
+            const category = String(promptItem.category || 'General');
+            const placeholders = [...String(promptItem.prompt || '').matchAll(/\[([^\]]{2,70})\]/g)]
+                .map(match => match[1].replace(/\s+/g, ' ').trim()).filter(Boolean).slice(0, 4);
+            const fields = placeholders.length ? placeholders.join(', ') : 'the topic, audience, context and desired result';
+            const examples = {
+                'Writing': ['Write a practical, original guide for beginner freelancers about creating a simple monthly budget. Audience: first-time freelancers. Tone: clear and supportive. Length: 800 words. Include actionable steps and a short checklist.', 'A structured draft with clear headings, relevant examples and actionable advice. Review factual claims and tailor the wording before publishing.', 'Give the AI a real audience and a clear purpose. Ask it to identify unsupported claims, remove filler and suggest revisions instead of treating the first draft as final.'],
+                'Coding': ['I am building a responsive contact form in HTML, CSS and JavaScript. The submit button does not validate the email field. Explain the likely cause, show corrected code and list tests I should run.', 'A diagnosis, corrected code or implementation steps, and test cases. Run the code in your own environment and check security, accessibility and edge cases.', 'Include the exact error, relevant code, expected behaviour and environment/version. Ask for a minimal fix and tests; never paste API keys, passwords or private data.'],
+                'Marketing': ['Business: a local handmade candle shop. Audience: people buying thoughtful gifts. Goal: increase product-page visits. Tone: warm and helpful. Create three campaign angles with honest calls to action.', 'Audience-focused campaign ideas, suggested copy and clear calls to action. Check brand fit, platform requirements and actual campaign performance.', 'Share the product’s real differentiators and customer objections. Keep claims evidence-based, adapt copy to each platform and test variations with actual results.'],
+                'Image Generation': ['Create a warm editorial image of a ceramic coffee mug on a wooden desk beside a notebook. Soft morning window light, neutral palette, close composition, no text, landscape format.', 'A more detailed visual prompt covering subject, setting, composition, lighting and style. Generate variations and refine one visual attribute at a time.', 'Describe one main subject, composition, lighting and visual style. Change one variable per iteration and check the output for unwanted text or visual artefacts.'],
+                'Business': ['Business: a small online stationery store. Goal: reduce abandoned carts. Current issue: shipping costs appear late in checkout. Suggest practical improvements, estimated effort and ways to measure results.', 'A structured set of recommendations with priorities, assumptions and measurable next steps. Validate costs and decisions against your own business data.', 'Provide real constraints, budget and time horizon. Ask the AI to separate facts from assumptions and rank ideas by impact, effort and risk.'],
+                'Career': ['Target role: junior data analyst. Experience: one year using Excel and SQL. Strengths: reporting and communication. Tailor my resume summary to this job description: [paste job description].', 'Role-relevant career material with clearer evidence of skills and experience. Keep every claim truthful and adapt it to the actual vacancy.', 'Use accurate achievements and measurable outcomes. Remove personal contact details before sharing documents and verify every skill or claim before applying.']
+            };
+            const fallback = ['My goal is [specific goal]. My current situation is [brief context]. The audience or user is [audience]. Please give me a practical step-by-step result and state any assumptions.', 'A tailored response with clear steps, relevant examples and assumptions to review. Check the result against your real requirements before using it.', 'Give specific context, state your constraints and ask the AI to explain assumptions. Review the result and verify important details before acting.'];
+            const sample = examples[category] || fallback;
+            return {
+                when_to_use: `Use ${title} when you need help with ${desc.charAt(0).toLowerCase() + desc.slice(1)}. It works best when you provide real context instead of leaving instructions generic.`,
+                how_to_customize: `Replace the bracketed fields (${fields}) with specific details. Add your audience, goal, constraints, preferred tone and any source material the AI should rely on. Remove fields that do not apply.`,
+                example_input: sample[0], expected_output: sample[1], pro_tips: sample[2]
+            };
+        }
+
         function renderPrompts(prompts) {
             const grid = document.getElementById('prompts-grid');
             if (!grid) return;
@@ -5040,6 +5065,17 @@ Finish with exact file names, where each change belongs, and a practical test ch
                         <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">${escapeHTML(promptItem.desc)}</p>
                         <div class="bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800/80 rounded-xl p-3 mb-4 text-xs font-mono text-slate-700 dark:text-slate-300 max-h-24 overflow-y-auto whitespace-pre-wrap">${escapeHTML(promptItem.prompt)}</div>
                         <div class="flex flex-wrap gap-2 mb-4">${(Array.isArray(promptItem.tags) ? promptItem.tags : []).map(tag => `<span class="text-xs text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg">${escapeHTML(tag)}</span>`).join('')}</div>
+                        <details class="mb-4 rounded-xl border border-indigo-500/15 bg-indigo-500/5 p-4 text-sm">
+                            <summary class="cursor-pointer select-none font-semibold text-indigo-600 dark:text-indigo-400">How to use this prompt effectively</summary>
+                            <div class="mt-4 space-y-3 text-slate-700 dark:text-slate-300">
+                                ${(() => { const guide = buildPromptGuide(promptItem); return `
+                                    <div><h4 class="font-bold text-slate-900 dark:text-white mb-1">When to Use</h4><p>${escapeHTML(guide.when_to_use || '')}</p></div>
+                                    <div><h4 class="font-bold text-slate-900 dark:text-white mb-1">How to Customize</h4><p>${escapeHTML(guide.how_to_customize || '')}</p></div>
+                                    <div><h4 class="font-bold text-slate-900 dark:text-white mb-1">Example Input</h4><p class="rounded-lg bg-white/70 dark:bg-slate-950/60 p-3 whitespace-pre-wrap">${escapeHTML(guide.example_input || '')}</p></div>
+                                    <div><h4 class="font-bold text-slate-900 dark:text-white mb-1">Expected Output</h4><p>${escapeHTML(guide.expected_output || '')}</p></div>
+                                    <div><h4 class="font-bold text-slate-900 dark:text-white mb-1">Pro Tips</h4><p>${escapeHTML(guide.pro_tips || '')}</p></div>`; })()}
+                            </div>
+                        </details>
                     </div>
                     <div class="space-y-2">
                         <div class="flex items-center gap-2">
