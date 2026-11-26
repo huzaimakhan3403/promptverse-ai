@@ -5015,25 +5015,49 @@ Finish with exact file names, where each change belongs, and a practical test ch
         function buildPromptGuide(promptItem) {
             if (promptItem && promptItem.guide) return promptItem.guide;
             const title = String(promptItem.title || 'this task');
-            const desc = String(promptItem.desc || 'this type of task');
+            const desc = String(promptItem.desc || 'complete this task with structured AI assistance');
             const category = String(promptItem.category || 'General');
             const placeholders = [...String(promptItem.prompt || '').matchAll(/\[([^\]]{2,70})\]/g)]
                 .map(match => match[1].replace(/\s+/g, ' ').trim()).filter(Boolean).slice(0, 4);
             const fields = placeholders.length ? placeholders.join(', ') : 'the topic, audience, context and desired result';
             const examples = {
-                'Writing': ['Write a practical, original guide for beginner freelancers about creating a simple monthly budget. Audience: first-time freelancers. Tone: clear and supportive. Length: 800 words. Include actionable steps and a short checklist.', 'A structured draft with clear headings, relevant examples and actionable advice. Review factual claims and tailor the wording before publishing.', 'Give the AI a real audience and a clear purpose. Ask it to identify unsupported claims, remove filler and suggest revisions instead of treating the first draft as final.'],
-                'Coding': ['I am building a responsive contact form in HTML, CSS and JavaScript. The submit button does not validate the email field. Explain the likely cause, show corrected code and list tests I should run.', 'A diagnosis, corrected code or implementation steps, and test cases. Run the code in your own environment and check security, accessibility and edge cases.', 'Include the exact error, relevant code, expected behaviour and environment/version. Ask for a minimal fix and tests; never paste API keys, passwords or private data.'],
-                'Marketing': ['Business: a local handmade candle shop. Audience: people buying thoughtful gifts. Goal: increase product-page visits. Tone: warm and helpful. Create three campaign angles with honest calls to action.', 'Audience-focused campaign ideas, suggested copy and clear calls to action. Check brand fit, platform requirements and actual campaign performance.', 'Share the product’s real differentiators and customer objections. Keep claims evidence-based, adapt copy to each platform and test variations with actual results.'],
-                'Image Generation': ['Create a warm editorial image of a ceramic coffee mug on a wooden desk beside a notebook. Soft morning window light, neutral palette, close composition, no text, landscape format.', 'A more detailed visual prompt covering subject, setting, composition, lighting and style. Generate variations and refine one visual attribute at a time.', 'Describe one main subject, composition, lighting and visual style. Change one variable per iteration and check the output for unwanted text or visual artefacts.'],
-                'Business': ['Business: a small online stationery store. Goal: reduce abandoned carts. Current issue: shipping costs appear late in checkout. Suggest practical improvements, estimated effort and ways to measure results.', 'A structured set of recommendations with priorities, assumptions and measurable next steps. Validate costs and decisions against your own business data.', 'Provide real constraints, budget and time horizon. Ask the AI to separate facts from assumptions and rank ideas by impact, effort and risk.'],
-                'Career': ['Target role: junior data analyst. Experience: one year using Excel and SQL. Strengths: reporting and communication. Tailor my resume summary to this job description: [paste job description].', 'Role-relevant career material with clearer evidence of skills and experience. Keep every claim truthful and adapt it to the actual vacancy.', 'Use accurate achievements and measurable outcomes. Remove personal contact details before sharing documents and verify every skill or claim before applying.']
+                'Writing': `Writing task: ${title}. Topic: [specific subject]. Intended reader: [target audience]. Purpose: [what the reader should understand or do]. Source material: [verified facts and notes]. Tone: [preferred voice]. Format and length: [requirements].`,
+                'Coding': `Development task: ${title}. Language and framework: [name and version]. Goal or issue: [describe the feature or bug]. Relevant code: [paste a minimal reproducible example]. Expected behaviour: [describe the result]. Constraints and edge cases: [list them]. Please provide a maintainable solution and tests.`,
+                'Marketing': `Campaign task: ${title}. Product or service: [describe the real offer]. Target audience: [specific audience]. Campaign goal: [measurable objective]. Channel: [platform]. Brand voice: [tone]. Include accurate benefits and a clear call to action.`,
+                'Image Generation': `Create an image for the ${title.toLowerCase()} task. Main subject: [describe the subject]. Setting: [relevant environment]. Composition: [framing and focal point]. Lighting: [lighting direction and mood]. Visual style: [specific style]. Avoid unwanted text and visual artefacts.`,
+                'Business': `Business task: ${title}. Organization or product: [describe it]. Current situation: [relevant facts and figures]. Customer or stakeholder: [specific audience]. Objective: [measurable outcome]. Constraints: [budget, timeline, resources and risks].`,
+                'Career': `Career task: ${title}. Target role or situation: [specific role or context]. Relevant experience: [truthful skills and achievements]. Goal: [desired outcome]. Supporting details: [job description or criteria]. Keep all claims accurate.`
             };
-            const fallback = ['My goal is [specific goal]. My current situation is [brief context]. The audience or user is [audience]. Please give me a practical step-by-step result and state any assumptions.', 'A tailored response with clear steps, relevant examples and assumptions to review. Check the result against your real requirements before using it.', 'Give specific context, state your constraints and ask the AI to explain assumptions. Review the result and verify important details before acting.'];
-            const sample = examples[category] || fallback;
+            const tips = {
+                'Writing': 'Provide reliable source material and ask the AI to flag gaps instead of guessing. Edit for accuracy, originality, clarity and a natural voice before publishing.',
+                'Coding': 'Ask for assumptions and trade-offs, then test in a safe development environment. Validate edge cases, review dependencies and never share passwords, API keys or production credentials.',
+                'Marketing': 'Keep claims evidence-based, match the platform format and make the call to action clear. Test variations using real campaign data rather than assuming performance.',
+                'Image Generation': 'Change one visual variable at a time, such as lighting, lens, composition or palette. Inspect results for unwanted text, distortions and inconsistencies.',
+                'Business': 'Base recommendations on real figures and explicit assumptions. Compare alternatives, identify risks and validate important financial, legal or operational decisions with qualified sources.',
+                'Career': 'Use truthful, verifiable details and tailor the result to the actual role. Remove unnecessary personal information and review every claim before sharing.'
+            };
+            const expected = {
+                'Writing': 'a structured, audience-focused written draft',
+                'Coding': 'a practical code or technical solution',
+                'Marketing': 'a campaign-ready marketing deliverable',
+                'Image Generation': 'a detailed image-generation prompt',
+                'Business': 'a structured business recommendation or working document',
+                'Career': 'a role-specific career document or preparation plan'
+            };
+            const customize = {
+                'Writing': 'Add the topic, reader, purpose, source material, tone, format, length and facts that must be preserved.',
+                'Coding': 'Include the language, framework and versions, relevant code, errors, expected behaviour, security needs and edge cases.',
+                'Marketing': 'Define the offer, audience, channel, campaign objective, brand voice, proof points and call to action.',
+                'Image Generation': 'Specify the subject, setting, composition, lighting, visual style, aspect ratio and elements to avoid.',
+                'Business': 'Share the business context, customer segment, current figures, objective, budget, timeline, resources and risks.',
+                'Career': 'Provide the target role or situation, relevant experience, truthful achievements, requirements and desired outcome.'
+            };
             return {
-                when_to_use: `Use ${title} when you need help with ${desc.charAt(0).toLowerCase() + desc.slice(1)}. It works best when you provide real context instead of leaving instructions generic.`,
-                how_to_customize: `Replace the bracketed fields (${fields}) with specific details. Add your audience, goal, constraints, preferred tone and any source material the AI should rely on. Remove fields that do not apply.`,
-                example_input: sample[0], expected_output: sample[1], pro_tips: sample[2]
+                when_to_use: `Use ${title} when you want help with this task: ${desc} Provide relevant context, constraints and a clear definition of success.`,
+                how_to_customize: `Replace the bracketed fields (${fields}) with specific, accurate information. ${customize[category] || 'Add the relevant context, audience, constraints and desired outcome.'} Remove instructions that do not apply and never invent facts.`,
+                example_input: examples[category] || `Task: ${title}. Context: [describe your situation]. Audience: [who this is for]. Goal: [desired result]. Constraints: [important requirements]. Please give a practical response and state assumptions.`,
+                expected_output: `Expect ${expected[category] || 'a structured, practical response'} for ${title.toLowerCase()}, based on your details. Review it against the actual requirements, correct unsupported assumptions and refine it before use.`,
+                pro_tips: tips[category] || 'Give specific context, state constraints, ask the AI to explain assumptions and verify important details before acting.'
             };
         }
 
